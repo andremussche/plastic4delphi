@@ -1,0 +1,8 @@
+Plastic16_32b Bitmap "Images\\Plastic16_32b.bmp"
+plasticcheckin16 Bitmap "Images\\plastic-checkin_16.bmp"
+plasticcheckout16 Bitmap "Images\\plastic-checkout_16.bmp"
+plasticdiff16 Bitmap "Images\\plastic-dif2_16.bmp"
+plasticremove16 Bitmap "Images\\plastic-remove_16.bmp"
+plasticupdate16 Bitmap "Images\\plastic-update_16.bmp"
+undo16 Bitmap "Images\\undo16.bmp"
+plasticadd16 Bitmap "Images\\plastic_add_16.bmp"
