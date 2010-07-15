@@ -1,0 +1,6 @@
+Manual install PlasticPluginD2010.bpl via:
+Delphi -> Components -> Install Packages -> Add
+
+Tip: you can add for example the status menu item to a toolbar, by
+right click on a Delphi IDE toolbar, choose "Customize", select 
+"commands" tab, and drag-and-drop the status item to a toolbar.
