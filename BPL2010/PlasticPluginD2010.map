@@ -1,0 +1,2828 @@
+
+ Start         Length     Name                   Class
+ 0001:00401000 0001EA9CH .text                   CODE
+ 0002:00420000 0000036CH .itext                  ICODE
+ 0003:00421000 00000148H .data                   DATA
+ 0004:00422000 00000058H .bss                    BSS
+ 0005:00000000 00000000H .tls                    TLS
+
+
+Detailed map of segments
+
+ 0001:00000000 000002A6 C=CODE     S=.text    G=(none)   M=System   ACBP=A9
+ 0001:000002A8 00000203 C=CODE     S=.text    G=(none)   M=SysInit  ACBP=A9
+ 0001:000004AC 00000156 C=CODE     S=.text    G=(none)   M=Classes  ACBP=A9
+ 0001:00000604 00000411 C=CODE     S=.text    G=(none)   M=Windows  ACBP=A9
+ 0001:00000A18 00000006 C=CODE     S=.text    G=(none)   M=TypInfo  ACBP=A9
+ 0001:00000A20 000000FE C=CODE     S=.text    G=(none)   M=SysUtils ACBP=A9
+ 0001:00000B20 00000006 C=CODE     S=.text    G=(none)   M=Math     ACBP=A9
+ 0001:00000B28 00000006 C=CODE     S=.text    G=(none)   M=StrUtils ACBP=A9
+ 0001:00000B30 00000006 C=CODE     S=.text    G=(none)   M=Variants ACBP=A9
+ 0001:00000B38 00000006 C=CODE     S=.text    G=(none)   M=VarUtils ACBP=A9
+ 0001:00000B40 00000016 C=CODE     S=.text    G=(none)   M=Dialogs  ACBP=A9
+ 0001:00000B58 00000016 C=CODE     S=.text    G=(none)   M=ComCtrls ACBP=A9
+ 0001:00000B70 0000003E C=CODE     S=.text    G=(none)   M=ActnList ACBP=A9
+ 0001:00000BB0 00000016 C=CODE     S=.text    G=(none)   M=Graphics ACBP=A9
+ 0001:00000BC8 00000016 C=CODE     S=.text    G=(none)   M=Registry ACBP=A9
+ 0001:00000BE0 00000006 C=CODE     S=.text    G=(none)   M=IniFiles ACBP=A9
+ 0001:00000BE8 0000000E C=CODE     S=.text    G=(none)   M=IOUtils  ACBP=A9
+ 0001:00000BF8 00000006 C=CODE     S=.text    G=(none)   M=DateUtils ACBP=A9
+ 0001:00000C00 00000006 C=CODE     S=.text    G=(none)   M=Themes   ACBP=A9
+ 0001:00000C08 0000000E C=CODE     S=.text    G=(none)   M=Controls ACBP=A9
+ 0001:00000C18 00000026 C=CODE     S=.text    G=(none)   M=SyncObjs ACBP=A9
+ 0001:00000C40 00000006 C=CODE     S=.text    G=(none)   M=TimeSpan ACBP=A9
+ 0001:00000C48 0000005E C=CODE     S=.text    G=(none)   M=Menus    ACBP=A9
+ 0001:00000CA8 00000006 C=CODE     S=.text    G=(none)   M=UxTheme  ACBP=A9
+ 0001:00000CB0 00000006 C=CODE     S=.text    G=(none)   M=MultiMon ACBP=A9
+ 0001:00000CB8 00000016 C=CODE     S=.text    G=(none)   M=Forms    ACBP=A9
+ 0001:00000CD0 00000006 C=CODE     S=.text    G=(none)   M=HelpIntfs ACBP=A9
+ 0001:00000CD8 00000006 C=CODE     S=.text    G=(none)   M=GraphUtil ACBP=A9
+ 0001:00000CE0 0000000E C=CODE     S=.text    G=(none)   M=ShellAPI ACBP=A9
+ 0001:00000CF0 00000006 C=CODE     S=.text    G=(none)   M=ExtCtrls ACBP=A9
+ 0001:00000CF8 00000006 C=CODE     S=.text    G=(none)   M=Printers ACBP=A9
+ 0001:00000D00 00000006 C=CODE     S=.text    G=(none)   M=Clipbrd  ACBP=A9
+ 0001:00000D08 00000006 C=CODE     S=.text    G=(none)   M=FlatSB   ACBP=A9
+ 0001:00000D10 00001363 C=CODE     S=.text    G=(none)   M=DbugIntf ACBP=A9
+ 0001:00002074 00000006 C=CODE     S=.text    G=(none)   M=Generics.Collections ACBP=A9
+ 0001:0000207C 00000006 C=CODE     S=.text    G=(none)   M=Generics.Defaults ACBP=A9
+ 0001:00002084 00000006 C=CODE     S=.text    G=(none)   M=ToolsAPI ACBP=A9
+ 0001:0000208C 00000006 C=CODE     S=.text    G=(none)   M=XMLIntf  ACBP=A9
+ 0001:00002094 00000006 C=CODE     S=.text    G=(none)   M=xmldom   ACBP=A9
+ 0001:0000209C 00000006 C=CODE     S=.text    G=(none)   M=msxmldom ACBP=A9
+ 0001:000020A4 00000006 C=CODE     S=.text    G=(none)   M=ComObj   ACBP=A9
+ 0001:000020AC 00000006 C=CODE     S=.text    G=(none)   M=DockForm ACBP=A9
+ 0001:000020B4 00000006 C=CODE     S=.text    G=(none)   M=IDEMessages ACBP=A9
+ 0001:000020BC 00000006 C=CODE     S=.text    G=(none)   M=DeskForm ACBP=A9
+ 0001:000020C4 00000006 C=CODE     S=.text    G=(none)   M=BaseDock ACBP=A9
+ 0001:000020CC 00000006 C=CODE     S=.text    G=(none)   M=PercentageDockTree ACBP=A9
+ 0001:000020D4 00000006 C=CODE     S=.text    G=(none)   M=CaptionedDockTree ACBP=A9
+ 0001:000020DC 00000006 C=CODE     S=.text    G=(none)   M=DockTabSet ACBP=A9
+ 0001:000020E4 00000006 C=CODE     S=.text    G=(none)   M=Tabs     ACBP=A9
+ 0001:000020EC 00000006 C=CODE     S=.text    G=(none)   M=DeskUtil ACBP=A9
+ 0001:000020F4 00000006 C=CODE     S=.text    G=(none)   M=TabDock  ACBP=A9
+ 0001:000020FC 00000006 C=CODE     S=.text    G=(none)   M=PlatformDefaultStyleActnCtrls ACBP=A9
+ 0001:00002104 00000006 C=CODE     S=.text    G=(none)   M=Buttons  ACBP=A9
+ 0001:0000210C 00000006 C=CODE     S=.text    G=(none)   M=ActnMan  ACBP=A9
+ 0001:00002114 00000006 C=CODE     S=.text    G=(none)   M=ActnMenus ACBP=A9
+ 0001:0000211C 00000006 C=CODE     S=.text    G=(none)   M=ExtActns ACBP=A9
+ 0001:00002124 00000006 C=CODE     S=.text    G=(none)   M=ExtDlgs  ACBP=A9
+ 0001:0000212C 00000006 C=CODE     S=.text    G=(none)   M=Mapi     ACBP=A9
+ 0001:00002134 00000007 C=CODE     S=.text    G=(none)   M=JvConsts ACBP=A9
+ 0001:0000213C 00003BDB C=CODE     S=.text    G=(none)   M=JvCreateProcess ACBP=A9
+ 0001:00005D18 0000000E C=CODE     S=.text    G=(none)   M=JclRegistry ACBP=A9
+ 0001:00005D28 00000006 C=CODE     S=.text    G=(none)   M=JclStrings ACBP=A9
+ 0001:00005D30 00000006 C=CODE     S=.text    G=(none)   M=JclBase  ACBP=A9
+ 0001:00005D38 00000006 C=CODE     S=.text    G=(none)   M=JclResources ACBP=A9
+ 0001:00005D40 00000006 C=CODE     S=.text    G=(none)   M=JclUnicode ACBP=A9
+ 0001:00005D48 00000006 C=CODE     S=.text    G=(none)   M=JclSysInfo ACBP=A9
+ 0001:00005D50 00000006 C=CODE     S=.text    G=(none)   M=JclAnsiStrings ACBP=A9
+ 0001:00005D58 00000006 C=CODE     S=.text    G=(none)   M=AnsiStrings ACBP=A9
+ 0001:00005D60 00000006 C=CODE     S=.text    G=(none)   M=JclSysUtils ACBP=A9
+ 0001:00005D68 00000006 C=CODE     S=.text    G=(none)   M=JclFileUtils ACBP=A9
+ 0001:00005D70 00000006 C=CODE     S=.text    G=(none)   M=JclShell ACBP=A9
+ 0001:00005D78 00000006 C=CODE     S=.text    G=(none)   M=JclCharsets ACBP=A9
+ 0001:00005D80 00000026 C=CODE     S=.text    G=(none)   M=JclDebug ACBP=A9
+ 0001:00005DA8 00000006 C=CODE     S=.text    G=(none)   M=JclHookExcept ACBP=A9
+ 0001:00005DB0 00002E5F C=CODE     S=.text    G=(none)   M=PlasticAsync ACBP=A9
+ 0001:00008C10 00004DE9 C=CODE     S=.text    G=(none)   M=PlasticNotify ACBP=A9
+ 0001:0000D9FC 00006AB5 C=CODE     S=.text    G=(none)   M=PlasticExpert ACBP=A9
+ 0001:000144B4 00000F94 C=CODE     S=.text    G=(none)   M=PlasticUtils ACBP=A9
+ 0001:00015448 00008F05 C=CODE     S=.text    G=(none)   M=PlasticEngine ACBP=A9
+ 0001:0001E350 0000074B C=CODE     S=.text    G=(none)   M=.PlasticPluginD2010 ACBP=A9
+ 0002:00000000 00000006 C=ICODE    S=.itext   G=(none)   M=System   ACBP=A9
+ 0002:00000008 0000000E C=ICODE    S=.itext   G=(none)   M=Classes  ACBP=A9
+ 0002:00000018 00000016 C=ICODE    S=.itext   G=(none)   M=Windows  ACBP=A9
+ 0002:00000030 00000006 C=ICODE    S=.itext   G=(none)   M=TypInfo  ACBP=A9
+ 0002:00000038 0000001E C=ICODE    S=.itext   G=(none)   M=SysUtils ACBP=A9
+ 0002:00000058 00000006 C=ICODE    S=.itext   G=(none)   M=Variants ACBP=A9
+ 0002:00000060 00000006 C=ICODE    S=.itext   G=(none)   M=VarUtils ACBP=A9
+ 0002:00000068 00000006 C=ICODE    S=.itext   G=(none)   M=Dialogs  ACBP=A9
+ 0002:00000070 00000006 C=ICODE    S=.itext   G=(none)   M=ComCtrls ACBP=A9
+ 0002:00000078 00000006 C=ICODE    S=.itext   G=(none)   M=ActnList ACBP=A9
+ 0002:00000080 00000006 C=ICODE    S=.itext   G=(none)   M=Graphics ACBP=A9
+ 0002:00000088 00000006 C=ICODE    S=.itext   G=(none)   M=Registry ACBP=A9
+ 0002:00000090 00000006 C=ICODE    S=.itext   G=(none)   M=IniFiles ACBP=A9
+ 0002:00000098 0000000E C=ICODE    S=.itext   G=(none)   M=IOUtils  ACBP=A9
+ 0002:000000A8 00000006 C=ICODE    S=.itext   G=(none)   M=Themes   ACBP=A9
+ 0002:000000B0 00000006 C=ICODE    S=.itext   G=(none)   M=Controls ACBP=A9
+ 0002:000000B8 00000006 C=ICODE    S=.itext   G=(none)   M=SyncObjs ACBP=A9
+ 0002:000000C0 00000006 C=ICODE    S=.itext   G=(none)   M=TimeSpan ACBP=A9
+ 0002:000000C8 00000006 C=ICODE    S=.itext   G=(none)   M=Menus    ACBP=A9
+ 0002:000000D0 00000006 C=ICODE    S=.itext   G=(none)   M=UxTheme  ACBP=A9
+ 0002:000000D8 00000006 C=ICODE    S=.itext   G=(none)   M=MultiMon ACBP=A9
+ 0002:000000E0 00000006 C=ICODE    S=.itext   G=(none)   M=Forms    ACBP=A9
+ 0002:000000E8 00000006 C=ICODE    S=.itext   G=(none)   M=HelpIntfs ACBP=A9
+ 0002:000000F0 00000006 C=ICODE    S=.itext   G=(none)   M=GraphUtil ACBP=A9
+ 0002:000000F8 00000006 C=ICODE    S=.itext   G=(none)   M=ExtCtrls ACBP=A9
+ 0002:00000100 00000006 C=ICODE    S=.itext   G=(none)   M=Printers ACBP=A9
+ 0002:00000108 00000006 C=ICODE    S=.itext   G=(none)   M=Clipbrd  ACBP=A9
+ 0002:00000110 00000006 C=ICODE    S=.itext   G=(none)   M=FlatSB   ACBP=A9
+ 0002:00000118 0000000C C=ICODE    S=.itext   G=(none)   M=DbugIntf ACBP=A9
+ 0002:00000124 00000006 C=ICODE    S=.itext   G=(none)   M=ToolsAPI ACBP=A9
+ 0002:0000012C 00000006 C=ICODE    S=.itext   G=(none)   M=XMLIntf  ACBP=A9
+ 0002:00000134 00000006 C=ICODE    S=.itext   G=(none)   M=xmldom   ACBP=A9
+ 0002:0000013C 00000006 C=ICODE    S=.itext   G=(none)   M=msxmldom ACBP=A9
+ 0002:00000144 00000006 C=ICODE    S=.itext   G=(none)   M=ComObj   ACBP=A9
+ 0002:0000014C 00000006 C=ICODE    S=.itext   G=(none)   M=DockForm ACBP=A9
+ 0002:00000154 00000006 C=ICODE    S=.itext   G=(none)   M=IDEMessages ACBP=A9
+ 0002:0000015C 00000006 C=ICODE    S=.itext   G=(none)   M=DeskForm ACBP=A9
+ 0002:00000164 00000006 C=ICODE    S=.itext   G=(none)   M=BaseDock ACBP=A9
+ 0002:0000016C 00000006 C=ICODE    S=.itext   G=(none)   M=PercentageDockTree ACBP=A9
+ 0002:00000174 00000006 C=ICODE    S=.itext   G=(none)   M=CaptionedDockTree ACBP=A9
+ 0002:0000017C 00000006 C=ICODE    S=.itext   G=(none)   M=DockTabSet ACBP=A9
+ 0002:00000184 00000006 C=ICODE    S=.itext   G=(none)   M=Tabs     ACBP=A9
+ 0002:0000018C 00000006 C=ICODE    S=.itext   G=(none)   M=DeskUtil ACBP=A9
+ 0002:00000194 00000006 C=ICODE    S=.itext   G=(none)   M=TabDock  ACBP=A9
+ 0002:0000019C 00000006 C=ICODE    S=.itext   G=(none)   M=PlatformDefaultStyleActnCtrls ACBP=A9
+ 0002:000001A4 00000006 C=ICODE    S=.itext   G=(none)   M=Buttons  ACBP=A9
+ 0002:000001AC 00000006 C=ICODE    S=.itext   G=(none)   M=ActnMan  ACBP=A9
+ 0002:000001B4 00000006 C=ICODE    S=.itext   G=(none)   M=ActnMenus ACBP=A9
+ 0002:000001BC 00000006 C=ICODE    S=.itext   G=(none)   M=ExtActns ACBP=A9
+ 0002:000001C4 00000006 C=ICODE    S=.itext   G=(none)   M=ExtDlgs  ACBP=A9
+ 0002:000001CC 00000006 C=ICODE    S=.itext   G=(none)   M=Mapi     ACBP=A9
+ 0002:000001D4 00000008 C=ICODE    S=.itext   G=(none)   M=JvConsts ACBP=A9
+ 0002:000001DC 00000008 C=ICODE    S=.itext   G=(none)   M=JvCreateProcess ACBP=A9
+ 0002:000001E4 00000006 C=ICODE    S=.itext   G=(none)   M=JclRegistry ACBP=A9
+ 0002:000001EC 00000006 C=ICODE    S=.itext   G=(none)   M=JclStrings ACBP=A9
+ 0002:000001F4 00000006 C=ICODE    S=.itext   G=(none)   M=JclBase  ACBP=A9
+ 0002:000001FC 00000006 C=ICODE    S=.itext   G=(none)   M=JclResources ACBP=A9
+ 0002:00000204 00000006 C=ICODE    S=.itext   G=(none)   M=JclUnicode ACBP=A9
+ 0002:0000020C 00000006 C=ICODE    S=.itext   G=(none)   M=JclSysInfo ACBP=A9
+ 0002:00000214 00000006 C=ICODE    S=.itext   G=(none)   M=JclAnsiStrings ACBP=A9
+ 0002:0000021C 00000006 C=ICODE    S=.itext   G=(none)   M=AnsiStrings ACBP=A9
+ 0002:00000224 00000006 C=ICODE    S=.itext   G=(none)   M=JclSysUtils ACBP=A9
+ 0002:0000022C 00000006 C=ICODE    S=.itext   G=(none)   M=JclFileUtils ACBP=A9
+ 0002:00000234 00000006 C=ICODE    S=.itext   G=(none)   M=JclShell ACBP=A9
+ 0002:0000023C 00000006 C=ICODE    S=.itext   G=(none)   M=JclCharsets ACBP=A9
+ 0002:00000244 00000006 C=ICODE    S=.itext   G=(none)   M=JclDebug ACBP=A9
+ 0002:0000024C 00000006 C=ICODE    S=.itext   G=(none)   M=JclHookExcept ACBP=A9
+ 0002:00000254 00000064 C=ICODE    S=.itext   G=(none)   M=PlasticAsync ACBP=A9
+ 0002:000002B8 0000001F C=ICODE    S=.itext   G=(none)   M=PlasticNotify ACBP=A9
+ 0002:000002D8 00000062 C=ICODE    S=.itext   G=(none)   M=PlasticExpert ACBP=A9
+ 0002:0000033C 00000008 C=ICODE    S=.itext   G=(none)   M=PlasticUtils ACBP=A9
+ 0002:00000344 0000001F C=ICODE    S=.itext   G=(none)   M=PlasticEngine ACBP=A9
+ 0002:00000364 00000005 C=ICODE    S=.itext   G=(none)   M=.PlasticPluginD2010 ACBP=A9
+ 0003:00000000 00000034 C=DATA     S=.data    G=DGROUP   M=SysInit  ACBP=A9
+ 0003:00000034 0000000C C=DATA     S=.data    G=DGROUP   M=Windows  ACBP=A9
+ 0003:00000040 00000005 C=DATA     S=.data    G=DGROUP   M=DbugIntf ACBP=A9
+ 0003:00000048 00000044 C=DATA     S=.data    G=DGROUP   M=JvConsts ACBP=A9
+ 0003:0000008C 00000048 C=DATA     S=.data    G=DGROUP   M=JvCreateProcess ACBP=A9
+ 0003:000000D4 00000030 C=DATA     S=.data    G=DGROUP   M=PlasticUtils ACBP=A9
+ 0003:00000104 00000014 C=DATA     S=.data    G=DGROUP   M=PlasticEngine ACBP=A9
+ 0004:00000000 0000000C C=BSS      S=.bss     G=DGROUP   M=SysInit  ACBP=A9
+ 0004:0000000C 00000008 C=BSS      S=.bss     G=DGROUP   M=Windows  ACBP=A9
+ 0004:00000014 00000008 C=BSS      S=.bss     G=DGROUP   M=DbugIntf ACBP=A9
+ 0004:0000001C 00000004 C=BSS      S=.bss     G=DGROUP   M=JvConsts ACBP=A9
+ 0004:00000020 00000009 C=BSS      S=.bss     G=DGROUP   M=JvCreateProcess ACBP=A9
+ 0004:0000002C 0000000C C=BSS      S=.bss     G=DGROUP   M=PlasticAsync ACBP=A9
+ 0004:00000038 00000008 C=BSS      S=.bss     G=DGROUP   M=PlasticNotify ACBP=A9
+ 0004:00000040 0000000C C=BSS      S=.bss     G=DGROUP   M=PlasticExpert ACBP=A9
+ 0004:0000004C 00000004 C=BSS      S=.bss     G=DGROUP   M=PlasticUtils ACBP=A9
+ 0004:00000050 00000008 C=BSS      S=.bss     G=DGROUP   M=PlasticEngine ACBP=A9
+ 0005:00000000 00000008 C=TLS      S=.tls     G=(none)   M=DbugIntf ACBP=A9
+
+
+  Address             Publics by Name
+
+ 0002:00000364       .PlasticPluginD2010..PlasticPluginD2010
+ 0001:0001EA7C       .PlasticPluginD2010.@GetPackageInfoTable
+ 0001:0001EA84       .PlasticPluginD2010.@PackageLoad
+ 0001:0001EA90       .PlasticPluginD2010.@PackageUnload
+ 0002:00000078       ActnList.ActnList
+ 0001:00000BA8       ActnList.Finalization
+ 0001:00000BA0       ActnList.TAction.Create
+ 0001:00000B78       ActnList.TContainedAction.SetActionList
+ 0001:00000B70       ActnList.TContainedAction.SetCategory
+ 0001:00000B80       ActnList.TCustomAction.SetCaption
+ 0001:00000B88       ActnList.TCustomAction.SetEnabled
+ 0001:00000B90       ActnList.TCustomAction.SetHint
+ 0001:00000B98       ActnList.TCustomAction.SetImageIndex
+ 0002:000001AC       ActnMan.ActnMan
+ 0001:0000210C       ActnMan.Finalization
+ 0002:000001B4       ActnMenus.ActnMenus
+ 0001:00002114       ActnMenus.Finalization
+ 0002:0000021C       AnsiStrings.AnsiStrings
+ 0001:00005D58       AnsiStrings.Finalization
+ 0002:00000164       BaseDock.BaseDock
+ 0001:000020C4       BaseDock.Finalization
+ 0002:000001A4       Buttons.Buttons
+ 0001:00002104       Buttons.Finalization
+ 0002:00000174       CaptionedDockTree.CaptionedDockTree
+ 0001:000020D4       CaptionedDockTree.Finalization
+ 0001:000005EC       Classes.AllocateHWnd
+ 0002:00000010       Classes.Classes
+ 0001:000005F4       Classes.DeallocateHWnd
+ 0001:000005FC       Classes.Finalization
+ 0001:0000058C       Classes.TComponent.BeforeDestruction
+ 0001:0000057C       Classes.TComponent.Create
+ 0001:0000059C       Classes.TComponent.DefineProperties
+ 0001:00000584       Classes.TComponent.Destroy
+ 0001:000005A4       Classes.TComponent.Loaded
+ 0001:00000594       Classes.TComponent.Notification
+ 0001:000005E4       Classes.TComponent.QueryInterface
+ 0001:000005AC       Classes.TComponent.ReadState
+ 0001:000005D4       Classes.TComponent.SafeCallException
+ 0001:000005C4       Classes.TComponent.SetName
+ 0001:000005CC       Classes.TComponent.UpdateAction
+ 0001:000005DC       Classes.TComponent.UpdateRegistry
+ 0001:000005BC       Classes.TComponent.ValidateRename
+ 0001:000005B4       Classes.TComponent.WriteState
+ 0001:000004BC       Classes.TList.Assign
+ 0001:000004AC       Classes.TList.Delete
+ 0001:000004B4       Classes.TList.Get
+ 0001:000004EC       Classes.TPersistent.Assign
+ 0001:000004F4       Classes.TPersistent.AssignTo
+ 0001:000004FC       Classes.TPersistent.DefineProperties
+ 0001:000004E4       Classes.TPersistent.Destroy
+ 0001:0000051C       Classes.TStringList.Create
+ 0001:00000514       Classes.TStrings.GetEnumerator
+ 0001:00000504       Classes.TStringsEnumerator.GetCurrent
+ 0001:0000050C       Classes.TStringsEnumerator.MoveNext
+ 0001:0000053C       Classes.TThread.AfterConstruction
+ 0001:00000524       Classes.TThread.Create
+ 0002:00000008       Classes.TThread.Create@
+ 0001:0000052C       Classes.TThread.Destroy
+ 0001:00000534       Classes.TThread.Destroy@
+ 0001:00000544       Classes.TThread.DoTerminate
+ 0001:00000574       Classes.TThread.NameThreadForDebugging
+ 0001:00000554       Classes.TThread.Queue
+ 0001:0000054C       Classes.TThread.SetPriority
+ 0001:0000055C       Classes.TThread.Start
+ 0001:00000564       Classes.TThread.Terminate
+ 0001:0000056C       Classes.TThread.WaitFor
+ 0001:000004CC       Classes.TThreadList.Add
+ 0001:000004C4       Classes.TThreadList.Create
+ 0001:000004D4       Classes.TThreadList.LockList
+ 0001:000004DC       Classes.TThreadList.UnlockList
+ 0002:00000108       Clipbrd.Clipbrd
+ 0001:00000D00       Clipbrd.Finalization
+ 0002:00000070       ComCtrls.ComCtrls
+ 0001:00000B68       ComCtrls.Finalization
+ 0001:00000B58       ComCtrls.TToolBar.GetButton
+ 0001:00000B60       ComCtrls.TToolBar.GetButtonCount
+ 0002:00000144       ComObj.ComObj
+ 0001:000020A4       ComObj.Finalization
+ 0002:000000B0       Controls.Controls
+ 0001:00000C10       Controls.Finalization
+ 0001:00000C08       Controls.TControl.Perform
+ 0001:00000BF8       DateUtils.MilliSecondsBetween
+ 0004:00000014       DbugIntf..2
+ 0001:00000D44       DbugIntf..TGDebugSendThread
+ 0001:00000EDC       DbugIntf..TThreadListHelper
+ 0002:00000118       DbugIntf.DbugIntf
+ 0001:00002028       DbugIntf.Finalization
+ 0004:00000018       DbugIntf.GDebugSendThread
+ 0005:00000000       DbugIntf.MsgPrefix
+ 0003:00000040       DbugIntf.PastFailedAttemptToStartDebugWin
+ 0001:000019FC       DbugIntf.SendBoolean
+ 0001:00001B60       DbugIntf.SendDateTime
+ 0001:000014F0       DbugIntf.SendDebug
+ 0001:000012C8       DbugIntf.SendDebugEx
+ 0001:00001510       DbugIntf.SendDebugFmt
+ 0001:00001578       DbugIntf.SendDebugFmtEx
+ 0001:000016C4       DbugIntf.SendDebugFmtEx_End
+ 0001:000015E0       DbugIntf.SendDebugFmtEx_Start
+ 0001:00001C50       DbugIntf.SendDebugPause
+ 0001:00001C58       DbugIntf.SendDebugResume
+ 0001:00001AC8       DbugIntf.SendInteger
+ 0001:000018B8       DbugIntf.SendMethodEnter
+ 0001:00001964       DbugIntf.SendMethodExit
+ 0003:00000044       DbugIntf.SendPaused
+ 0001:00000FD0       DbugIntf.StartDebugWin
+ 0001:00001C60       DbugIntf.TGDebugSendThread.AfterConstruction
+ 0001:00001CA8       DbugIntf.TGDebugSendThread.Destroy
+ 0001:00001CF8       DbugIntf.TGDebugSendThread.Execute
+ 0001:00001E04       DbugIntf.TGDebugSendThread.SendAllData
+ 0001:00001F48       DbugIntf.TGDebugSendThread.SendData
+ 0001:00001FD8       DbugIntf.TThreadListHelper.Count
+ 0005:00000004       DbugIntf._IndentTime
+ 0002:0000015C       DeskForm.DeskForm
+ 0001:000020BC       DeskForm.Finalization
+ 0002:0000018C       DeskUtil.DeskUtil
+ 0001:000020EC       DeskUtil.Finalization
+ 0002:00000068       Dialogs.Dialogs
+ 0001:00000B50       Dialogs.Finalization
+ 0001:00000B48       Dialogs.InputQuery
+ 0001:00000B40       Dialogs.MessageDlg
+ 0002:0000014C       DockForm.DockForm
+ 0001:000020AC       DockForm.Finalization
+ 0002:0000017C       DockTabSet.DockTabSet
+ 0001:000020DC       DockTabSet.Finalization
+ 0002:000001BC       ExtActns.ExtActns
+ 0001:0000211C       ExtActns.Finalization
+ 0002:000000F8       ExtCtrls.ExtCtrls
+ 0001:00000CF0       ExtCtrls.Finalization
+ 0002:000001C4       ExtDlgs.ExtDlgs
+ 0001:00002124       ExtDlgs.Finalization
+ 0001:00000D08       FlatSB.Finalization
+ 0002:00000110       FlatSB.FlatSB
+ 0001:00000CC8       Forms.Finalization
+ 0002:000000E0       Forms.Forms
+ 0001:00000CC0       Forms.TApplication.GetExeName
+ 0001:00000CB8       Forms.TApplication.ProcessMessages
+ 0001:00002074       Generics.Collections.InCircularRange
+ 0001:0000207C       Generics.Defaults._LookupVtableInfo
+ 0001:00000BC0       Graphics.Finalization
+ 0002:00000080       Graphics.Graphics
+ 0001:00000BB0       Graphics.TBitmap.Create
+ 0001:00000BB8       Graphics.TBitmap.LoadFromResourceName
+ 0001:00000CD8       GraphUtil.Finalization
+ 0002:000000F0       GraphUtil.GraphUtil
+ 0001:00000CD0       HelpIntfs.Finalization
+ 0002:000000E8       HelpIntfs.HelpIntfs
+ 0001:000020B4       IDEMessages.Finalization
+ 0002:00000154       IDEMessages.IDEMessages
+ 0001:00000BE0       IniFiles.Finalization
+ 0002:00000090       IniFiles.IniFiles
+ 0001:00000BF0       IOUtils.Finalization
+ 0002:000000A0       IOUtils.IOUtils
+ 0002:00000098       IOUtils.TPath.Create@
+ 0001:00000BE8       IOUtils.TPath.Destroy@
+ 0001:00005D50       JclAnsiStrings.Finalization
+ 0002:00000214       JclAnsiStrings.JclAnsiStrings
+ 0001:00005D30       JclBase.Finalization
+ 0002:000001F4       JclBase.JclBase
+ 0001:00005D78       JclCharsets.Finalization
+ 0002:0000023C       JclCharsets.JclCharsets
+ 0001:00005DA0       JclDebug.Finalization
+ 0002:00000244       JclDebug.JclDebug
+ 0001:00005D80       JclDebug.JclLastExceptStackList
+ 0001:00005D98       JclDebug.TJclStackInfoList.AddToStrings
+ 0001:00005D88       JclDebug.TJclStackInfoList.Create
+ 0001:00005D90       JclDebug.TJclStackInfoList.GetCount
+ 0001:00005D68       JclFileUtils.Finalization
+ 0002:0000022C       JclFileUtils.JclFileUtils
+ 0001:00005DA8       JclHookExcept.Finalization
+ 0002:0000024C       JclHookExcept.JclHookExcept
+ 0001:00005D20       JclRegistry.Finalization
+ 0002:000001E4       JclRegistry.JclRegistry
+ 0001:00005D18       JclRegistry.RegReadStringDef
+ 0001:00005D38       JclResources.Finalization
+ 0002:000001FC       JclResources.JclResources
+ 0001:00005D70       JclShell.Finalization
+ 0002:00000234       JclShell.JclShell
+ 0001:00005D28       JclStrings.Finalization
+ 0002:000001EC       JclStrings.JclStrings
+ 0001:00005D48       JclSysInfo.Finalization
+ 0002:0000020C       JclSysInfo.JclSysInfo
+ 0001:00005D60       JclSysUtils.Finalization
+ 0002:00000224       JclSysUtils.JclSysUtils
+ 0001:00005D40       JclUnicode.Finalization
+ 0002:00000204       JclUnicode.JclUnicode
+ 0004:0000001C       JvConsts..1
+ 0003:00000070       JvConsts.crDragAlt
+ 0003:00000080       JvConsts.crDragHand
+ 0003:0000007C       JvConsts.crHand
+ 0003:00000068       JvConsts.crJVCLFirst
+ 0003:00000084       JvConsts.crJVCLLast
+ 0003:00000074       JvConsts.crMultiDragAlt
+ 0003:0000006C       JvConsts.crMultiDragLink
+ 0003:00000078       JvConsts.crMultiDragLinkAlt
+ 0001:00002134       JvConsts.Finalization
+ 0002:000001D4       JvConsts.JvConsts
+ 0003:00000048       JvConsts.Separators
+ 0003:00000088       JvConsts.tkStrings
+ 0004:00000020       JvCreateProcess..5
+ 0001:00002C90       JvCreateProcess..TJvBaseReader
+ 0001:0000384C       JvCreateProcess..TJvConsoleThread
+ 0001:00002844       JvCreateProcess..TJvCPSStartupInfo
+ 0001:00002E90       JvCreateProcess..TJvCreateProcess
+ 0001:00002380       JvCreateProcess..TJvProcessEntry
+ 0001:00003D30       JvCreateProcess..TJvReader
+ 0001:00003A70       JvCreateProcess..TJvReadThread
+ 0001:00004078       JvCreateProcess..TJvRWEHandles
+ 0001:00003694       JvCreateProcess..TJvWaitForProcessThread
+ 0003:0000009C       JvCreateProcess.cCloseAction
+ 0001:000042D8       JvCreateProcess.ConstructPipe
+ 0001:0000428C       JvCreateProcess.CreateDuplicate
+ 0003:000000B4       JvCreateProcess.CreationFlagsValues
+ 0001:00005A58       JvCreateProcess.DoOutput
+ 0001:00005AC0       JvCreateProcess.DoTab
+ 0001:00003F9C       JvCreateProcess.EnumWinProc
+ 0001:00005D10       JvCreateProcess.Finalization
+ 0004:00000028       JvCreateProcess.GTriedLoadWinSrvDll
+ 0004:00000024       JvCreateProcess.GWinSrvHandle
+ 0001:00003FFC       JvCreateProcess.InternalCloseApp
+ 0001:00004020       JvCreateProcess.InternalTerminateProcess
+ 0001:00003F80       JvCreateProcess.IsConsoleWindow
+ 0002:000001DC       JvCreateProcess.JvCreateProcess
+ 0001:00003F70       JvCreateProcess.OSCheck
+ 0003:0000008C       JvCreateProcess.ProcessPriorities
+ 0001:00004054       JvCreateProcess.SafeCloseHandle
+ 0003:000000A4       JvCreateProcess.ShowWindowValues
+ 0001:0000446C       JvCreateProcess.TJvBaseReader.Create
+ 0001:000044B8       JvCreateProcess.TJvBaseReader.Destroy
+ 0001:000044E8       JvCreateProcess.TJvBaseReader.GetConsoleOutput
+ 0001:00004D90       JvCreateProcess.TJvConsoleThread.CloseWrite
+ 0001:00004CF0       JvCreateProcess.TJvConsoleThread.Create
+ 0001:00004D50       JvCreateProcess.TJvConsoleThread.Destroy
+ 0001:00004DE0       JvCreateProcess.TJvConsoleThread.Execute
+ 0001:00004E5C       JvCreateProcess.TJvConsoleThread.TryWrite
+ 0001:00004FB4       JvCreateProcess.TJvConsoleThread.Write
+ 0001:00004764       JvCreateProcess.TJvCPSStartupInfo.AssignTo
+ 0001:0000471C       JvCreateProcess.TJvCPSStartupInfo.Create
+ 0001:000047E8       JvCreateProcess.TJvCPSStartupInfo.GetStartupInfo
+ 0001:000051A0       JvCreateProcess.TJvCreateProcess.CheckNotWaiting
+ 0001:000051C8       JvCreateProcess.TJvCreateProcess.CheckReady
+ 0001:000051E8       JvCreateProcess.TJvCreateProcess.CheckRunning
+ 0001:00005208       JvCreateProcess.TJvCreateProcess.CloseApplication
+ 0001:00005224       JvCreateProcess.TJvCreateProcess.CloseProcessHandles
+ 0001:00005244       JvCreateProcess.TJvCreateProcess.CloseRead
+ 0001:0000525C       JvCreateProcess.TJvCreateProcess.CloseWrite
+ 0001:000050A0       JvCreateProcess.TJvCreateProcess.Create
+ 0001:00005140       JvCreateProcess.TJvCreateProcess.Destroy
+ 0001:000052B8       JvCreateProcess.TJvCreateProcess.GetConsoleOutput
+ 0001:000052C4       JvCreateProcess.TJvCreateProcess.GetEnvironment
+ 0001:000052C8       JvCreateProcess.TJvCreateProcess.GetHandle
+ 0001:000052E4       JvCreateProcess.TJvCreateProcess.GetOnErrorRawRead
+ 0001:000052F4       JvCreateProcess.TJvCreateProcess.GetOnErrorRead
+ 0001:00005304       JvCreateProcess.TJvCreateProcess.GetOnRawRead
+ 0001:00005314       JvCreateProcess.TJvCreateProcess.GetOnRead
+ 0001:00005324       JvCreateProcess.TJvCreateProcess.GotoReadyState
+ 0001:00005344       JvCreateProcess.TJvCreateProcess.GotoRunningState
+ 0001:0000535C       JvCreateProcess.TJvCreateProcess.GotoWaitState
+ 0001:00005378       JvCreateProcess.TJvCreateProcess.HandleReadEvent
+ 0001:00005280       JvCreateProcess.TJvCreateProcess.HandleThreadTerminated
+ 0001:00005380       JvCreateProcess.TJvCreateProcess.Run
+ 0001:000055FC       JvCreateProcess.TJvCreateProcess.SetCommandLine
+ 0001:00005630       JvCreateProcess.TJvCreateProcess.SetEnvironment
+ 0001:00005640       JvCreateProcess.TJvCreateProcess.SetOnErrorRawRead
+ 0001:00005658       JvCreateProcess.TJvCreateProcess.SetOnErrorRead
+ 0001:00005670       JvCreateProcess.TJvCreateProcess.SetOnRawRead
+ 0001:00005688       JvCreateProcess.TJvCreateProcess.SetOnRead
+ 0001:000056A0       JvCreateProcess.TJvCreateProcess.SetStartupInfo
+ 0001:000056AC       JvCreateProcess.TJvCreateProcess.SetWaitForTerminate
+ 0001:000056C0       JvCreateProcess.TJvCreateProcess.StopWaiting
+ 0001:000056C8       JvCreateProcess.TJvCreateProcess.Terminate
+ 0001:000056DC       JvCreateProcess.TJvCreateProcess.TerminateWaitThread
+ 0001:00005720       JvCreateProcess.TJvCreateProcess.WaitThreadTerminated
+ 0001:0000574C       JvCreateProcess.TJvCreateProcess.WndProc
+ 0001:000057DC       JvCreateProcess.TJvCreateProcess.Write
+ 0001:00005810       JvCreateProcess.TJvCreateProcess.WriteLn
+ 0001:00004544       JvCreateProcess.TJvProcessEntry.Close
+ 0001:000044EC       JvCreateProcess.TJvProcessEntry.Create
+ 0001:00004550       JvCreateProcess.TJvProcessEntry.GetPriority
+ 0001:00004604       JvCreateProcess.TJvProcessEntry.GetSystemIconIndex
+ 0001:0000464C       JvCreateProcess.TJvProcessEntry.PriorityText
+ 0001:00004698       JvCreateProcess.TJvProcessEntry.SetPriority
+ 0001:00004710       JvCreateProcess.TJvProcessEntry.Terminate
+ 0001:00005878       JvCreateProcess.TJvReader.CloseRead
+ 0001:00005888       JvCreateProcess.TJvReader.CreateThread
+ 0001:000058D4       JvCreateProcess.TJvReader.DoRawReadEvent
+ 0001:00005940       JvCreateProcess.TJvReader.DoReadEvent
+ 0001:00005A28       JvCreateProcess.TJvReader.HandleReadEvent
+ 0001:00005B18       JvCreateProcess.TJvReader.ParseConsoleOutput
+ 0001:00005C24       JvCreateProcess.TJvReader.Terminate
+ 0001:00005C44       JvCreateProcess.TJvReader.ThreadTerminated
+ 0001:00004ACC       JvCreateProcess.TJvReadThread.CloseRead
+ 0001:00004B1C       JvCreateProcess.TJvReadThread.CopyToBuffer
+ 0001:000049EC       JvCreateProcess.TJvReadThread.Create
+ 0001:00004A84       JvCreateProcess.TJvReadThread.Destroy
+ 0001:00004BDC       JvCreateProcess.TJvReadThread.Execute
+ 0001:00004C24       JvCreateProcess.TJvReadThread.ReadBuffer
+ 0001:00004CDC       JvCreateProcess.TJvReadThread.TerminateThread
+ 0001:00005CA8       JvCreateProcess.TJvRWEHandles.Clear
+ 0001:00005C7C       JvCreateProcess.TJvRWEHandles.Destroy
+ 0001:00005CD4       JvCreateProcess.TJvRWEHandles.ExtractHandle
+ 0001:00005CE4       JvCreateProcess.TJvRWEHandles.GetHandle
+ 0001:00005CEC       JvCreateProcess.TJvRWEHandles.SetHandle
+ 0001:00004890       JvCreateProcess.TJvWaitForProcessThread.Create
+ 0001:000048EC       JvCreateProcess.TJvWaitForProcessThread.Destroy
+ 0001:0000491C       JvCreateProcess.TJvWaitForProcessThread.Execute
+ 0001:000049D4       JvCreateProcess.TJvWaitForProcessThread.TerminateThread
+ 0001:00003F0C       JvCreateProcess.WinSrvHandle
+ 0001:0000212C       Mapi.Finalization
+ 0002:000001CC       Mapi.Mapi
+ 0001:00000B20       Math.Min
+ 0001:00000CA0       Menus.Finalization
+ 0002:000000C8       Menus.Menus
+ 0001:00000C70       Menus.TMenuItem.Add
+ 0001:00000C48       Menus.TMenuItem.Create
+ 0001:00000C90       Menus.TMenuItem.Find
+ 0001:00000C58       Menus.TMenuItem.GetAction
+ 0001:00000C60       Menus.TMenuItem.GetMenuIndex
+ 0001:00000C68       Menus.TMenuItem.Insert
+ 0001:00000C98       Menus.TMenuItem.NewBottomLine
+ 0001:00000C78       Menus.TMenuItem.Remove
+ 0001:00000C80       Menus.TMenuItem.SetAction
+ 0001:00000C88       Menus.TMenuItem.SetAutoHotkeys
+ 0001:00000C50       Menus.TMenuItem.SetCaption
+ 0001:0000209C       msxmldom.Finalization
+ 0002:0000013C       msxmldom.msxmldom
+ 0001:00000CB0       MultiMon.Finalization
+ 0002:000000D8       MultiMon.MultiMon
+ 0001:000020CC       PercentageDockTree.Finalization
+ 0002:0000016C       PercentageDockTree.PercentageDockTree
+ 0004:00000030       PlasticAsync..3
+ 0001:00005DB0       PlasticAsync..TAsyncThread
+ 0001:000088A0       PlasticAsync..TComparer<Classes.TThreadProcedure>
+ 0001:00008A78       PlasticAsync..TDelegatedComparer<Classes.TThreadProcedure>
+ 0001:000060A8       PlasticAsync..TEnumerable<Classes.TThreadProcedure>
+ 0001:00005F78       PlasticAsync..TEnumerator<Classes.TThreadProcedure>
+ 0001:00006538       PlasticAsync..TList<Classes.TThreadProcedure>
+ 0001:00006398       PlasticAsync..TList<Classes.TThreadProcedure>.TEnumerator
+ 0004:00000034       PlasticAsync.E
+ 0001:00007208       PlasticAsync.Finalization
+ 0004:0000002C       PlasticAsync.GAsyncThread
+ 0002:00000254       PlasticAsync.PlasticAsync
+ 0001:00008534       PlasticAsync.TArray.BinarySearch<Classes.TThreadProcedure>
+ 0001:00008690       PlasticAsync.TArray.QuickSort<Classes.TThreadProcedure>
+ 0001:000084B0       PlasticAsync.TArray.Sort<Classes.TThreadProcedure>
+ 0001:00006E80       PlasticAsync.TAsyncThread.AfterConstruction
+ 0001:00006ECC       PlasticAsync.TAsyncThread.Destroy
+ 0001:00006F20       PlasticAsync.TAsyncThread.Execute
+ 0001:0000718C       PlasticAsync.TAsyncThread.ExecuteASync
+ 0001:000071E8       PlasticAsync.TAsyncThread.Terminate
+ 0001:000089FC       PlasticAsync.TComparer<Classes.TThreadProcedure>.Compare
+ 0001:0000847C       PlasticAsync.TComparer<Classes.TThreadProcedure>.Construct
+ 0001:00008450       PlasticAsync.TComparer<Classes.TThreadProcedure>.Default
+ 0001:00008664       PlasticAsync.TDelegatedComparer<Classes.TThreadProcedure>.Compare
+ 0001:0000861C       PlasticAsync.TDelegatedComparer<Classes.TThreadProcedure>.Create
+ 0001:0000727C       PlasticAsync.TEnumerable<Classes.TThreadProcedure>.GetEnumerator
+ 0001:00007298       PlasticAsync.TEnumerator<Classes.TThreadProcedure>.MoveNext
+ 0001:00007864       PlasticAsync.TList<Classes.TThreadProcedure>.Add
+ 0001:000078E4       PlasticAsync.TList<Classes.TThreadProcedure>.AddRange
+ 0001:00007908       PlasticAsync.TList<Classes.TThreadProcedure>.AddRange
+ 0001:000078BC       PlasticAsync.TList<Classes.TThreadProcedure>.AddRange
+ 0001:00008280       PlasticAsync.TList<Classes.TThreadProcedure>.BinarySearch
+ 0001:000082D0       PlasticAsync.TList<Classes.TThreadProcedure>.BinarySearch
+ 0001:00008060       PlasticAsync.TList<Classes.TThreadProcedure>.Clear
+ 0001:00008080       PlasticAsync.TList<Classes.TThreadProcedure>.Contains
+ 0001:0000765C       PlasticAsync.TList<Classes.TThreadProcedure>.Create
+ 0001:00007788       PlasticAsync.TList<Classes.TThreadProcedure>.Create
+ 0001:000076E0       PlasticAsync.TList<Classes.TThreadProcedure>.Create
+ 0001:00007C80       PlasticAsync.TList<Classes.TThreadProcedure>.Delete
+ 0001:00007CA0       PlasticAsync.TList<Classes.TThreadProcedure>.DeleteRange
+ 0001:00007828       PlasticAsync.TList<Classes.TThreadProcedure>.Destroy
+ 0001:00007514       PlasticAsync.TList<Classes.TThreadProcedure>.DoDelete
+ 0001:0000760C       PlasticAsync.TList<Classes.TThreadProcedure>.DoGetEnumerator
+ 0001:00007E6C       PlasticAsync.TList<Classes.TThreadProcedure>.Exchange
+ 0001:00007E18       PlasticAsync.TList<Classes.TThreadProcedure>.Extract
+ 0001:0000801C       PlasticAsync.TList<Classes.TThreadProcedure>.First
+ 0001:000072B4       PlasticAsync.TList<Classes.TThreadProcedure>.GetCapacity
+ 0001:00008338       PlasticAsync.TList<Classes.TThreadProcedure>.GetEnumerator
+ 0001:00007388       PlasticAsync.TList<Classes.TThreadProcedure>.GetItem
+ 0001:00007488       PlasticAsync.TList<Classes.TThreadProcedure>.Grow
+ 0001:000074DC       PlasticAsync.TList<Classes.TThreadProcedure>.GrowCheck
+ 0001:000080A4       PlasticAsync.TList<Classes.TThreadProcedure>.IndexOf
+ 0001:0000792C       PlasticAsync.TList<Classes.TThreadProcedure>.Insert
+ 0001:00007B08       PlasticAsync.TList<Classes.TThreadProcedure>.InsertRange
+ 0001:000079F0       PlasticAsync.TList<Classes.TThreadProcedure>.InsertRange
+ 0001:00007B98       PlasticAsync.TList<Classes.TThreadProcedure>.InsertRange
+ 0001:0000803C       PlasticAsync.TList<Classes.TThreadProcedure>.Last
+ 0001:00008104       PlasticAsync.TList<Classes.TThreadProcedure>.LastIndexOf
+ 0001:00007EF8       PlasticAsync.TList<Classes.TThreadProcedure>.Move
+ 0001:00007628       PlasticAsync.TList<Classes.TThreadProcedure>.Notify
+ 0001:00007C4C       PlasticAsync.TList<Classes.TThreadProcedure>.Remove
+ 0001:00008160       PlasticAsync.TList<Classes.TThreadProcedure>.Reverse
+ 0001:000072D4       PlasticAsync.TList<Classes.TThreadProcedure>.SetCapacity
+ 0001:00007318       PlasticAsync.TList<Classes.TThreadProcedure>.SetCount
+ 0001:000073D8       PlasticAsync.TList<Classes.TThreadProcedure>.SetItem
+ 0001:00008208       PlasticAsync.TList<Classes.TThreadProcedure>.Sort
+ 0001:00008244       PlasticAsync.TList<Classes.TThreadProcedure>.Sort
+ 0001:000083B8       PlasticAsync.TList<Classes.TThreadProcedure>.TEnumerator.Create
+ 0001:00008380       PlasticAsync.TList<Classes.TThreadProcedure>.TEnumerator.DoGetCurrent
+ 0001:0000839C       PlasticAsync.TList<Classes.TThreadProcedure>.TEnumerator.DoMoveNext
+ 0001:0000835C       PlasticAsync.TList<Classes.TThreadProcedure>.TEnumerator.GetCurrent
+ 0001:00008410       PlasticAsync.TList<Classes.TThreadProcedure>.TEnumerator.MoveNext
+ 0001:00008320       PlasticAsync.TList<Classes.TThreadProcedure>.TrimExcess
+ 0004:00000054       PlasticEngine..8
+ 0001:000154E4       PlasticEngine..EPerforceError
+ 0001:00015448       PlasticEngine..EPipeError
+ 0001:0001759C       PlasticEngine..TDictionary<System.string,PlasticEngine.TFileCacheItem>
+ 0001:00016BDC       PlasticEngine..TDictionary<System.string,PlasticEngine.TFileCacheItem>.TKeyCollection
+ 0001:000169F8       PlasticEngine..TDictionary<System.string,PlasticEngine.TFileCacheItem>.TKeyEnumerator
+ 0001:000173B8       PlasticEngine..TDictionary<System.string,PlasticEngine.TFileCacheItem>.TPairEnumerator
+ 0001:000171E4       PlasticEngine..TDictionary<System.string,PlasticEngine.TFileCacheItem>.TValueCollection
+ 0001:00016FF8       PlasticEngine..TDictionary<System.string,PlasticEngine.TFileCacheItem>.TValueEnumerator
+ 0001:00016EE8       PlasticEngine..TEnumerable<PlasticEngine.TFileCacheItem>
+ 0001:00016948       PlasticEngine..TEnumerable<System.string>
+ 0001:000165A0       PlasticEngine..TEnumerable<TPair<System.string,PlasticEngine.TFileCacheItem>>
+ 0001:00016DB0       PlasticEngine..TEnumerator<PlasticEngine.TFileCacheItem>
+ 0001:00016898       PlasticEngine..TEnumerator<System.string>
+ 0001:00016440       PlasticEngine..TEnumerator<TPair<System.string,PlasticEngine.TFileCacheItem>>
+ 0001:00015754       PlasticEngine..TFileCacheItem
+ 0001:00017C68       PlasticEngine..TObjectDictionary<System.string,PlasticEngine.TFileCacheItem>
+ 0001:00015848       PlasticEngine..TPlasticCommThread
+ 0001:00015AF4       PlasticEngine..TPlasticEngine
+ 0001:00015674       PlasticEngine..TPlasticFileInfo
+ 0003:00000104       PlasticEngine.C_PlasticStatus
+ 0001:0001CC78       PlasticEngine.Finalization
+ 0004:00000050       PlasticEngine.GPlasticEngine
+ 0002:00000344       PlasticEngine.PlasticEngine
+ 0001:0001D7AC       PlasticEngine.TDictionary<System.string,PlasticEngine.TFileCacheItem>.Add
+ 0001:0001DA18       PlasticEngine.TDictionary<System.string,PlasticEngine.TFileCacheItem>.AddOrSetValue
+ 0001:0001D8B0       PlasticEngine.TDictionary<System.string,PlasticEngine.TFileCacheItem>.Clear
+ 0001:0001DA90       PlasticEngine.TDictionary<System.string,PlasticEngine.TFileCacheItem>.ContainsKey
+ 0001:0001DAC4       PlasticEngine.TDictionary<System.string,PlasticEngine.TFileCacheItem>.ContainsValue
+ 0001:0001D578       PlasticEngine.TDictionary<System.string,PlasticEngine.TFileCacheItem>.Create
+ 0001:0001D668       PlasticEngine.TDictionary<System.string,PlasticEngine.TFileCacheItem>.Create
+ 0001:0001D410       PlasticEngine.TDictionary<System.string,PlasticEngine.TFileCacheItem>.Create
+ 0001:0001D4A8       PlasticEngine.TDictionary<System.string,PlasticEngine.TFileCacheItem>.Create
+ 0001:0001D45C       PlasticEngine.TDictionary<System.string,PlasticEngine.TFileCacheItem>.Create
+ 0001:0001D75C       PlasticEngine.TDictionary<System.string,PlasticEngine.TFileCacheItem>.Destroy
+ 0001:0001D16C       PlasticEngine.TDictionary<System.string,PlasticEngine.TFileCacheItem>.DoAdd
+ 0001:0001D38C       PlasticEngine.TDictionary<System.string,PlasticEngine.TFileCacheItem>.DoGetEnumerator
+ 0001:0001D238       PlasticEngine.TDictionary<System.string,PlasticEngine.TFileCacheItem>.DoRemove
+ 0001:0001D1E0       PlasticEngine.TDictionary<System.string,PlasticEngine.TFileCacheItem>.DoSetValue
+ 0001:0001D858       PlasticEngine.TDictionary<System.string,PlasticEngine.TFileCacheItem>.ExtractPair
+ 0001:0001CF30       PlasticEngine.TDictionary<System.string,PlasticEngine.TFileCacheItem>.GetBucketIndex
+ 0001:0001DBE0       PlasticEngine.TDictionary<System.string,PlasticEngine.TFileCacheItem>.GetEnumerator
+ 0001:0001D014       PlasticEngine.TDictionary<System.string,PlasticEngine.TFileCacheItem>.GetItem
+ 0001:0001DB70       PlasticEngine.TDictionary<System.string,PlasticEngine.TFileCacheItem>.GetKeys
+ 0001:0001DBA8       PlasticEngine.TDictionary<System.string,PlasticEngine.TFileCacheItem>.GetValues
+ 0001:0001CEF8       PlasticEngine.TDictionary<System.string,PlasticEngine.TFileCacheItem>.Grow
+ 0001:0001CFE4       PlasticEngine.TDictionary<System.string,PlasticEngine.TFileCacheItem>.Hash
+ 0001:0001D3A8       PlasticEngine.TDictionary<System.string,PlasticEngine.TFileCacheItem>.KeyNotify
+ 0001:0001CDD8       PlasticEngine.TDictionary<System.string,PlasticEngine.TFileCacheItem>.Rehash
+ 0001:0001D104       PlasticEngine.TDictionary<System.string,PlasticEngine.TFileCacheItem>.RehashAdd
+ 0001:0001D82C       PlasticEngine.TDictionary<System.string,PlasticEngine.TFileCacheItem>.Remove
+ 0001:0001CD6C       PlasticEngine.TDictionary<System.string,PlasticEngine.TFileCacheItem>.SetCapacity
+ 0001:0001D074       PlasticEngine.TDictionary<System.string,PlasticEngine.TFileCacheItem>.SetItem
+ 0001:0001DC74       PlasticEngine.TDictionary<System.string,PlasticEngine.TFileCacheItem>.TKeyCollection.Create
+ 0001:0001DC58       PlasticEngine.TDictionary<System.string,PlasticEngine.TFileCacheItem>.TKeyCollection.DoGetEnumerator
+ 0001:0001DC3C       PlasticEngine.TDictionary<System.string,PlasticEngine.TFileCacheItem>.TKeyCollection.GetCount
+ 0001:0001DCC4       PlasticEngine.TDictionary<System.string,PlasticEngine.TFileCacheItem>.TKeyCollection.GetEnumerator
+ 0001:0001DD54       PlasticEngine.TDictionary<System.string,PlasticEngine.TFileCacheItem>.TKeyEnumerator.Create
+ 0001:0001DD1C       PlasticEngine.TDictionary<System.string,PlasticEngine.TFileCacheItem>.TKeyEnumerator.DoGetCurrent
+ 0001:0001DD38       PlasticEngine.TDictionary<System.string,PlasticEngine.TFileCacheItem>.TKeyEnumerator.DoMoveNext
+ 0001:0001DCEC       PlasticEngine.TDictionary<System.string,PlasticEngine.TFileCacheItem>.TKeyEnumerator.GetCurrent
+ 0001:0001DDAC       PlasticEngine.TDictionary<System.string,PlasticEngine.TFileCacheItem>.TKeyEnumerator.MoveNext
+ 0001:0001E07C       PlasticEngine.TDictionary<System.string,PlasticEngine.TFileCacheItem>.TPairEnumerator.Create
+ 0001:0001E044       PlasticEngine.TDictionary<System.string,PlasticEngine.TFileCacheItem>.TPairEnumerator.DoGetCurrent
+ 0001:0001E060       PlasticEngine.TDictionary<System.string,PlasticEngine.TFileCacheItem>.TPairEnumerator.DoMoveNext
+ 0001:0001DFF8       PlasticEngine.TDictionary<System.string,PlasticEngine.TFileCacheItem>.TPairEnumerator.GetCurrent
+ 0001:0001E0D4       PlasticEngine.TDictionary<System.string,PlasticEngine.TFileCacheItem>.TPairEnumerator.MoveNext
+ 0001:0001D99C       PlasticEngine.TDictionary<System.string,PlasticEngine.TFileCacheItem>.TrimExcess
+ 0001:0001D9B8       PlasticEngine.TDictionary<System.string,PlasticEngine.TFileCacheItem>.TryGetValue
+ 0001:0001DE70       PlasticEngine.TDictionary<System.string,PlasticEngine.TFileCacheItem>.TValueCollection.Create
+ 0001:0001DE54       PlasticEngine.TDictionary<System.string,PlasticEngine.TFileCacheItem>.TValueCollection.DoGetEnumerator
+ 0001:0001DE38       PlasticEngine.TDictionary<System.string,PlasticEngine.TFileCacheItem>.TValueCollection.GetCount
+ 0001:0001DEC0       PlasticEngine.TDictionary<System.string,PlasticEngine.TFileCacheItem>.TValueCollection.GetEnumerator
+ 0001:0001DF4C       PlasticEngine.TDictionary<System.string,PlasticEngine.TFileCacheItem>.TValueEnumerator.Create
+ 0001:0001DF14       PlasticEngine.TDictionary<System.string,PlasticEngine.TFileCacheItem>.TValueEnumerator.DoGetCurrent
+ 0001:0001DF30       PlasticEngine.TDictionary<System.string,PlasticEngine.TFileCacheItem>.TValueEnumerator.DoMoveNext
+ 0001:0001DEE8       PlasticEngine.TDictionary<System.string,PlasticEngine.TFileCacheItem>.TValueEnumerator.GetCurrent
+ 0001:0001DFA4       PlasticEngine.TDictionary<System.string,PlasticEngine.TFileCacheItem>.TValueEnumerator.MoveNext
+ 0001:0001D3DC       PlasticEngine.TDictionary<System.string,PlasticEngine.TFileCacheItem>.ValueNotify
+ 0001:0001DE00       PlasticEngine.TEnumerable<PlasticEngine.TFileCacheItem>.GetEnumerator
+ 0001:0001DC04       PlasticEngine.TEnumerable<System.string>.GetEnumerator
+ 0001:0001CD34       PlasticEngine.TEnumerable<TPair<System.string,PlasticEngine.TFileCacheItem>>.GetEnumerator
+ 0001:0001DE1C       PlasticEngine.TEnumerator<PlasticEngine.TFileCacheItem>.MoveNext
+ 0001:0001DC20       PlasticEngine.TEnumerator<System.string>.MoveNext
+ 0001:0001CD50       PlasticEngine.TEnumerator<TPair<System.string,PlasticEngine.TFileCacheItem>>.MoveNext
+ 0001:0001E324       PlasticEngine.TEqualityComparer<PlasticEngine.TFileCacheItem>.Default
+ 0001:0001E2F8       PlasticEngine.TEqualityComparer<System.string>.Default
+ 0001:0001E1A0       PlasticEngine.TObjectDictionary<System.string,PlasticEngine.TFileCacheItem>.Create
+ 0001:0001E240       PlasticEngine.TObjectDictionary<System.string,PlasticEngine.TFileCacheItem>.Create
+ 0001:0001E1F0       PlasticEngine.TObjectDictionary<System.string,PlasticEngine.TFileCacheItem>.Create
+ 0001:0001E128       PlasticEngine.TObjectDictionary<System.string,PlasticEngine.TFileCacheItem>.KeyNotify
+ 0001:0001E164       PlasticEngine.TObjectDictionary<System.string,PlasticEngine.TFileCacheItem>.ValueNotify
+ 0001:0001CD08       PlasticEngine.TPair<System.string,PlasticEngine.TFileCacheItem>.Create
+ 0001:0001C0BC       PlasticEngine.TPlasticCommThread.Create
+ 0001:0001C394       PlasticEngine.TPlasticCommThread.Destroy
+ 0001:0001C434       PlasticEngine.TPlasticCommThread.ExcuteCommand
+ 0001:0001C618       PlasticEngine.TPlasticCommThread.Execute
+ 0001:0001C138       PlasticEngine.TPlasticCommThread.InternalExcuteCommand
+ 0001:0001C830       PlasticEngine.TPlasticCommThread.JvCPSReadEvent
+ 0001:0001CA2C       PlasticEngine.TPlasticCommThread.StartPlasticShell
+ 0001:0001CC04       PlasticEngine.TPlasticCommThread.Terminate
+ 0001:000198E4       PlasticEngine.TPlasticEngine.AddFile
+ 0001:0001A978       PlasticEngine.TPlasticEngine.AddFile
+ 0001:00019980       PlasticEngine.TPlasticEngine.AddFiles
+ 0001:0001ADD0       PlasticEngine.TPlasticEngine.CheckinFile
+ 0001:0001B1BC       PlasticEngine.TPlasticEngine.CheckinFiles
+ 0001:00019C40       PlasticEngine.TPlasticEngine.CheckoutFile
+ 0001:00018AB4       PlasticEngine.TPlasticEngine.CheckoutFile
+ 0001:00019CDC       PlasticEngine.TPlasticEngine.CheckoutFiles
+ 0001:00019EA4       PlasticEngine.TPlasticEngine.ClearStatusCache
+ 0001:00017F78       PlasticEngine.TPlasticEngine.Create
+ 0001:00017FFC       PlasticEngine.TPlasticEngine.DeleteFile
+ 0001:000183A4       PlasticEngine.TPlasticEngine.DeleteFiles
+ 0001:00018554       PlasticEngine.TPlasticEngine.Destroy
+ 0001:000185B4       PlasticEngine.TPlasticEngine.Diff
+ 0001:0001875C       PlasticEngine.TPlasticEngine.DiffFile
+ 0001:00018968       PlasticEngine.TPlasticEngine.ExcuteCommand
+ 0001:0001986C       PlasticEngine.TPlasticEngine.FileArchived
+ 0001:00018ED4       PlasticEngine.TPlasticEngine.GetFileInfo
+ 0001:0001B384       PlasticEngine.TPlasticEngine.GetIsServerUp
+ 0001:0001B3D0       PlasticEngine.TPlasticEngine.GetPlasticExePath
+ 0001:0001B500       PlasticEngine.TPlasticEngine.HandleException
+ 0001:0001B5F8       PlasticEngine.TPlasticEngine.InternalClearStatusCache
+ 0001:0001B648       PlasticEngine.TPlasticEngine.InternalExcuteCommand
+ 0001:0001B7DC       PlasticEngine.TPlasticEngine.InternalGetFileInfo
+ 0001:00018A90       PlasticEngine.TPlasticEngine.LogMessage
+ 0001:00019FB8       PlasticEngine.TPlasticEngine.RenameFile
+ 0001:0001BC14       PlasticEngine.TPlasticEngine.ShelveFile
+ 0001:0001B874       PlasticEngine.TPlasticEngine.ShelveFile
+ 0001:0001BCB0       PlasticEngine.TPlasticEngine.ShelveFiles
+ 0001:0001BE60       PlasticEngine.TPlasticEngine.ShowVisualClient
+ 0001:0001BF24       PlasticEngine.TPlasticEngine.StartPlasticShell
+ 0001:0001A380       PlasticEngine.TPlasticEngine.UndoCheckoutFile
+ 0001:0001A7B0       PlasticEngine.TPlasticEngine.UndoCheckoutFiles
+ 0001:0001950C       PlasticEngine.TPlasticEngine.UpdateFile
+ 0001:00019354       PlasticEngine.TPlasticEngine.UpdateFiles
+ 0004:00000044       PlasticExpert..2
+ 0001:0000EFDC       PlasticExpert..TDictionary<ActnList.TAction,System.Integer>
+ 0001:0000E6AC       PlasticExpert..TDictionary<ActnList.TAction,System.Integer>.TKeyCollection
+ 0001:0000E4E0       PlasticExpert..TDictionary<ActnList.TAction,System.Integer>.TKeyEnumerator
+ 0001:0000EE08       PlasticExpert..TDictionary<ActnList.TAction,System.Integer>.TPairEnumerator
+ 0001:0000EC48       PlasticExpert..TDictionary<ActnList.TAction,System.Integer>.TValueCollection
+ 0001:0000EA74       PlasticExpert..TDictionary<ActnList.TAction,System.Integer>.TValueEnumerator
+ 0001:0000E3E8       PlasticExpert..TEnumerable<ActnList.TAction>
+ 0001:0000E980       PlasticExpert..TEnumerable<System.Integer>
+ 0001:0000DF10       PlasticExpert..TEnumerable<TPair<ActnList.TAction,System.Integer>>
+ 0001:0000E2C8       PlasticExpert..TEnumerator<ActnList.TAction>
+ 0001:0000E868       PlasticExpert..TEnumerator<System.Integer>
+ 0001:0000DDC8       PlasticExpert..TEnumerator<TPair<ActnList.TAction,System.Integer>>
+ 0001:0000F694       PlasticExpert..TObjectDictionary<ActnList.TAction,System.Integer>
+ 0001:0000D9FC       PlasticExpert..TPlasticExpert
+ 0001:00011AB4       PlasticExpert..TPlasticExpert.GeneralUpdate$ActRec
+ 0001:00011C20       PlasticExpert..TPlasticExpert.GeneralUpdate$ActRec.$0$Body$ActRec
+ 0004:00000048       PlasticExpert.E
+ 0001:00012E9C       PlasticExpert.Finalization
+ 0004:00000040       PlasticExpert.GPlasticExpert
+ 0002:000002D8       PlasticExpert.PlasticExpert
+ 0001:00013918       PlasticExpert.TDictionary<ActnList.TAction,System.Integer>.Add
+ 0001:00013B84       PlasticExpert.TDictionary<ActnList.TAction,System.Integer>.AddOrSetValue
+ 0001:00013A1C       PlasticExpert.TDictionary<ActnList.TAction,System.Integer>.Clear
+ 0001:00013BFC       PlasticExpert.TDictionary<ActnList.TAction,System.Integer>.ContainsKey
+ 0001:00013C30       PlasticExpert.TDictionary<ActnList.TAction,System.Integer>.ContainsValue
+ 0001:00013640       PlasticExpert.TDictionary<ActnList.TAction,System.Integer>.Create
+ 0001:0001375C       PlasticExpert.TDictionary<ActnList.TAction,System.Integer>.Create
+ 0001:00013810       PlasticExpert.TDictionary<ActnList.TAction,System.Integer>.Create
+ 0001:000135F4       PlasticExpert.TDictionary<ActnList.TAction,System.Integer>.Create
+ 0001:0001368C       PlasticExpert.TDictionary<ActnList.TAction,System.Integer>.Create
+ 0001:000138C8       PlasticExpert.TDictionary<ActnList.TAction,System.Integer>.Destroy
+ 0001:00013354       PlasticExpert.TDictionary<ActnList.TAction,System.Integer>.DoAdd
+ 0001:00013570       PlasticExpert.TDictionary<ActnList.TAction,System.Integer>.DoGetEnumerator
+ 0001:0001341C       PlasticExpert.TDictionary<ActnList.TAction,System.Integer>.DoRemove
+ 0001:000133C4       PlasticExpert.TDictionary<ActnList.TAction,System.Integer>.DoSetValue
+ 0001:000139C4       PlasticExpert.TDictionary<ActnList.TAction,System.Integer>.ExtractPair
+ 0001:00013120       PlasticExpert.TDictionary<ActnList.TAction,System.Integer>.GetBucketIndex
+ 0001:00013D4C       PlasticExpert.TDictionary<ActnList.TAction,System.Integer>.GetEnumerator
+ 0001:00013204       PlasticExpert.TDictionary<ActnList.TAction,System.Integer>.GetItem
+ 0001:00013CDC       PlasticExpert.TDictionary<ActnList.TAction,System.Integer>.GetKeys
+ 0001:00013D14       PlasticExpert.TDictionary<ActnList.TAction,System.Integer>.GetValues
+ 0001:000130E8       PlasticExpert.TDictionary<ActnList.TAction,System.Integer>.Grow
+ 0001:000131D4       PlasticExpert.TDictionary<ActnList.TAction,System.Integer>.Hash
+ 0001:0001358C       PlasticExpert.TDictionary<ActnList.TAction,System.Integer>.KeyNotify
+ 0001:00012FC8       PlasticExpert.TDictionary<ActnList.TAction,System.Integer>.Rehash
+ 0001:000132F4       PlasticExpert.TDictionary<ActnList.TAction,System.Integer>.RehashAdd
+ 0001:00013998       PlasticExpert.TDictionary<ActnList.TAction,System.Integer>.Remove
+ 0001:00012F5C       PlasticExpert.TDictionary<ActnList.TAction,System.Integer>.SetCapacity
+ 0001:00013264       PlasticExpert.TDictionary<ActnList.TAction,System.Integer>.SetItem
+ 0001:00013DE0       PlasticExpert.TDictionary<ActnList.TAction,System.Integer>.TKeyCollection.Create
+ 0001:00013DC4       PlasticExpert.TDictionary<ActnList.TAction,System.Integer>.TKeyCollection.DoGetEnumerator
+ 0001:00013DA8       PlasticExpert.TDictionary<ActnList.TAction,System.Integer>.TKeyCollection.GetCount
+ 0001:00013E30       PlasticExpert.TDictionary<ActnList.TAction,System.Integer>.TKeyCollection.GetEnumerator
+ 0001:00013EBC       PlasticExpert.TDictionary<ActnList.TAction,System.Integer>.TKeyEnumerator.Create
+ 0001:00013E84       PlasticExpert.TDictionary<ActnList.TAction,System.Integer>.TKeyEnumerator.DoGetCurrent
+ 0001:00013EA0       PlasticExpert.TDictionary<ActnList.TAction,System.Integer>.TKeyEnumerator.DoMoveNext
+ 0001:00013E58       PlasticExpert.TDictionary<ActnList.TAction,System.Integer>.TKeyEnumerator.GetCurrent
+ 0001:00013F14       PlasticExpert.TDictionary<ActnList.TAction,System.Integer>.TKeyEnumerator.MoveNext
+ 0001:000141E0       PlasticExpert.TDictionary<ActnList.TAction,System.Integer>.TPairEnumerator.Create
+ 0001:000141A8       PlasticExpert.TDictionary<ActnList.TAction,System.Integer>.TPairEnumerator.DoGetCurrent
+ 0001:000141C4       PlasticExpert.TDictionary<ActnList.TAction,System.Integer>.TPairEnumerator.DoMoveNext
+ 0001:00014160       PlasticExpert.TDictionary<ActnList.TAction,System.Integer>.TPairEnumerator.GetCurrent
+ 0001:00014238       PlasticExpert.TDictionary<ActnList.TAction,System.Integer>.TPairEnumerator.MoveNext
+ 0001:00013B08       PlasticExpert.TDictionary<ActnList.TAction,System.Integer>.TrimExcess
+ 0001:00013B24       PlasticExpert.TDictionary<ActnList.TAction,System.Integer>.TryGetValue
+ 0001:00013FD8       PlasticExpert.TDictionary<ActnList.TAction,System.Integer>.TValueCollection.Create
+ 0001:00013FBC       PlasticExpert.TDictionary<ActnList.TAction,System.Integer>.TValueCollection.DoGetEnumerator
+ 0001:00013FA0       PlasticExpert.TDictionary<ActnList.TAction,System.Integer>.TValueCollection.GetCount
+ 0001:00014028       PlasticExpert.TDictionary<ActnList.TAction,System.Integer>.TValueCollection.GetEnumerator
+ 0001:000140B4       PlasticExpert.TDictionary<ActnList.TAction,System.Integer>.TValueEnumerator.Create
+ 0001:0001407C       PlasticExpert.TDictionary<ActnList.TAction,System.Integer>.TValueEnumerator.DoGetCurrent
+ 0001:00014098       PlasticExpert.TDictionary<ActnList.TAction,System.Integer>.TValueEnumerator.DoMoveNext
+ 0001:00014050       PlasticExpert.TDictionary<ActnList.TAction,System.Integer>.TValueEnumerator.GetCurrent
+ 0001:0001410C       PlasticExpert.TDictionary<ActnList.TAction,System.Integer>.TValueEnumerator.MoveNext
+ 0001:000135C0       PlasticExpert.TDictionary<ActnList.TAction,System.Integer>.ValueNotify
+ 0001:00013D70       PlasticExpert.TEnumerable<ActnList.TAction>.GetEnumerator
+ 0001:00013F68       PlasticExpert.TEnumerable<System.Integer>.GetEnumerator
+ 0001:00012F24       PlasticExpert.TEnumerable<TPair<ActnList.TAction,System.Integer>>.GetEnumerator
+ 0001:00013D8C       PlasticExpert.TEnumerator<ActnList.TAction>.MoveNext
+ 0001:00013F84       PlasticExpert.TEnumerator<System.Integer>.MoveNext
+ 0001:00012F40       PlasticExpert.TEnumerator<TPair<ActnList.TAction,System.Integer>>.MoveNext
+ 0001:0001445C       PlasticExpert.TEqualityComparer<ActnList.TAction>.Default
+ 0001:00014488       PlasticExpert.TEqualityComparer<System.Integer>.Default
+ 0001:00014354       PlasticExpert.TObjectDictionary<ActnList.TAction,System.Integer>.Create
+ 0001:000143A4       PlasticExpert.TObjectDictionary<ActnList.TAction,System.Integer>.Create
+ 0001:00014304       PlasticExpert.TObjectDictionary<ActnList.TAction,System.Integer>.Create
+ 0001:0001428C       PlasticExpert.TObjectDictionary<ActnList.TAction,System.Integer>.KeyNotify
+ 0001:000142C8       PlasticExpert.TObjectDictionary<ActnList.TAction,System.Integer>.ValueNotify
+ 0001:00012EFC       PlasticExpert.TPair<ActnList.TAction,System.Integer>.Create
+ 0001:0001295C       PlasticExpert.TPlasticExpert.AddAction
+ 0001:00012408       PlasticExpert.TPlasticExpert.AddAllExecute
+ 0001:00010C40       PlasticExpert.TPlasticExpert.AddExecute
+ 0001:00012B8C       PlasticExpert.TPlasticExpert.AddMenu
+ 0001:00010998       PlasticExpert.TPlasticExpert.CheckinExecute
+ 0001:00010888       PlasticExpert.TPlasticExpert.CheckoutExecute
+ 0001:00012E34       PlasticExpert.TPlasticExpert.ConsoleExecute
+ 0001:0000F8B8       PlasticExpert.TPlasticExpert.Create
+ 0001:0000F99C       PlasticExpert.TPlasticExpert.CreateMenu
+ 0001:00011874       PlasticExpert.TPlasticExpert.DeleteExecute
+ 0001:00010718       PlasticExpert.TPlasticExpert.Destroy
+ 0001:00010FE0       PlasticExpert.TPlasticExpert.DiffExecute
+ 0001:00012144       PlasticExpert.TPlasticExpert.GeneralUpdate
+ 0001:0001206C       PlasticExpert.TPlasticExpert.GeneralUpdate$ActRec.$0$Body
+ 0001:00011D4C       PlasticExpert.TPlasticExpert.GeneralUpdate$ActRec.$0$Body$ActRec.$0$0$Body
+ 0001:000112EC       PlasticExpert.TPlasticExpert.GetFileInfo
+ 0001:00011418       PlasticExpert.TPlasticExpert.GetModuleFile
+ 0001:000114D0       PlasticExpert.TPlasticExpert.GetModuleFileInfo
+ 0001:00012D2C       PlasticExpert.TPlasticExpert.GetSourceEditor
+ 0001:00011784       PlasticExpert.TPlasticExpert.HandleException
+ 0001:00011678       PlasticExpert.TPlasticExpert.HandleException
+ 0001:000110DC       PlasticExpert.TPlasticExpert.ListFiles
+ 0001:00011354       PlasticExpert.TPlasticExpert.MenuExecute
+ 0001:00011364       PlasticExpert.TPlasticExpert.Modified
+ 0001:00011A40       PlasticExpert.TPlasticExpert.PlasticClientExecute
+ 0001:000111E8       PlasticExpert.TPlasticExpert.ReloadFiles
+ 0001:00012468       PlasticExpert.TPlasticExpert.RemoveAction
+ 0001:000124CC       PlasticExpert.TPlasticExpert.RemoveActionFromToolbar
+ 0001:0001268C       PlasticExpert.TPlasticExpert.RenameExecute
+ 0001:00012BD0       PlasticExpert.TPlasticExpert.ShelveExecute
+ 0001:00012CCC       PlasticExpert.TPlasticExpert.StatusExecute
+ 0001:00010AA0       PlasticExpert.TPlasticExpert.UncheckoutExecute
+ 0001:00010E00       PlasticExpert.TPlasticExpert.UpdateActionImages
+ 0001:00010EA0       PlasticExpert.TPlasticExpert.UpdateExecute
+ 0001:00010FA8       PlasticExpert.TPlasticExpert.UpdateMenu
+ 0004:00000038       PlasticNotify..3
+ 0001:0000A3C4       PlasticNotify..TDictionary<System.string,PlasticNotify.TFileNotifier>
+ 0001:00009A14       PlasticNotify..TDictionary<System.string,PlasticNotify.TFileNotifier>.TKeyCollection
+ 0001:00009830       PlasticNotify..TDictionary<System.string,PlasticNotify.TFileNotifier>.TKeyEnumerator
+ 0001:0000A1E0       PlasticNotify..TDictionary<System.string,PlasticNotify.TFileNotifier>.TPairEnumerator
+ 0001:0000A00C       PlasticNotify..TDictionary<System.string,PlasticNotify.TFileNotifier>.TValueCollection
+ 0001:00009E28       PlasticNotify..TDictionary<System.string,PlasticNotify.TFileNotifier>.TValueEnumerator
+ 0001:00009D1C       PlasticNotify..TEnumerable<PlasticNotify.TFileNotifier>
+ 0001:00009740       PlasticNotify..TEnumerable<System.string>
+ 0001:00009234       PlasticNotify..TEnumerable<TPair<System.string,PlasticNotify.TFileNotifier>>
+ 0001:00009BE4       PlasticNotify..TEnumerator<PlasticNotify.TFileNotifier>
+ 0001:00009628       PlasticNotify..TEnumerator<System.string>
+ 0001:000090D4       PlasticNotify..TEnumerator<TPair<System.string,PlasticNotify.TFileNotifier>>
+ 0001:00008EB4       PlasticNotify..TFileNotifier
+ 0001:0000B61C       PlasticNotify..TFileNotifier.AfterSave$ActRec
+ 0001:0000B7AC       PlasticNotify..TFileNotifier.AfterSave$ActRec.$0$Body$ActRec
+ 0001:0000B928       PlasticNotify..TFileNotifier.AfterSave$ActRec.$0$Body$ActRec.$0$0$Body$ActRec
+ 0001:0000BAC4       PlasticNotify..TFileNotifier.AfterSave$ActRec.$0$Body$ActRec.$0$1$Body$ActRec
+ 0001:00008CB0       PlasticNotify..TIDENotifier
+ 0001:0000C564       PlasticNotify.Finalization
+ 0002:000002B8       PlasticNotify.PlasticNotify
+ 0001:0000D028       PlasticNotify.TDictionary<System.string,PlasticNotify.TFileNotifier>.Add
+ 0001:0000D294       PlasticNotify.TDictionary<System.string,PlasticNotify.TFileNotifier>.AddOrSetValue
+ 0001:0000D12C       PlasticNotify.TDictionary<System.string,PlasticNotify.TFileNotifier>.Clear
+ 0001:0000D30C       PlasticNotify.TDictionary<System.string,PlasticNotify.TFileNotifier>.ContainsKey
+ 0001:0000D340       PlasticNotify.TDictionary<System.string,PlasticNotify.TFileNotifier>.ContainsValue
+ 0001:0000CDF4       PlasticNotify.TDictionary<System.string,PlasticNotify.TFileNotifier>.Create
+ 0001:0000CD24       PlasticNotify.TDictionary<System.string,PlasticNotify.TFileNotifier>.Create
+ 0001:0000CEE4       PlasticNotify.TDictionary<System.string,PlasticNotify.TFileNotifier>.Create
+ 0001:0000CC8C       PlasticNotify.TDictionary<System.string,PlasticNotify.TFileNotifier>.Create
+ 0001:0000CCD8       PlasticNotify.TDictionary<System.string,PlasticNotify.TFileNotifier>.Create
+ 0001:0000CFD8       PlasticNotify.TDictionary<System.string,PlasticNotify.TFileNotifier>.Destroy
+ 0001:0000C9E8       PlasticNotify.TDictionary<System.string,PlasticNotify.TFileNotifier>.DoAdd
+ 0001:0000CC08       PlasticNotify.TDictionary<System.string,PlasticNotify.TFileNotifier>.DoGetEnumerator
+ 0001:0000CAB4       PlasticNotify.TDictionary<System.string,PlasticNotify.TFileNotifier>.DoRemove
+ 0001:0000CA5C       PlasticNotify.TDictionary<System.string,PlasticNotify.TFileNotifier>.DoSetValue
+ 0001:0000D0D4       PlasticNotify.TDictionary<System.string,PlasticNotify.TFileNotifier>.ExtractPair
+ 0001:0000C7AC       PlasticNotify.TDictionary<System.string,PlasticNotify.TFileNotifier>.GetBucketIndex
+ 0001:0000D45C       PlasticNotify.TDictionary<System.string,PlasticNotify.TFileNotifier>.GetEnumerator
+ 0001:0000C890       PlasticNotify.TDictionary<System.string,PlasticNotify.TFileNotifier>.GetItem
+ 0001:0000D3EC       PlasticNotify.TDictionary<System.string,PlasticNotify.TFileNotifier>.GetKeys
+ 0001:0000D424       PlasticNotify.TDictionary<System.string,PlasticNotify.TFileNotifier>.GetValues
+ 0001:0000C774       PlasticNotify.TDictionary<System.string,PlasticNotify.TFileNotifier>.Grow
+ 0001:0000C860       PlasticNotify.TDictionary<System.string,PlasticNotify.TFileNotifier>.Hash
+ 0001:0000CC24       PlasticNotify.TDictionary<System.string,PlasticNotify.TFileNotifier>.KeyNotify
+ 0001:0000C654       PlasticNotify.TDictionary<System.string,PlasticNotify.TFileNotifier>.Rehash
+ 0001:0000C980       PlasticNotify.TDictionary<System.string,PlasticNotify.TFileNotifier>.RehashAdd
+ 0001:0000D0A8       PlasticNotify.TDictionary<System.string,PlasticNotify.TFileNotifier>.Remove
+ 0001:0000C5E8       PlasticNotify.TDictionary<System.string,PlasticNotify.TFileNotifier>.SetCapacity
+ 0001:0000C8F0       PlasticNotify.TDictionary<System.string,PlasticNotify.TFileNotifier>.SetItem
+ 0001:0000D4F0       PlasticNotify.TDictionary<System.string,PlasticNotify.TFileNotifier>.TKeyCollection.Create
+ 0001:0000D4D4       PlasticNotify.TDictionary<System.string,PlasticNotify.TFileNotifier>.TKeyCollection.DoGetEnumerator
+ 0001:0000D4B8       PlasticNotify.TDictionary<System.string,PlasticNotify.TFileNotifier>.TKeyCollection.GetCount
+ 0001:0000D540       PlasticNotify.TDictionary<System.string,PlasticNotify.TFileNotifier>.TKeyCollection.GetEnumerator
+ 0001:0000D5D0       PlasticNotify.TDictionary<System.string,PlasticNotify.TFileNotifier>.TKeyEnumerator.Create
+ 0001:0000D598       PlasticNotify.TDictionary<System.string,PlasticNotify.TFileNotifier>.TKeyEnumerator.DoGetCurrent
+ 0001:0000D5B4       PlasticNotify.TDictionary<System.string,PlasticNotify.TFileNotifier>.TKeyEnumerator.DoMoveNext
+ 0001:0000D568       PlasticNotify.TDictionary<System.string,PlasticNotify.TFileNotifier>.TKeyEnumerator.GetCurrent
+ 0001:0000D628       PlasticNotify.TDictionary<System.string,PlasticNotify.TFileNotifier>.TKeyEnumerator.MoveNext
+ 0001:0000D8F8       PlasticNotify.TDictionary<System.string,PlasticNotify.TFileNotifier>.TPairEnumerator.Create
+ 0001:0000D8C0       PlasticNotify.TDictionary<System.string,PlasticNotify.TFileNotifier>.TPairEnumerator.DoGetCurrent
+ 0001:0000D8DC       PlasticNotify.TDictionary<System.string,PlasticNotify.TFileNotifier>.TPairEnumerator.DoMoveNext
+ 0001:0000D874       PlasticNotify.TDictionary<System.string,PlasticNotify.TFileNotifier>.TPairEnumerator.GetCurrent
+ 0001:0000D950       PlasticNotify.TDictionary<System.string,PlasticNotify.TFileNotifier>.TPairEnumerator.MoveNext
+ 0001:0000D218       PlasticNotify.TDictionary<System.string,PlasticNotify.TFileNotifier>.TrimExcess
+ 0001:0000D234       PlasticNotify.TDictionary<System.string,PlasticNotify.TFileNotifier>.TryGetValue
+ 0001:0000D6EC       PlasticNotify.TDictionary<System.string,PlasticNotify.TFileNotifier>.TValueCollection.Create
+ 0001:0000D6D0       PlasticNotify.TDictionary<System.string,PlasticNotify.TFileNotifier>.TValueCollection.DoGetEnumerator
+ 0001:0000D6B4       PlasticNotify.TDictionary<System.string,PlasticNotify.TFileNotifier>.TValueCollection.GetCount
+ 0001:0000D73C       PlasticNotify.TDictionary<System.string,PlasticNotify.TFileNotifier>.TValueCollection.GetEnumerator
+ 0001:0000D7C8       PlasticNotify.TDictionary<System.string,PlasticNotify.TFileNotifier>.TValueEnumerator.Create
+ 0001:0000D790       PlasticNotify.TDictionary<System.string,PlasticNotify.TFileNotifier>.TValueEnumerator.DoGetCurrent
+ 0001:0000D7AC       PlasticNotify.TDictionary<System.string,PlasticNotify.TFileNotifier>.TValueEnumerator.DoMoveNext
+ 0001:0000D764       PlasticNotify.TDictionary<System.string,PlasticNotify.TFileNotifier>.TValueEnumerator.GetCurrent
+ 0001:0000D820       PlasticNotify.TDictionary<System.string,PlasticNotify.TFileNotifier>.TValueEnumerator.MoveNext
+ 0001:0000CC58       PlasticNotify.TDictionary<System.string,PlasticNotify.TFileNotifier>.ValueNotify
+ 0001:0000D67C       PlasticNotify.TEnumerable<PlasticNotify.TFileNotifier>.GetEnumerator
+ 0001:0000D480       PlasticNotify.TEnumerable<System.string>.GetEnumerator
+ 0001:0000C5B0       PlasticNotify.TEnumerable<TPair<System.string,PlasticNotify.TFileNotifier>>.GetEnumerator
+ 0001:0000D698       PlasticNotify.TEnumerator<PlasticNotify.TFileNotifier>.MoveNext
+ 0001:0000D49C       PlasticNotify.TEnumerator<System.string>.MoveNext
+ 0001:0000C5CC       PlasticNotify.TEnumerator<TPair<System.string,PlasticNotify.TFileNotifier>>.MoveNext
+ 0001:0000D9D0       PlasticNotify.TEqualityComparer<PlasticNotify.TFileNotifier>.Default
+ 0001:0000D9A4       PlasticNotify.TEqualityComparer<System.string>.Default
+ 0001:0000C084       PlasticNotify.TFileNotifier.AfterSave
+ 0001:0000BF44       PlasticNotify.TFileNotifier.AfterSave$ActRec.$0$Body
+ 0001:0000BC30       PlasticNotify.TFileNotifier.AfterSave$ActRec.$0$Body$ActRec.$0$0$Body
+ 0001:0000BC08       PlasticNotify.TFileNotifier.AfterSave$ActRec.$0$Body$ActRec.$0$0$Body$ActRec.$0$0$0$Body
+ 0001:0000BDC0       PlasticNotify.TFileNotifier.AfterSave$ActRec.$0$Body$ActRec.$0$1$Body
+ 0001:0000BD98       PlasticNotify.TFileNotifier.AfterSave$ActRec.$0$Body$ActRec.$0$1$Body$ActRec.$0$1$0$Body
+ 0001:0000C16C       PlasticNotify.TFileNotifier.BeforeSave
+ 0001:0000C178       PlasticNotify.TFileNotifier.CheckOverwrite
+ 0001:0000C18C       PlasticNotify.TFileNotifier.Create
+ 0001:0000C23C       PlasticNotify.TFileNotifier.Destroyed
+ 0001:0000C250       PlasticNotify.TFileNotifier.Modified
+ 0001:0000C46C       PlasticNotify.TFileNotifier.ModuleRenamed
+ 0001:0000C47C       PlasticNotify.TFileNotifier.RemoveNotifier
+ 0001:0000AA90       PlasticNotify.TIDENotifier.AddFileWatch
+ 0001:0000B0FC       PlasticNotify.TIDENotifier.AfterCompile
+ 0001:0000B10C       PlasticNotify.TIDENotifier.AfterConstruction
+ 0001:0000B1A4       PlasticNotify.TIDENotifier.AfterSave
+ 0001:0000B1B0       PlasticNotify.TIDENotifier.BeforeCompile
+ 0001:0000B1C4       PlasticNotify.TIDENotifier.BeforeSave
+ 0001:0000B1D0       PlasticNotify.TIDENotifier.Destroy
+ 0001:0000B258       PlasticNotify.TIDENotifier.Destroyed
+ 0001:0000B2B4       PlasticNotify.TIDENotifier.FileNotification
+ 0001:0000B430       PlasticNotify.TIDENotifier.Modified
+ 0001:0000B43C       PlasticNotify.TIDENotifier.RemoveNotifier
+ 0001:0000C584       PlasticNotify.TPair<System.string,PlasticNotify.TFileNotifier>.Create
+ 0004:0000003C       PlasticNotify._IDENotifier
+ 0004:0000004C       PlasticUtils..3
+ 0001:0001466C       PlasticUtils..LogMessageToIDE$ActRec
+ 0001:00015134       PlasticUtils..TComparer<System.string>
+ 0001:000152C8       PlasticUtils..TDelegatedComparer<System.string>
+ 0003:000000F0       PlasticUtils.C_BlackListedExt
+ 0003:000000D4       PlasticUtils.C_WhiteListedExt
+ 0001:00014DB4       PlasticUtils.Finalization
+ 0001:000149C0       PlasticUtils.GetLastStackAsString
+ 0001:00014AB4       PlasticUtils.HandleException
+ 0001:00014C48       PlasticUtils.IsBlackListedFile
+ 0001:00014BC8       PlasticUtils.IsWhiteListedFile
+ 0001:0001491C       PlasticUtils.LogMessageToIDE
+ 0001:000147D4       PlasticUtils.LogMessageToIDE$ActRec.$0$Body
+ 0002:0000033C       PlasticUtils.PlasticUtils
+ 0001:00014CC8       PlasticUtils.SearchCorrespondingFiles
+ 0001:00014E58       PlasticUtils.TArray.BinarySearch<System.string>
+ 0001:00014ED4       PlasticUtils.TArray.BinarySearch<System.string>
+ 0001:00015284       PlasticUtils.TComparer<System.string>.Compare
+ 0001:00014FE8       PlasticUtils.TComparer<System.string>.Construct
+ 0001:00014FBC       PlasticUtils.TComparer<System.string>.Default
+ 0001:00015064       PlasticUtils.TDelegatedComparer<System.string>.Compare
+ 0001:0001501C       PlasticUtils.TDelegatedComparer<System.string>.Create
+ 0001:000020FC       PlatformDefaultStyleActnCtrls.Finalization
+ 0002:0000019C       PlatformDefaultStyleActnCtrls.PlatformDefaultStyleActnCtrls
+ 0001:00000CF8       Printers.Finalization
+ 0002:00000100       Printers.Printers
+ 0001:00000BD8       Registry.Finalization
+ 0002:00000088       Registry.Registry
+ 0001:00000BC8       Registry.TRegIniFile.Create
+ 0001:00000BD0       Registry.TRegIniFile.ReadString
+ 0001:00000CE0       ShellAPI.ShellExecute
+ 0001:00000CE8       ShellAPI.SHGetFileInfo
+ 0001:00000B28       StrUtils.IfThen
+ 0001:00000C38       SyncObjs.Finalization
+ 0002:000000B8       SyncObjs.SyncObjs
+ 0001:00000C30       SyncObjs.TCriticalSection.Create
+ 0001:00000C18       SyncObjs.TEvent.Create
+ 0001:00000C28       SyncObjs.TEvent.ResetEvent
+ 0001:00000C20       SyncObjs.TEvent.SetEvent
+ 0001:000003C0       SysInit.@GetTls
+ 0001:00000430       SysInit.@InitPkg
+ 0001:00000494       SysInit.@PackageLoad
+ 0001:000004A0       SysInit.@PackageUnload
+ 0001:000002E0       SysInit.AllocTlsBuffer
+ 0001:0000039C       SysInit.ExitProcessTLS
+ 0001:00000364       SysInit.ExitThreadTLS
+ 0001:000002A8       SysInit.FreeLibrary
+ 0001:000002EC       SysInit.GetTlsSize
+ 0004:00000004       SysInit.HInstance
+ 0001:00000400       SysInit.InitializeModule
+ 0001:00000338       SysInit.InitProcessTLS
+ 0001:000002F4       SysInit.InitThreadTLS
+ 0001:000002B0       SysInit.LocalAlloc
+ 0001:000002B8       SysInit.LocalFree
+ 0003:00000008       SysInit.Module
+ 0004:00000000       SysInit.ModuleIsLib
+ 0004:00000001       SysInit.ModuleIsPackage
+ 0003:00000004       SysInit.PtrToNil
+ 0001:000002C0       SysInit.TlsAlloc
+ 0004:00000008       SysInit.tlsBuffer
+ 0001:000002C8       SysInit.TlsFree
+ 0001:000002D0       SysInit.TlsGetValue
+ 0003:00000000       SysInit.TlsIndex
+ 0005:00000008       SysInit.TlsLast
+ 0003:00000024       SysInit.TlsProc
+ 0001:000002D8       SysInit.TlsSetValue
+ 0001:0000040C       SysInit.UninitializeModule
+ 0001:00000020       System.@AbstractError
+ 0001:000000C0       System.@AfterConstruction
+ 0001:00000078       System.@AsClass
+ 0001:00000128       System.@Assert
+ 0001:000000C8       System.@BeforeDestruction
+ 0001:000000B0       System.@ClassCreate
+ 0001:000000B8       System.@ClassDestroy
+ 0001:00000208       System.@CopyRecord
+ 0001:00000100       System.@DoneExcept
+ 0001:00000230       System.@DynArrayAsg
+ 0001:00000228       System.@DynArrayClear
+ 0001:00000218       System.@DynArrayHigh
+ 0001:00000210       System.@DynArrayLength
+ 0001:00000220       System.@DynArraySetLength
+ 0001:00000028       System.@FillChar
+ 0001:00000200       System.@FinalizeArray
+ 0001:000001F8       System.@FinalizeRecord
+ 0001:00000008       System.@FreeMem
+ 0001:00000000       System.@GetMem
+ 0001:000000E0       System.@HandleAnyException
+ 0001:000000F0       System.@HandleFinally
+ 0001:000000E8       System.@HandleOnException
+ 0001:000001F0       System.@InitializeRecord
+ 0001:00000260       System.@IntfAddRef
+ 0001:00000258       System.@IntfCast
+ 0001:00000248       System.@IntfClear
+ 0001:00000250       System.@IntfCopy
+ 0001:00000070       System.@IsClass
+ 0001:00000150       System.@LStrCat3
+ 0001:00000130       System.@LStrClr
+ 0001:00000138       System.@LStrFromPCharLen
+ 0001:000001A8       System.@LStrFromUStr
+ 0001:00000148       System.@LStrLen
+ 0001:00000160       System.@LStrSetLength
+ 0001:00000158       System.@LStrToPChar
+ 0001:00000110       System.@PackageLoad
+ 0001:00000118       System.@PackageUnload
+ 0001:000000F8       System.@RaiseExcept
+ 0001:00000010       System.@ReallocMem
+ 0001:00000120       System.@RunError
+ 0001:00000108       System.@TryFinallyExit
+ 0001:00000168       System.@UStrAddRef
+ 0001:00000178       System.@UStrArrayClr
+ 0001:00000180       System.@UStrAsg
+ 0001:000001B8       System.@UStrCat
+ 0001:000001C0       System.@UStrCat3
+ 0001:000001C8       System.@UStrCatN
+ 0001:00000170       System.@UStrClr
+ 0001:000001D8       System.@UStrCopy
+ 0001:000001E0       System.@UStrDelete
+ 0001:000001D0       System.@UStrEqual
+ 0001:000001A0       System.@UStrFromLStr
+ 0001:00000198       System.@UStrFromWChar
+ 0001:00000188       System.@UStrLAsg
+ 0001:000001B0       System.@UStrLen
+ 0001:00000190       System.@UStrToPWChar
+ 0001:000002A0       System.Finalization
+ 0001:00000298       System.LoadResString
+ 0001:00000018       System.Move
+ 0001:000001E8       System.Pos
+ 0001:00000238       System.RegisterModule
+ 0001:00000140       System.StringRefCount
+ 0002:00000000       System.System
+ 0001:00000268       System.TInterfacedObject.AfterConstruction
+ 0001:00000270       System.TInterfacedObject.BeforeDestruction
+ 0001:00000278       System.TInterfacedObject.NewInstance
+ 0001:00000280       System.TInterfacedObject.QueryInterface
+ 0001:00000288       System.TInterfacedObject._AddRef
+ 0001:00000290       System.TInterfacedObject._Release
+ 0001:000000D0       System.TMonitor.Enter
+ 0001:000000D8       System.TMonitor.Exit
+ 0001:00000098       System.TObject.AfterConstruction
+ 0001:000000A0       System.TObject.BeforeDestruction
+ 0001:00000030       System.TObject.ClassName
+ 0001:00000048       System.TObject.Create
+ 0001:00000090       System.TObject.DefaultHandler
+ 0001:00000050       System.TObject.Destroy
+ 0001:000000A8       System.TObject.Dispatch
+ 0001:00000060       System.TObject.Equals
+ 0001:00000058       System.TObject.Free
+ 0001:00000040       System.TObject.FreeInstance
+ 0001:00000068       System.TObject.GetHashCode
+ 0001:00000038       System.TObject.NewInstance
+ 0001:00000080       System.TObject.SafeCallException
+ 0001:00000088       System.TObject.ToString
+ 0001:00000240       System.UnregisterModule
+ 0001:00000A98       SysUtils.Abort
+ 0001:00000A38       SysUtils.BoolToStr
+ 0001:00000A50       SysUtils.ChangeFileExt
+ 0002:00000048       SysUtils.Exception.Create@
+ 0001:00000AA8       SysUtils.Exception.CreateRes
+ 0001:00000AB0       SysUtils.Exception.Destroy
+ 0001:00000AD0       SysUtils.Exception.Destroy@
+ 0001:00000AB8       SysUtils.Exception.GetBaseException
+ 0001:00000AC0       SysUtils.Exception.RaisingException
+ 0001:00000AC8       SysUtils.Exception.ToString
+ 0001:00000A60       SysUtils.ExtractFileDir
+ 0001:00000A70       SysUtils.ExtractFileExt
+ 0001:00000A68       SysUtils.ExtractFileName
+ 0001:00000A58       SysUtils.ExtractFilePath
+ 0001:00000A40       SysUtils.FileExists
+ 0001:00000A48       SysUtils.FileIsReadOnly
+ 0001:00000B18       SysUtils.Finalization
+ 0001:00000A80       SysUtils.Format
+ 0001:00000A90       SysUtils.FormatDateTime
+ 0001:00000AE8       SysUtils.FreeAndNil
+ 0001:00000A20       SysUtils.LowerCase
+ 0001:00000A88       SysUtils.Now
+ 0001:00000AA0       SysUtils.OutOfMemoryError
+ 0001:00000AE0       SysUtils.RaiseLastOSError
+ 0001:00000B08       SysUtils.SafeLoadLibrary
+ 0001:00000AD8       SysUtils.Sleep
+ 0001:00000A78       SysUtils.StrCopy
+ 0001:00000A30       SysUtils.StrToIntDef
+ 0001:00000AF0       SysUtils.Supports
+ 0001:00000AF8       SysUtils.Supports
+ 0002:00000050       SysUtils.SysUtils
+ 0002:00000040       SysUtils.TEncoding.Create@
+ 0001:00000B10       SysUtils.TEncoding.Destroy@
+ 0002:00000038       SysUtils.TLanguages.Create@
+ 0001:00000B00       SysUtils.TLanguages.Destroy@
+ 0001:00000A28       SysUtils.Trim
+ 0001:000020F4       TabDock.Finalization
+ 0002:00000194       TabDock.TabDock
+ 0001:000020E4       Tabs.Finalization
+ 0002:00000184       Tabs.Tabs
+ 0001:00000C00       Themes.Finalization
+ 0002:000000A8       Themes.Themes
+ 0002:000000C0       TimeSpan.TTimeSpan.Create@
+ 0001:00000C40       TimeSpan.TTimeSpan.Destroy@
+ 0001:00002084       ToolsAPI.Finalization
+ 0002:00000124       ToolsAPI.ToolsAPI
+ 0001:00000A18       TypInfo.Finalization
+ 0002:00000030       TypInfo.TypInfo
+ 0001:00000CA8       UxTheme.Finalization
+ 0002:000000D0       UxTheme.UxTheme
+ 0001:00000B30       Variants.Finalization
+ 0002:00000058       Variants.Variants
+ 0001:00000B38       VarUtils.Finalization
+ 0002:00000060       VarUtils.VarUtils
+ 0004:0000000C       Windows..2
+ 0001:000008A4       Windows.CloseHandle
+ 0001:000008AC       Windows.CreateEvent
+ 0001:000008B4       Windows.CreatePipe
+ 0001:000008BC       Windows.CreateProcess
+ 0001:0000094C       Windows.DefWindowProc
+ 0001:00000954       Windows.DispatchMessage
+ 0001:000008C4       Windows.DuplicateHandle
+ 0001:0000095C       Windows.EnumWindows
+ 0001:000009F8       Windows.Finalization
+ 0001:00000964       Windows.FindWindow
+ 0001:000008CC       Windows.FreeLibrary
+ 0001:000008D4       Windows.GetCurrentProcess
+ 0001:000008DC       Windows.GetCurrentProcessId
+ 0001:000008E4       Windows.GetCurrentThreadId
+ 0001:000008EC       Windows.GetExitCodeProcess
+ 0001:000008F4       Windows.GetLastError
+ 0001:000008FC       Windows.GetPriorityClass
+ 0001:00000904       Windows.GetVersionEx
+ 0001:0000096C       Windows.GetWindowLong
+ 0001:00000974       Windows.GetWindowThreadProcessId
+ 0004:00000010       Windows.HtmlHelpModule
+ 0001:00000894       Windows.InitializeSecurityDescriptor
+ 0001:000009BC       Windows.InitVersionInfo
+ 0001:0000097C       Windows.IsWindowVisible
+ 0001:0000090C       Windows.OpenProcess
+ 0001:00000984       Windows.PeekMessage
+ 0001:0000098C       Windows.PostMessage
+ 0001:00000994       Windows.PostThreadMessage
+ 0001:00000914       Windows.ReadFile
+ 0001:0000091C       Windows.ResetEvent
+ 0001:0000099C       Windows.SendMessage
+ 0001:00000924       Windows.SetEvent
+ 0001:0000092C       Windows.SetPriorityClass
+ 0001:0000089C       Windows.SetSecurityDescriptorDacl
+ 0001:00000934       Windows.TerminateProcess
+ 0001:000009A4       Windows.TranslateMessage
+ 0001:000009AC       Windows.WaitForInputIdle
+ 0001:0000093C       Windows.WaitForMultipleObjects
+ 0001:000009B4       Windows.WaitMessage
+ 0003:00000034       Windows.Win32MajorVersion
+ 0003:00000038       Windows.Win32MinorVersion
+ 0003:0000003C       Windows.Win32Platform
+ 0002:00000018       Windows.Windows
+ 0001:00000944       Windows.WriteFile
+ 0001:00002094       xmldom.Finalization
+ 0002:00000134       xmldom.xmldom
+ 0001:0000208C       XMLIntf.Finalization
+ 0002:0000012C       XMLIntf.XMLIntf
+
+
+  Address             Publics by Value
+
+ 0001:00000000       System.@GetMem
+ 0001:00000008       System.@FreeMem
+ 0001:00000010       System.@ReallocMem
+ 0001:00000018       System.Move
+ 0001:00000020       System.@AbstractError
+ 0001:00000028       System.@FillChar
+ 0001:00000030       System.TObject.ClassName
+ 0001:00000038       System.TObject.NewInstance
+ 0001:00000040       System.TObject.FreeInstance
+ 0001:00000048       System.TObject.Create
+ 0001:00000050       System.TObject.Destroy
+ 0001:00000058       System.TObject.Free
+ 0001:00000060       System.TObject.Equals
+ 0001:00000068       System.TObject.GetHashCode
+ 0001:00000070       System.@IsClass
+ 0001:00000078       System.@AsClass
+ 0001:00000080       System.TObject.SafeCallException
+ 0001:00000088       System.TObject.ToString
+ 0001:00000090       System.TObject.DefaultHandler
+ 0001:00000098       System.TObject.AfterConstruction
+ 0001:000000A0       System.TObject.BeforeDestruction
+ 0001:000000A8       System.TObject.Dispatch
+ 0001:000000B0       System.@ClassCreate
+ 0001:000000B8       System.@ClassDestroy
+ 0001:000000C0       System.@AfterConstruction
+ 0001:000000C8       System.@BeforeDestruction
+ 0001:000000D0       System.TMonitor.Enter
+ 0001:000000D8       System.TMonitor.Exit
+ 0001:000000E0       System.@HandleAnyException
+ 0001:000000E8       System.@HandleOnException
+ 0001:000000F0       System.@HandleFinally
+ 0001:000000F8       System.@RaiseExcept
+ 0001:00000100       System.@DoneExcept
+ 0001:00000108       System.@TryFinallyExit
+ 0001:00000110       System.@PackageLoad
+ 0001:00000118       System.@PackageUnload
+ 0001:00000120       System.@RunError
+ 0001:00000128       System.@Assert
+ 0001:00000130       System.@LStrClr
+ 0001:00000138       System.@LStrFromPCharLen
+ 0001:00000140       System.StringRefCount
+ 0001:00000148       System.@LStrLen
+ 0001:00000150       System.@LStrCat3
+ 0001:00000158       System.@LStrToPChar
+ 0001:00000160       System.@LStrSetLength
+ 0001:00000168       System.@UStrAddRef
+ 0001:00000170       System.@UStrClr
+ 0001:00000178       System.@UStrArrayClr
+ 0001:00000180       System.@UStrAsg
+ 0001:00000188       System.@UStrLAsg
+ 0001:00000190       System.@UStrToPWChar
+ 0001:00000198       System.@UStrFromWChar
+ 0001:000001A0       System.@UStrFromLStr
+ 0001:000001A8       System.@LStrFromUStr
+ 0001:000001B0       System.@UStrLen
+ 0001:000001B8       System.@UStrCat
+ 0001:000001C0       System.@UStrCat3
+ 0001:000001C8       System.@UStrCatN
+ 0001:000001D0       System.@UStrEqual
+ 0001:000001D8       System.@UStrCopy
+ 0001:000001E0       System.@UStrDelete
+ 0001:000001E8       System.Pos
+ 0001:000001F0       System.@InitializeRecord
+ 0001:000001F8       System.@FinalizeRecord
+ 0001:00000200       System.@FinalizeArray
+ 0001:00000208       System.@CopyRecord
+ 0001:00000210       System.@DynArrayLength
+ 0001:00000218       System.@DynArrayHigh
+ 0001:00000220       System.@DynArraySetLength
+ 0001:00000228       System.@DynArrayClear
+ 0001:00000230       System.@DynArrayAsg
+ 0001:00000238       System.RegisterModule
+ 0001:00000240       System.UnregisterModule
+ 0001:00000248       System.@IntfClear
+ 0001:00000250       System.@IntfCopy
+ 0001:00000258       System.@IntfCast
+ 0001:00000260       System.@IntfAddRef
+ 0001:00000268       System.TInterfacedObject.AfterConstruction
+ 0001:00000270       System.TInterfacedObject.BeforeDestruction
+ 0001:00000278       System.TInterfacedObject.NewInstance
+ 0001:00000280       System.TInterfacedObject.QueryInterface
+ 0001:00000288       System.TInterfacedObject._AddRef
+ 0001:00000290       System.TInterfacedObject._Release
+ 0001:00000298       System.LoadResString
+ 0001:000002A0       System.Finalization
+ 0001:000002A8       SysInit.FreeLibrary
+ 0001:000002B0       SysInit.LocalAlloc
+ 0001:000002B8       SysInit.LocalFree
+ 0001:000002C0       SysInit.TlsAlloc
+ 0001:000002C8       SysInit.TlsFree
+ 0001:000002D0       SysInit.TlsGetValue
+ 0001:000002D8       SysInit.TlsSetValue
+ 0001:000002E0       SysInit.AllocTlsBuffer
+ 0001:000002EC       SysInit.GetTlsSize
+ 0001:000002F4       SysInit.InitThreadTLS
+ 0001:00000338       SysInit.InitProcessTLS
+ 0001:00000364       SysInit.ExitThreadTLS
+ 0001:0000039C       SysInit.ExitProcessTLS
+ 0001:000003C0       SysInit.@GetTls
+ 0001:00000400       SysInit.InitializeModule
+ 0001:0000040C       SysInit.UninitializeModule
+ 0001:00000430       SysInit.@InitPkg
+ 0001:00000494       SysInit.@PackageLoad
+ 0001:000004A0       SysInit.@PackageUnload
+ 0001:000004AC       Classes.TList.Delete
+ 0001:000004B4       Classes.TList.Get
+ 0001:000004BC       Classes.TList.Assign
+ 0001:000004C4       Classes.TThreadList.Create
+ 0001:000004CC       Classes.TThreadList.Add
+ 0001:000004D4       Classes.TThreadList.LockList
+ 0001:000004DC       Classes.TThreadList.UnlockList
+ 0001:000004E4       Classes.TPersistent.Destroy
+ 0001:000004EC       Classes.TPersistent.Assign
+ 0001:000004F4       Classes.TPersistent.AssignTo
+ 0001:000004FC       Classes.TPersistent.DefineProperties
+ 0001:00000504       Classes.TStringsEnumerator.GetCurrent
+ 0001:0000050C       Classes.TStringsEnumerator.MoveNext
+ 0001:00000514       Classes.TStrings.GetEnumerator
+ 0001:0000051C       Classes.TStringList.Create
+ 0001:00000524       Classes.TThread.Create
+ 0001:0000052C       Classes.TThread.Destroy
+ 0001:00000534       Classes.TThread.Destroy@
+ 0001:0000053C       Classes.TThread.AfterConstruction
+ 0001:00000544       Classes.TThread.DoTerminate
+ 0001:0000054C       Classes.TThread.SetPriority
+ 0001:00000554       Classes.TThread.Queue
+ 0001:0000055C       Classes.TThread.Start
+ 0001:00000564       Classes.TThread.Terminate
+ 0001:0000056C       Classes.TThread.WaitFor
+ 0001:00000574       Classes.TThread.NameThreadForDebugging
+ 0001:0000057C       Classes.TComponent.Create
+ 0001:00000584       Classes.TComponent.Destroy
+ 0001:0000058C       Classes.TComponent.BeforeDestruction
+ 0001:00000594       Classes.TComponent.Notification
+ 0001:0000059C       Classes.TComponent.DefineProperties
+ 0001:000005A4       Classes.TComponent.Loaded
+ 0001:000005AC       Classes.TComponent.ReadState
+ 0001:000005B4       Classes.TComponent.WriteState
+ 0001:000005BC       Classes.TComponent.ValidateRename
+ 0001:000005C4       Classes.TComponent.SetName
+ 0001:000005CC       Classes.TComponent.UpdateAction
+ 0001:000005D4       Classes.TComponent.SafeCallException
+ 0001:000005DC       Classes.TComponent.UpdateRegistry
+ 0001:000005E4       Classes.TComponent.QueryInterface
+ 0001:000005EC       Classes.AllocateHWnd
+ 0001:000005F4       Classes.DeallocateHWnd
+ 0001:000005FC       Classes.Finalization
+ 0001:00000894       Windows.InitializeSecurityDescriptor
+ 0001:0000089C       Windows.SetSecurityDescriptorDacl
+ 0001:000008A4       Windows.CloseHandle
+ 0001:000008AC       Windows.CreateEvent
+ 0001:000008B4       Windows.CreatePipe
+ 0001:000008BC       Windows.CreateProcess
+ 0001:000008C4       Windows.DuplicateHandle
+ 0001:000008CC       Windows.FreeLibrary
+ 0001:000008D4       Windows.GetCurrentProcess
+ 0001:000008DC       Windows.GetCurrentProcessId
+ 0001:000008E4       Windows.GetCurrentThreadId
+ 0001:000008EC       Windows.GetExitCodeProcess
+ 0001:000008F4       Windows.GetLastError
+ 0001:000008FC       Windows.GetPriorityClass
+ 0001:00000904       Windows.GetVersionEx
+ 0001:0000090C       Windows.OpenProcess
+ 0001:00000914       Windows.ReadFile
+ 0001:0000091C       Windows.ResetEvent
+ 0001:00000924       Windows.SetEvent
+ 0001:0000092C       Windows.SetPriorityClass
+ 0001:00000934       Windows.TerminateProcess
+ 0001:0000093C       Windows.WaitForMultipleObjects
+ 0001:00000944       Windows.WriteFile
+ 0001:0000094C       Windows.DefWindowProc
+ 0001:00000954       Windows.DispatchMessage
+ 0001:0000095C       Windows.EnumWindows
+ 0001:00000964       Windows.FindWindow
+ 0001:0000096C       Windows.GetWindowLong
+ 0001:00000974       Windows.GetWindowThreadProcessId
+ 0001:0000097C       Windows.IsWindowVisible
+ 0001:00000984       Windows.PeekMessage
+ 0001:0000098C       Windows.PostMessage
+ 0001:00000994       Windows.PostThreadMessage
+ 0001:0000099C       Windows.SendMessage
+ 0001:000009A4       Windows.TranslateMessage
+ 0001:000009AC       Windows.WaitForInputIdle
+ 0001:000009B4       Windows.WaitMessage
+ 0001:000009BC       Windows.InitVersionInfo
+ 0001:000009F8       Windows.Finalization
+ 0001:00000A18       TypInfo.Finalization
+ 0001:00000A20       SysUtils.LowerCase
+ 0001:00000A28       SysUtils.Trim
+ 0001:00000A30       SysUtils.StrToIntDef
+ 0001:00000A38       SysUtils.BoolToStr
+ 0001:00000A40       SysUtils.FileExists
+ 0001:00000A48       SysUtils.FileIsReadOnly
+ 0001:00000A50       SysUtils.ChangeFileExt
+ 0001:00000A58       SysUtils.ExtractFilePath
+ 0001:00000A60       SysUtils.ExtractFileDir
+ 0001:00000A68       SysUtils.ExtractFileName
+ 0001:00000A70       SysUtils.ExtractFileExt
+ 0001:00000A78       SysUtils.StrCopy
+ 0001:00000A80       SysUtils.Format
+ 0001:00000A88       SysUtils.Now
+ 0001:00000A90       SysUtils.FormatDateTime
+ 0001:00000A98       SysUtils.Abort
+ 0001:00000AA0       SysUtils.OutOfMemoryError
+ 0001:00000AA8       SysUtils.Exception.CreateRes
+ 0001:00000AB0       SysUtils.Exception.Destroy
+ 0001:00000AB8       SysUtils.Exception.GetBaseException
+ 0001:00000AC0       SysUtils.Exception.RaisingException
+ 0001:00000AC8       SysUtils.Exception.ToString
+ 0001:00000AD0       SysUtils.Exception.Destroy@
+ 0001:00000AD8       SysUtils.Sleep
+ 0001:00000AE0       SysUtils.RaiseLastOSError
+ 0001:00000AE8       SysUtils.FreeAndNil
+ 0001:00000AF0       SysUtils.Supports
+ 0001:00000AF8       SysUtils.Supports
+ 0001:00000B00       SysUtils.TLanguages.Destroy@
+ 0001:00000B08       SysUtils.SafeLoadLibrary
+ 0001:00000B10       SysUtils.TEncoding.Destroy@
+ 0001:00000B18       SysUtils.Finalization
+ 0001:00000B20       Math.Min
+ 0001:00000B28       StrUtils.IfThen
+ 0001:00000B30       Variants.Finalization
+ 0001:00000B38       VarUtils.Finalization
+ 0001:00000B40       Dialogs.MessageDlg
+ 0001:00000B48       Dialogs.InputQuery
+ 0001:00000B50       Dialogs.Finalization
+ 0001:00000B58       ComCtrls.TToolBar.GetButton
+ 0001:00000B60       ComCtrls.TToolBar.GetButtonCount
+ 0001:00000B68       ComCtrls.Finalization
+ 0001:00000B70       ActnList.TContainedAction.SetCategory
+ 0001:00000B78       ActnList.TContainedAction.SetActionList
+ 0001:00000B80       ActnList.TCustomAction.SetCaption
+ 0001:00000B88       ActnList.TCustomAction.SetEnabled
+ 0001:00000B90       ActnList.TCustomAction.SetHint
+ 0001:00000B98       ActnList.TCustomAction.SetImageIndex
+ 0001:00000BA0       ActnList.TAction.Create
+ 0001:00000BA8       ActnList.Finalization
+ 0001:00000BB0       Graphics.TBitmap.Create
+ 0001:00000BB8       Graphics.TBitmap.LoadFromResourceName
+ 0001:00000BC0       Graphics.Finalization
+ 0001:00000BC8       Registry.TRegIniFile.Create
+ 0001:00000BD0       Registry.TRegIniFile.ReadString
+ 0001:00000BD8       Registry.Finalization
+ 0001:00000BE0       IniFiles.Finalization
+ 0001:00000BE8       IOUtils.TPath.Destroy@
+ 0001:00000BF0       IOUtils.Finalization
+ 0001:00000BF8       DateUtils.MilliSecondsBetween
+ 0001:00000C00       Themes.Finalization
+ 0001:00000C08       Controls.TControl.Perform
+ 0001:00000C10       Controls.Finalization
+ 0001:00000C18       SyncObjs.TEvent.Create
+ 0001:00000C20       SyncObjs.TEvent.SetEvent
+ 0001:00000C28       SyncObjs.TEvent.ResetEvent
+ 0001:00000C30       SyncObjs.TCriticalSection.Create
+ 0001:00000C38       SyncObjs.Finalization
+ 0001:00000C40       TimeSpan.TTimeSpan.Destroy@
+ 0001:00000C48       Menus.TMenuItem.Create
+ 0001:00000C50       Menus.TMenuItem.SetCaption
+ 0001:00000C58       Menus.TMenuItem.GetAction
+ 0001:00000C60       Menus.TMenuItem.GetMenuIndex
+ 0001:00000C68       Menus.TMenuItem.Insert
+ 0001:00000C70       Menus.TMenuItem.Add
+ 0001:00000C78       Menus.TMenuItem.Remove
+ 0001:00000C80       Menus.TMenuItem.SetAction
+ 0001:00000C88       Menus.TMenuItem.SetAutoHotkeys
+ 0001:00000C90       Menus.TMenuItem.Find
+ 0001:00000C98       Menus.TMenuItem.NewBottomLine
+ 0001:00000CA0       Menus.Finalization
+ 0001:00000CA8       UxTheme.Finalization
+ 0001:00000CB0       MultiMon.Finalization
+ 0001:00000CB8       Forms.TApplication.ProcessMessages
+ 0001:00000CC0       Forms.TApplication.GetExeName
+ 0001:00000CC8       Forms.Finalization
+ 0001:00000CD0       HelpIntfs.Finalization
+ 0001:00000CD8       GraphUtil.Finalization
+ 0001:00000CE0       ShellAPI.ShellExecute
+ 0001:00000CE8       ShellAPI.SHGetFileInfo
+ 0001:00000CF0       ExtCtrls.Finalization
+ 0001:00000CF8       Printers.Finalization
+ 0001:00000D00       Clipbrd.Finalization
+ 0001:00000D08       FlatSB.Finalization
+ 0001:00000D44       DbugIntf..TGDebugSendThread
+ 0001:00000EDC       DbugIntf..TThreadListHelper
+ 0001:00000FD0       DbugIntf.StartDebugWin
+ 0001:000012C8       DbugIntf.SendDebugEx
+ 0001:000014F0       DbugIntf.SendDebug
+ 0001:00001510       DbugIntf.SendDebugFmt
+ 0001:00001578       DbugIntf.SendDebugFmtEx
+ 0001:000015E0       DbugIntf.SendDebugFmtEx_Start
+ 0001:000016C4       DbugIntf.SendDebugFmtEx_End
+ 0001:000018B8       DbugIntf.SendMethodEnter
+ 0001:00001964       DbugIntf.SendMethodExit
+ 0001:000019FC       DbugIntf.SendBoolean
+ 0001:00001AC8       DbugIntf.SendInteger
+ 0001:00001B60       DbugIntf.SendDateTime
+ 0001:00001C50       DbugIntf.SendDebugPause
+ 0001:00001C58       DbugIntf.SendDebugResume
+ 0001:00001C60       DbugIntf.TGDebugSendThread.AfterConstruction
+ 0001:00001CA8       DbugIntf.TGDebugSendThread.Destroy
+ 0001:00001CF8       DbugIntf.TGDebugSendThread.Execute
+ 0001:00001E04       DbugIntf.TGDebugSendThread.SendAllData
+ 0001:00001F48       DbugIntf.TGDebugSendThread.SendData
+ 0001:00001FD8       DbugIntf.TThreadListHelper.Count
+ 0001:00002028       DbugIntf.Finalization
+ 0001:00002074       Generics.Collections.InCircularRange
+ 0001:0000207C       Generics.Defaults._LookupVtableInfo
+ 0001:00002084       ToolsAPI.Finalization
+ 0001:0000208C       XMLIntf.Finalization
+ 0001:00002094       xmldom.Finalization
+ 0001:0000209C       msxmldom.Finalization
+ 0001:000020A4       ComObj.Finalization
+ 0001:000020AC       DockForm.Finalization
+ 0001:000020B4       IDEMessages.Finalization
+ 0001:000020BC       DeskForm.Finalization
+ 0001:000020C4       BaseDock.Finalization
+ 0001:000020CC       PercentageDockTree.Finalization
+ 0001:000020D4       CaptionedDockTree.Finalization
+ 0001:000020DC       DockTabSet.Finalization
+ 0001:000020E4       Tabs.Finalization
+ 0001:000020EC       DeskUtil.Finalization
+ 0001:000020F4       TabDock.Finalization
+ 0001:000020FC       PlatformDefaultStyleActnCtrls.Finalization
+ 0001:00002104       Buttons.Finalization
+ 0001:0000210C       ActnMan.Finalization
+ 0001:00002114       ActnMenus.Finalization
+ 0001:0000211C       ExtActns.Finalization
+ 0001:00002124       ExtDlgs.Finalization
+ 0001:0000212C       Mapi.Finalization
+ 0001:00002134       JvConsts.Finalization
+ 0001:00002380       JvCreateProcess..TJvProcessEntry
+ 0001:00002844       JvCreateProcess..TJvCPSStartupInfo
+ 0001:00002C90       JvCreateProcess..TJvBaseReader
+ 0001:00002E90       JvCreateProcess..TJvCreateProcess
+ 0001:00003694       JvCreateProcess..TJvWaitForProcessThread
+ 0001:0000384C       JvCreateProcess..TJvConsoleThread
+ 0001:00003A70       JvCreateProcess..TJvReadThread
+ 0001:00003D30       JvCreateProcess..TJvReader
+ 0001:00003F0C       JvCreateProcess.WinSrvHandle
+ 0001:00003F70       JvCreateProcess.OSCheck
+ 0001:00003F80       JvCreateProcess.IsConsoleWindow
+ 0001:00003F9C       JvCreateProcess.EnumWinProc
+ 0001:00003FFC       JvCreateProcess.InternalCloseApp
+ 0001:00004020       JvCreateProcess.InternalTerminateProcess
+ 0001:00004054       JvCreateProcess.SafeCloseHandle
+ 0001:00004078       JvCreateProcess..TJvRWEHandles
+ 0001:0000428C       JvCreateProcess.CreateDuplicate
+ 0001:000042D8       JvCreateProcess.ConstructPipe
+ 0001:0000446C       JvCreateProcess.TJvBaseReader.Create
+ 0001:000044B8       JvCreateProcess.TJvBaseReader.Destroy
+ 0001:000044E8       JvCreateProcess.TJvBaseReader.GetConsoleOutput
+ 0001:000044EC       JvCreateProcess.TJvProcessEntry.Create
+ 0001:00004544       JvCreateProcess.TJvProcessEntry.Close
+ 0001:00004550       JvCreateProcess.TJvProcessEntry.GetPriority
+ 0001:00004604       JvCreateProcess.TJvProcessEntry.GetSystemIconIndex
+ 0001:0000464C       JvCreateProcess.TJvProcessEntry.PriorityText
+ 0001:00004698       JvCreateProcess.TJvProcessEntry.SetPriority
+ 0001:00004710       JvCreateProcess.TJvProcessEntry.Terminate
+ 0001:0000471C       JvCreateProcess.TJvCPSStartupInfo.Create
+ 0001:00004764       JvCreateProcess.TJvCPSStartupInfo.AssignTo
+ 0001:000047E8       JvCreateProcess.TJvCPSStartupInfo.GetStartupInfo
+ 0001:00004890       JvCreateProcess.TJvWaitForProcessThread.Create
+ 0001:000048EC       JvCreateProcess.TJvWaitForProcessThread.Destroy
+ 0001:0000491C       JvCreateProcess.TJvWaitForProcessThread.Execute
+ 0001:000049D4       JvCreateProcess.TJvWaitForProcessThread.TerminateThread
+ 0001:000049EC       JvCreateProcess.TJvReadThread.Create
+ 0001:00004A84       JvCreateProcess.TJvReadThread.Destroy
+ 0001:00004ACC       JvCreateProcess.TJvReadThread.CloseRead
+ 0001:00004B1C       JvCreateProcess.TJvReadThread.CopyToBuffer
+ 0001:00004BDC       JvCreateProcess.TJvReadThread.Execute
+ 0001:00004C24       JvCreateProcess.TJvReadThread.ReadBuffer
+ 0001:00004CDC       JvCreateProcess.TJvReadThread.TerminateThread
+ 0001:00004CF0       JvCreateProcess.TJvConsoleThread.Create
+ 0001:00004D50       JvCreateProcess.TJvConsoleThread.Destroy
+ 0001:00004D90       JvCreateProcess.TJvConsoleThread.CloseWrite
+ 0001:00004DE0       JvCreateProcess.TJvConsoleThread.Execute
+ 0001:00004E5C       JvCreateProcess.TJvConsoleThread.TryWrite
+ 0001:00004FB4       JvCreateProcess.TJvConsoleThread.Write
+ 0001:000050A0       JvCreateProcess.TJvCreateProcess.Create
+ 0001:00005140       JvCreateProcess.TJvCreateProcess.Destroy
+ 0001:000051A0       JvCreateProcess.TJvCreateProcess.CheckNotWaiting
+ 0001:000051C8       JvCreateProcess.TJvCreateProcess.CheckReady
+ 0001:000051E8       JvCreateProcess.TJvCreateProcess.CheckRunning
+ 0001:00005208       JvCreateProcess.TJvCreateProcess.CloseApplication
+ 0001:00005224       JvCreateProcess.TJvCreateProcess.CloseProcessHandles
+ 0001:00005244       JvCreateProcess.TJvCreateProcess.CloseRead
+ 0001:0000525C       JvCreateProcess.TJvCreateProcess.CloseWrite
+ 0001:00005280       JvCreateProcess.TJvCreateProcess.HandleThreadTerminated
+ 0001:000052B8       JvCreateProcess.TJvCreateProcess.GetConsoleOutput
+ 0001:000052C4       JvCreateProcess.TJvCreateProcess.GetEnvironment
+ 0001:000052C8       JvCreateProcess.TJvCreateProcess.GetHandle
+ 0001:000052E4       JvCreateProcess.TJvCreateProcess.GetOnErrorRawRead
+ 0001:000052F4       JvCreateProcess.TJvCreateProcess.GetOnErrorRead
+ 0001:00005304       JvCreateProcess.TJvCreateProcess.GetOnRawRead
+ 0001:00005314       JvCreateProcess.TJvCreateProcess.GetOnRead
+ 0001:00005324       JvCreateProcess.TJvCreateProcess.GotoReadyState
+ 0001:00005344       JvCreateProcess.TJvCreateProcess.GotoRunningState
+ 0001:0000535C       JvCreateProcess.TJvCreateProcess.GotoWaitState
+ 0001:00005378       JvCreateProcess.TJvCreateProcess.HandleReadEvent
+ 0001:00005380       JvCreateProcess.TJvCreateProcess.Run
+ 0001:000055FC       JvCreateProcess.TJvCreateProcess.SetCommandLine
+ 0001:00005630       JvCreateProcess.TJvCreateProcess.SetEnvironment
+ 0001:00005640       JvCreateProcess.TJvCreateProcess.SetOnErrorRawRead
+ 0001:00005658       JvCreateProcess.TJvCreateProcess.SetOnErrorRead
+ 0001:00005670       JvCreateProcess.TJvCreateProcess.SetOnRawRead
+ 0001:00005688       JvCreateProcess.TJvCreateProcess.SetOnRead
+ 0001:000056A0       JvCreateProcess.TJvCreateProcess.SetStartupInfo
+ 0001:000056AC       JvCreateProcess.TJvCreateProcess.SetWaitForTerminate
+ 0001:000056C0       JvCreateProcess.TJvCreateProcess.StopWaiting
+ 0001:000056C8       JvCreateProcess.TJvCreateProcess.Terminate
+ 0001:000056DC       JvCreateProcess.TJvCreateProcess.TerminateWaitThread
+ 0001:00005720       JvCreateProcess.TJvCreateProcess.WaitThreadTerminated
+ 0001:0000574C       JvCreateProcess.TJvCreateProcess.WndProc
+ 0001:000057DC       JvCreateProcess.TJvCreateProcess.Write
+ 0001:00005810       JvCreateProcess.TJvCreateProcess.WriteLn
+ 0001:00005878       JvCreateProcess.TJvReader.CloseRead
+ 0001:00005888       JvCreateProcess.TJvReader.CreateThread
+ 0001:000058D4       JvCreateProcess.TJvReader.DoRawReadEvent
+ 0001:00005940       JvCreateProcess.TJvReader.DoReadEvent
+ 0001:00005A28       JvCreateProcess.TJvReader.HandleReadEvent
+ 0001:00005A58       JvCreateProcess.DoOutput
+ 0001:00005AC0       JvCreateProcess.DoTab
+ 0001:00005B18       JvCreateProcess.TJvReader.ParseConsoleOutput
+ 0001:00005C24       JvCreateProcess.TJvReader.Terminate
+ 0001:00005C44       JvCreateProcess.TJvReader.ThreadTerminated
+ 0001:00005C7C       JvCreateProcess.TJvRWEHandles.Destroy
+ 0001:00005CA8       JvCreateProcess.TJvRWEHandles.Clear
+ 0001:00005CD4       JvCreateProcess.TJvRWEHandles.ExtractHandle
+ 0001:00005CE4       JvCreateProcess.TJvRWEHandles.GetHandle
+ 0001:00005CEC       JvCreateProcess.TJvRWEHandles.SetHandle
+ 0001:00005D10       JvCreateProcess.Finalization
+ 0001:00005D18       JclRegistry.RegReadStringDef
+ 0001:00005D20       JclRegistry.Finalization
+ 0001:00005D28       JclStrings.Finalization
+ 0001:00005D30       JclBase.Finalization
+ 0001:00005D38       JclResources.Finalization
+ 0001:00005D40       JclUnicode.Finalization
+ 0001:00005D48       JclSysInfo.Finalization
+ 0001:00005D50       JclAnsiStrings.Finalization
+ 0001:00005D58       AnsiStrings.Finalization
+ 0001:00005D60       JclSysUtils.Finalization
+ 0001:00005D68       JclFileUtils.Finalization
+ 0001:00005D70       JclShell.Finalization
+ 0001:00005D78       JclCharsets.Finalization
+ 0001:00005D80       JclDebug.JclLastExceptStackList
+ 0001:00005D88       JclDebug.TJclStackInfoList.Create
+ 0001:00005D90       JclDebug.TJclStackInfoList.GetCount
+ 0001:00005D98       JclDebug.TJclStackInfoList.AddToStrings
+ 0001:00005DA0       JclDebug.Finalization
+ 0001:00005DA8       JclHookExcept.Finalization
+ 0001:00005DB0       PlasticAsync..TAsyncThread
+ 0001:00005F78       PlasticAsync..TEnumerator<Classes.TThreadProcedure>
+ 0001:000060A8       PlasticAsync..TEnumerable<Classes.TThreadProcedure>
+ 0001:00006398       PlasticAsync..TList<Classes.TThreadProcedure>.TEnumerator
+ 0001:00006538       PlasticAsync..TList<Classes.TThreadProcedure>
+ 0001:00006E80       PlasticAsync.TAsyncThread.AfterConstruction
+ 0001:00006ECC       PlasticAsync.TAsyncThread.Destroy
+ 0001:00006F20       PlasticAsync.TAsyncThread.Execute
+ 0001:0000718C       PlasticAsync.TAsyncThread.ExecuteASync
+ 0001:000071E8       PlasticAsync.TAsyncThread.Terminate
+ 0001:00007208       PlasticAsync.Finalization
+ 0001:0000727C       PlasticAsync.TEnumerable<Classes.TThreadProcedure>.GetEnumerator
+ 0001:00007298       PlasticAsync.TEnumerator<Classes.TThreadProcedure>.MoveNext
+ 0001:000072B4       PlasticAsync.TList<Classes.TThreadProcedure>.GetCapacity
+ 0001:000072D4       PlasticAsync.TList<Classes.TThreadProcedure>.SetCapacity
+ 0001:00007318       PlasticAsync.TList<Classes.TThreadProcedure>.SetCount
+ 0001:00007388       PlasticAsync.TList<Classes.TThreadProcedure>.GetItem
+ 0001:000073D8       PlasticAsync.TList<Classes.TThreadProcedure>.SetItem
+ 0001:00007488       PlasticAsync.TList<Classes.TThreadProcedure>.Grow
+ 0001:000074DC       PlasticAsync.TList<Classes.TThreadProcedure>.GrowCheck
+ 0001:00007514       PlasticAsync.TList<Classes.TThreadProcedure>.DoDelete
+ 0001:0000760C       PlasticAsync.TList<Classes.TThreadProcedure>.DoGetEnumerator
+ 0001:00007628       PlasticAsync.TList<Classes.TThreadProcedure>.Notify
+ 0001:0000765C       PlasticAsync.TList<Classes.TThreadProcedure>.Create
+ 0001:000076E0       PlasticAsync.TList<Classes.TThreadProcedure>.Create
+ 0001:00007788       PlasticAsync.TList<Classes.TThreadProcedure>.Create
+ 0001:00007828       PlasticAsync.TList<Classes.TThreadProcedure>.Destroy
+ 0001:00007864       PlasticAsync.TList<Classes.TThreadProcedure>.Add
+ 0001:000078BC       PlasticAsync.TList<Classes.TThreadProcedure>.AddRange
+ 0001:000078E4       PlasticAsync.TList<Classes.TThreadProcedure>.AddRange
+ 0001:00007908       PlasticAsync.TList<Classes.TThreadProcedure>.AddRange
+ 0001:0000792C       PlasticAsync.TList<Classes.TThreadProcedure>.Insert
+ 0001:000079F0       PlasticAsync.TList<Classes.TThreadProcedure>.InsertRange
+ 0001:00007B08       PlasticAsync.TList<Classes.TThreadProcedure>.InsertRange
+ 0001:00007B98       PlasticAsync.TList<Classes.TThreadProcedure>.InsertRange
+ 0001:00007C4C       PlasticAsync.TList<Classes.TThreadProcedure>.Remove
+ 0001:00007C80       PlasticAsync.TList<Classes.TThreadProcedure>.Delete
+ 0001:00007CA0       PlasticAsync.TList<Classes.TThreadProcedure>.DeleteRange
+ 0001:00007E18       PlasticAsync.TList<Classes.TThreadProcedure>.Extract
+ 0001:00007E6C       PlasticAsync.TList<Classes.TThreadProcedure>.Exchange
+ 0001:00007EF8       PlasticAsync.TList<Classes.TThreadProcedure>.Move
+ 0001:0000801C       PlasticAsync.TList<Classes.TThreadProcedure>.First
+ 0001:0000803C       PlasticAsync.TList<Classes.TThreadProcedure>.Last
+ 0001:00008060       PlasticAsync.TList<Classes.TThreadProcedure>.Clear
+ 0001:00008080       PlasticAsync.TList<Classes.TThreadProcedure>.Contains
+ 0001:000080A4       PlasticAsync.TList<Classes.TThreadProcedure>.IndexOf
+ 0001:00008104       PlasticAsync.TList<Classes.TThreadProcedure>.LastIndexOf
+ 0001:00008160       PlasticAsync.TList<Classes.TThreadProcedure>.Reverse
+ 0001:00008208       PlasticAsync.TList<Classes.TThreadProcedure>.Sort
+ 0001:00008244       PlasticAsync.TList<Classes.TThreadProcedure>.Sort
+ 0001:00008280       PlasticAsync.TList<Classes.TThreadProcedure>.BinarySearch
+ 0001:000082D0       PlasticAsync.TList<Classes.TThreadProcedure>.BinarySearch
+ 0001:00008320       PlasticAsync.TList<Classes.TThreadProcedure>.TrimExcess
+ 0001:00008338       PlasticAsync.TList<Classes.TThreadProcedure>.GetEnumerator
+ 0001:0000835C       PlasticAsync.TList<Classes.TThreadProcedure>.TEnumerator.GetCurrent
+ 0001:00008380       PlasticAsync.TList<Classes.TThreadProcedure>.TEnumerator.DoGetCurrent
+ 0001:0000839C       PlasticAsync.TList<Classes.TThreadProcedure>.TEnumerator.DoMoveNext
+ 0001:000083B8       PlasticAsync.TList<Classes.TThreadProcedure>.TEnumerator.Create
+ 0001:00008410       PlasticAsync.TList<Classes.TThreadProcedure>.TEnumerator.MoveNext
+ 0001:00008450       PlasticAsync.TComparer<Classes.TThreadProcedure>.Default
+ 0001:0000847C       PlasticAsync.TComparer<Classes.TThreadProcedure>.Construct
+ 0001:000084B0       PlasticAsync.TArray.Sort<Classes.TThreadProcedure>
+ 0001:00008534       PlasticAsync.TArray.BinarySearch<Classes.TThreadProcedure>
+ 0001:0000861C       PlasticAsync.TDelegatedComparer<Classes.TThreadProcedure>.Create
+ 0001:00008664       PlasticAsync.TDelegatedComparer<Classes.TThreadProcedure>.Compare
+ 0001:00008690       PlasticAsync.TArray.QuickSort<Classes.TThreadProcedure>
+ 0001:000088A0       PlasticAsync..TComparer<Classes.TThreadProcedure>
+ 0001:000089FC       PlasticAsync.TComparer<Classes.TThreadProcedure>.Compare
+ 0001:00008A78       PlasticAsync..TDelegatedComparer<Classes.TThreadProcedure>
+ 0001:00008CB0       PlasticNotify..TIDENotifier
+ 0001:00008EB4       PlasticNotify..TFileNotifier
+ 0001:000090D4       PlasticNotify..TEnumerator<TPair<System.string,PlasticNotify.TFileNotifier>>
+ 0001:00009234       PlasticNotify..TEnumerable<TPair<System.string,PlasticNotify.TFileNotifier>>
+ 0001:00009628       PlasticNotify..TEnumerator<System.string>
+ 0001:00009740       PlasticNotify..TEnumerable<System.string>
+ 0001:00009830       PlasticNotify..TDictionary<System.string,PlasticNotify.TFileNotifier>.TKeyEnumerator
+ 0001:00009A14       PlasticNotify..TDictionary<System.string,PlasticNotify.TFileNotifier>.TKeyCollection
+ 0001:00009BE4       PlasticNotify..TEnumerator<PlasticNotify.TFileNotifier>
+ 0001:00009D1C       PlasticNotify..TEnumerable<PlasticNotify.TFileNotifier>
+ 0001:00009E28       PlasticNotify..TDictionary<System.string,PlasticNotify.TFileNotifier>.TValueEnumerator
+ 0001:0000A00C       PlasticNotify..TDictionary<System.string,PlasticNotify.TFileNotifier>.TValueCollection
+ 0001:0000A1E0       PlasticNotify..TDictionary<System.string,PlasticNotify.TFileNotifier>.TPairEnumerator
+ 0001:0000A3C4       PlasticNotify..TDictionary<System.string,PlasticNotify.TFileNotifier>
+ 0001:0000AA90       PlasticNotify.TIDENotifier.AddFileWatch
+ 0001:0000B0FC       PlasticNotify.TIDENotifier.AfterCompile
+ 0001:0000B10C       PlasticNotify.TIDENotifier.AfterConstruction
+ 0001:0000B1A4       PlasticNotify.TIDENotifier.AfterSave
+ 0001:0000B1B0       PlasticNotify.TIDENotifier.BeforeCompile
+ 0001:0000B1C4       PlasticNotify.TIDENotifier.BeforeSave
+ 0001:0000B1D0       PlasticNotify.TIDENotifier.Destroy
+ 0001:0000B258       PlasticNotify.TIDENotifier.Destroyed
+ 0001:0000B2B4       PlasticNotify.TIDENotifier.FileNotification
+ 0001:0000B430       PlasticNotify.TIDENotifier.Modified
+ 0001:0000B43C       PlasticNotify.TIDENotifier.RemoveNotifier
+ 0001:0000B61C       PlasticNotify..TFileNotifier.AfterSave$ActRec
+ 0001:0000B7AC       PlasticNotify..TFileNotifier.AfterSave$ActRec.$0$Body$ActRec
+ 0001:0000B928       PlasticNotify..TFileNotifier.AfterSave$ActRec.$0$Body$ActRec.$0$0$Body$ActRec
+ 0001:0000BAC4       PlasticNotify..TFileNotifier.AfterSave$ActRec.$0$Body$ActRec.$0$1$Body$ActRec
+ 0001:0000BC08       PlasticNotify.TFileNotifier.AfterSave$ActRec.$0$Body$ActRec.$0$0$Body$ActRec.$0$0$0$Body
+ 0001:0000BC30       PlasticNotify.TFileNotifier.AfterSave$ActRec.$0$Body$ActRec.$0$0$Body
+ 0001:0000BD98       PlasticNotify.TFileNotifier.AfterSave$ActRec.$0$Body$ActRec.$0$1$Body$ActRec.$0$1$0$Body
+ 0001:0000BDC0       PlasticNotify.TFileNotifier.AfterSave$ActRec.$0$Body$ActRec.$0$1$Body
+ 0001:0000BF44       PlasticNotify.TFileNotifier.AfterSave$ActRec.$0$Body
+ 0001:0000C084       PlasticNotify.TFileNotifier.AfterSave
+ 0001:0000C16C       PlasticNotify.TFileNotifier.BeforeSave
+ 0001:0000C178       PlasticNotify.TFileNotifier.CheckOverwrite
+ 0001:0000C18C       PlasticNotify.TFileNotifier.Create
+ 0001:0000C23C       PlasticNotify.TFileNotifier.Destroyed
+ 0001:0000C250       PlasticNotify.TFileNotifier.Modified
+ 0001:0000C46C       PlasticNotify.TFileNotifier.ModuleRenamed
+ 0001:0000C47C       PlasticNotify.TFileNotifier.RemoveNotifier
+ 0001:0000C564       PlasticNotify.Finalization
+ 0001:0000C584       PlasticNotify.TPair<System.string,PlasticNotify.TFileNotifier>.Create
+ 0001:0000C5B0       PlasticNotify.TEnumerable<TPair<System.string,PlasticNotify.TFileNotifier>>.GetEnumerator
+ 0001:0000C5CC       PlasticNotify.TEnumerator<TPair<System.string,PlasticNotify.TFileNotifier>>.MoveNext
+ 0001:0000C5E8       PlasticNotify.TDictionary<System.string,PlasticNotify.TFileNotifier>.SetCapacity
+ 0001:0000C654       PlasticNotify.TDictionary<System.string,PlasticNotify.TFileNotifier>.Rehash
+ 0001:0000C774       PlasticNotify.TDictionary<System.string,PlasticNotify.TFileNotifier>.Grow
+ 0001:0000C7AC       PlasticNotify.TDictionary<System.string,PlasticNotify.TFileNotifier>.GetBucketIndex
+ 0001:0000C860       PlasticNotify.TDictionary<System.string,PlasticNotify.TFileNotifier>.Hash
+ 0001:0000C890       PlasticNotify.TDictionary<System.string,PlasticNotify.TFileNotifier>.GetItem
+ 0001:0000C8F0       PlasticNotify.TDictionary<System.string,PlasticNotify.TFileNotifier>.SetItem
+ 0001:0000C980       PlasticNotify.TDictionary<System.string,PlasticNotify.TFileNotifier>.RehashAdd
+ 0001:0000C9E8       PlasticNotify.TDictionary<System.string,PlasticNotify.TFileNotifier>.DoAdd
+ 0001:0000CA5C       PlasticNotify.TDictionary<System.string,PlasticNotify.TFileNotifier>.DoSetValue
+ 0001:0000CAB4       PlasticNotify.TDictionary<System.string,PlasticNotify.TFileNotifier>.DoRemove
+ 0001:0000CC08       PlasticNotify.TDictionary<System.string,PlasticNotify.TFileNotifier>.DoGetEnumerator
+ 0001:0000CC24       PlasticNotify.TDictionary<System.string,PlasticNotify.TFileNotifier>.KeyNotify
+ 0001:0000CC58       PlasticNotify.TDictionary<System.string,PlasticNotify.TFileNotifier>.ValueNotify
+ 0001:0000CC8C       PlasticNotify.TDictionary<System.string,PlasticNotify.TFileNotifier>.Create
+ 0001:0000CCD8       PlasticNotify.TDictionary<System.string,PlasticNotify.TFileNotifier>.Create
+ 0001:0000CD24       PlasticNotify.TDictionary<System.string,PlasticNotify.TFileNotifier>.Create
+ 0001:0000CDF4       PlasticNotify.TDictionary<System.string,PlasticNotify.TFileNotifier>.Create
+ 0001:0000CEE4       PlasticNotify.TDictionary<System.string,PlasticNotify.TFileNotifier>.Create
+ 0001:0000CFD8       PlasticNotify.TDictionary<System.string,PlasticNotify.TFileNotifier>.Destroy
+ 0001:0000D028       PlasticNotify.TDictionary<System.string,PlasticNotify.TFileNotifier>.Add
+ 0001:0000D0A8       PlasticNotify.TDictionary<System.string,PlasticNotify.TFileNotifier>.Remove
+ 0001:0000D0D4       PlasticNotify.TDictionary<System.string,PlasticNotify.TFileNotifier>.ExtractPair
+ 0001:0000D12C       PlasticNotify.TDictionary<System.string,PlasticNotify.TFileNotifier>.Clear
+ 0001:0000D218       PlasticNotify.TDictionary<System.string,PlasticNotify.TFileNotifier>.TrimExcess
+ 0001:0000D234       PlasticNotify.TDictionary<System.string,PlasticNotify.TFileNotifier>.TryGetValue
+ 0001:0000D294       PlasticNotify.TDictionary<System.string,PlasticNotify.TFileNotifier>.AddOrSetValue
+ 0001:0000D30C       PlasticNotify.TDictionary<System.string,PlasticNotify.TFileNotifier>.ContainsKey
+ 0001:0000D340       PlasticNotify.TDictionary<System.string,PlasticNotify.TFileNotifier>.ContainsValue
+ 0001:0000D3EC       PlasticNotify.TDictionary<System.string,PlasticNotify.TFileNotifier>.GetKeys
+ 0001:0000D424       PlasticNotify.TDictionary<System.string,PlasticNotify.TFileNotifier>.GetValues
+ 0001:0000D45C       PlasticNotify.TDictionary<System.string,PlasticNotify.TFileNotifier>.GetEnumerator
+ 0001:0000D480       PlasticNotify.TEnumerable<System.string>.GetEnumerator
+ 0001:0000D49C       PlasticNotify.TEnumerator<System.string>.MoveNext
+ 0001:0000D4B8       PlasticNotify.TDictionary<System.string,PlasticNotify.TFileNotifier>.TKeyCollection.GetCount
+ 0001:0000D4D4       PlasticNotify.TDictionary<System.string,PlasticNotify.TFileNotifier>.TKeyCollection.DoGetEnumerator
+ 0001:0000D4F0       PlasticNotify.TDictionary<System.string,PlasticNotify.TFileNotifier>.TKeyCollection.Create
+ 0001:0000D540       PlasticNotify.TDictionary<System.string,PlasticNotify.TFileNotifier>.TKeyCollection.GetEnumerator
+ 0001:0000D568       PlasticNotify.TDictionary<System.string,PlasticNotify.TFileNotifier>.TKeyEnumerator.GetCurrent
+ 0001:0000D598       PlasticNotify.TDictionary<System.string,PlasticNotify.TFileNotifier>.TKeyEnumerator.DoGetCurrent
+ 0001:0000D5B4       PlasticNotify.TDictionary<System.string,PlasticNotify.TFileNotifier>.TKeyEnumerator.DoMoveNext
+ 0001:0000D5D0       PlasticNotify.TDictionary<System.string,PlasticNotify.TFileNotifier>.TKeyEnumerator.Create
+ 0001:0000D628       PlasticNotify.TDictionary<System.string,PlasticNotify.TFileNotifier>.TKeyEnumerator.MoveNext
+ 0001:0000D67C       PlasticNotify.TEnumerable<PlasticNotify.TFileNotifier>.GetEnumerator
+ 0001:0000D698       PlasticNotify.TEnumerator<PlasticNotify.TFileNotifier>.MoveNext
+ 0001:0000D6B4       PlasticNotify.TDictionary<System.string,PlasticNotify.TFileNotifier>.TValueCollection.GetCount
+ 0001:0000D6D0       PlasticNotify.TDictionary<System.string,PlasticNotify.TFileNotifier>.TValueCollection.DoGetEnumerator
+ 0001:0000D6EC       PlasticNotify.TDictionary<System.string,PlasticNotify.TFileNotifier>.TValueCollection.Create
+ 0001:0000D73C       PlasticNotify.TDictionary<System.string,PlasticNotify.TFileNotifier>.TValueCollection.GetEnumerator
+ 0001:0000D764       PlasticNotify.TDictionary<System.string,PlasticNotify.TFileNotifier>.TValueEnumerator.GetCurrent
+ 0001:0000D790       PlasticNotify.TDictionary<System.string,PlasticNotify.TFileNotifier>.TValueEnumerator.DoGetCurrent
+ 0001:0000D7AC       PlasticNotify.TDictionary<System.string,PlasticNotify.TFileNotifier>.TValueEnumerator.DoMoveNext
+ 0001:0000D7C8       PlasticNotify.TDictionary<System.string,PlasticNotify.TFileNotifier>.TValueEnumerator.Create
+ 0001:0000D820       PlasticNotify.TDictionary<System.string,PlasticNotify.TFileNotifier>.TValueEnumerator.MoveNext
+ 0001:0000D874       PlasticNotify.TDictionary<System.string,PlasticNotify.TFileNotifier>.TPairEnumerator.GetCurrent
+ 0001:0000D8C0       PlasticNotify.TDictionary<System.string,PlasticNotify.TFileNotifier>.TPairEnumerator.DoGetCurrent
+ 0001:0000D8DC       PlasticNotify.TDictionary<System.string,PlasticNotify.TFileNotifier>.TPairEnumerator.DoMoveNext
+ 0001:0000D8F8       PlasticNotify.TDictionary<System.string,PlasticNotify.TFileNotifier>.TPairEnumerator.Create
+ 0001:0000D950       PlasticNotify.TDictionary<System.string,PlasticNotify.TFileNotifier>.TPairEnumerator.MoveNext
+ 0001:0000D9A4       PlasticNotify.TEqualityComparer<System.string>.Default
+ 0001:0000D9D0       PlasticNotify.TEqualityComparer<PlasticNotify.TFileNotifier>.Default
+ 0001:0000D9FC       PlasticExpert..TPlasticExpert
+ 0001:0000DDC8       PlasticExpert..TEnumerator<TPair<ActnList.TAction,System.Integer>>
+ 0001:0000DF10       PlasticExpert..TEnumerable<TPair<ActnList.TAction,System.Integer>>
+ 0001:0000E2C8       PlasticExpert..TEnumerator<ActnList.TAction>
+ 0001:0000E3E8       PlasticExpert..TEnumerable<ActnList.TAction>
+ 0001:0000E4E0       PlasticExpert..TDictionary<ActnList.TAction,System.Integer>.TKeyEnumerator
+ 0001:0000E6AC       PlasticExpert..TDictionary<ActnList.TAction,System.Integer>.TKeyCollection
+ 0001:0000E868       PlasticExpert..TEnumerator<System.Integer>
+ 0001:0000E980       PlasticExpert..TEnumerable<System.Integer>
+ 0001:0000EA74       PlasticExpert..TDictionary<ActnList.TAction,System.Integer>.TValueEnumerator
+ 0001:0000EC48       PlasticExpert..TDictionary<ActnList.TAction,System.Integer>.TValueCollection
+ 0001:0000EE08       PlasticExpert..TDictionary<ActnList.TAction,System.Integer>.TPairEnumerator
+ 0001:0000EFDC       PlasticExpert..TDictionary<ActnList.TAction,System.Integer>
+ 0001:0000F694       PlasticExpert..TObjectDictionary<ActnList.TAction,System.Integer>
+ 0001:0000F8B8       PlasticExpert.TPlasticExpert.Create
+ 0001:0000F99C       PlasticExpert.TPlasticExpert.CreateMenu
+ 0001:00010718       PlasticExpert.TPlasticExpert.Destroy
+ 0001:00010888       PlasticExpert.TPlasticExpert.CheckoutExecute
+ 0001:00010998       PlasticExpert.TPlasticExpert.CheckinExecute
+ 0001:00010AA0       PlasticExpert.TPlasticExpert.UncheckoutExecute
+ 0001:00010C40       PlasticExpert.TPlasticExpert.AddExecute
+ 0001:00010E00       PlasticExpert.TPlasticExpert.UpdateActionImages
+ 0001:00010EA0       PlasticExpert.TPlasticExpert.UpdateExecute
+ 0001:00010FA8       PlasticExpert.TPlasticExpert.UpdateMenu
+ 0001:00010FE0       PlasticExpert.TPlasticExpert.DiffExecute
+ 0001:000110DC       PlasticExpert.TPlasticExpert.ListFiles
+ 0001:000111E8       PlasticExpert.TPlasticExpert.ReloadFiles
+ 0001:000112EC       PlasticExpert.TPlasticExpert.GetFileInfo
+ 0001:00011354       PlasticExpert.TPlasticExpert.MenuExecute
+ 0001:00011364       PlasticExpert.TPlasticExpert.Modified
+ 0001:00011418       PlasticExpert.TPlasticExpert.GetModuleFile
+ 0001:000114D0       PlasticExpert.TPlasticExpert.GetModuleFileInfo
+ 0001:00011678       PlasticExpert.TPlasticExpert.HandleException
+ 0001:00011784       PlasticExpert.TPlasticExpert.HandleException
+ 0001:00011874       PlasticExpert.TPlasticExpert.DeleteExecute
+ 0001:00011A40       PlasticExpert.TPlasticExpert.PlasticClientExecute
+ 0001:00011AB4       PlasticExpert..TPlasticExpert.GeneralUpdate$ActRec
+ 0001:00011C20       PlasticExpert..TPlasticExpert.GeneralUpdate$ActRec.$0$Body$ActRec
+ 0001:00011D4C       PlasticExpert.TPlasticExpert.GeneralUpdate$ActRec.$0$Body$ActRec.$0$0$Body
+ 0001:0001206C       PlasticExpert.TPlasticExpert.GeneralUpdate$ActRec.$0$Body
+ 0001:00012144       PlasticExpert.TPlasticExpert.GeneralUpdate
+ 0001:00012408       PlasticExpert.TPlasticExpert.AddAllExecute
+ 0001:00012468       PlasticExpert.TPlasticExpert.RemoveAction
+ 0001:000124CC       PlasticExpert.TPlasticExpert.RemoveActionFromToolbar
+ 0001:0001268C       PlasticExpert.TPlasticExpert.RenameExecute
+ 0001:0001295C       PlasticExpert.TPlasticExpert.AddAction
+ 0001:00012B8C       PlasticExpert.TPlasticExpert.AddMenu
+ 0001:00012BD0       PlasticExpert.TPlasticExpert.ShelveExecute
+ 0001:00012CCC       PlasticExpert.TPlasticExpert.StatusExecute
+ 0001:00012D2C       PlasticExpert.TPlasticExpert.GetSourceEditor
+ 0001:00012E34       PlasticExpert.TPlasticExpert.ConsoleExecute
+ 0001:00012E9C       PlasticExpert.Finalization
+ 0001:00012EFC       PlasticExpert.TPair<ActnList.TAction,System.Integer>.Create
+ 0001:00012F24       PlasticExpert.TEnumerable<TPair<ActnList.TAction,System.Integer>>.GetEnumerator
+ 0001:00012F40       PlasticExpert.TEnumerator<TPair<ActnList.TAction,System.Integer>>.MoveNext
+ 0001:00012F5C       PlasticExpert.TDictionary<ActnList.TAction,System.Integer>.SetCapacity
+ 0001:00012FC8       PlasticExpert.TDictionary<ActnList.TAction,System.Integer>.Rehash
+ 0001:000130E8       PlasticExpert.TDictionary<ActnList.TAction,System.Integer>.Grow
+ 0001:00013120       PlasticExpert.TDictionary<ActnList.TAction,System.Integer>.GetBucketIndex
+ 0001:000131D4       PlasticExpert.TDictionary<ActnList.TAction,System.Integer>.Hash
+ 0001:00013204       PlasticExpert.TDictionary<ActnList.TAction,System.Integer>.GetItem
+ 0001:00013264       PlasticExpert.TDictionary<ActnList.TAction,System.Integer>.SetItem
+ 0001:000132F4       PlasticExpert.TDictionary<ActnList.TAction,System.Integer>.RehashAdd
+ 0001:00013354       PlasticExpert.TDictionary<ActnList.TAction,System.Integer>.DoAdd
+ 0001:000133C4       PlasticExpert.TDictionary<ActnList.TAction,System.Integer>.DoSetValue
+ 0001:0001341C       PlasticExpert.TDictionary<ActnList.TAction,System.Integer>.DoRemove
+ 0001:00013570       PlasticExpert.TDictionary<ActnList.TAction,System.Integer>.DoGetEnumerator
+ 0001:0001358C       PlasticExpert.TDictionary<ActnList.TAction,System.Integer>.KeyNotify
+ 0001:000135C0       PlasticExpert.TDictionary<ActnList.TAction,System.Integer>.ValueNotify
+ 0001:000135F4       PlasticExpert.TDictionary<ActnList.TAction,System.Integer>.Create
+ 0001:00013640       PlasticExpert.TDictionary<ActnList.TAction,System.Integer>.Create
+ 0001:0001368C       PlasticExpert.TDictionary<ActnList.TAction,System.Integer>.Create
+ 0001:0001375C       PlasticExpert.TDictionary<ActnList.TAction,System.Integer>.Create
+ 0001:00013810       PlasticExpert.TDictionary<ActnList.TAction,System.Integer>.Create
+ 0001:000138C8       PlasticExpert.TDictionary<ActnList.TAction,System.Integer>.Destroy
+ 0001:00013918       PlasticExpert.TDictionary<ActnList.TAction,System.Integer>.Add
+ 0001:00013998       PlasticExpert.TDictionary<ActnList.TAction,System.Integer>.Remove
+ 0001:000139C4       PlasticExpert.TDictionary<ActnList.TAction,System.Integer>.ExtractPair
+ 0001:00013A1C       PlasticExpert.TDictionary<ActnList.TAction,System.Integer>.Clear
+ 0001:00013B08       PlasticExpert.TDictionary<ActnList.TAction,System.Integer>.TrimExcess
+ 0001:00013B24       PlasticExpert.TDictionary<ActnList.TAction,System.Integer>.TryGetValue
+ 0001:00013B84       PlasticExpert.TDictionary<ActnList.TAction,System.Integer>.AddOrSetValue
+ 0001:00013BFC       PlasticExpert.TDictionary<ActnList.TAction,System.Integer>.ContainsKey
+ 0001:00013C30       PlasticExpert.TDictionary<ActnList.TAction,System.Integer>.ContainsValue
+ 0001:00013CDC       PlasticExpert.TDictionary<ActnList.TAction,System.Integer>.GetKeys
+ 0001:00013D14       PlasticExpert.TDictionary<ActnList.TAction,System.Integer>.GetValues
+ 0001:00013D4C       PlasticExpert.TDictionary<ActnList.TAction,System.Integer>.GetEnumerator
+ 0001:00013D70       PlasticExpert.TEnumerable<ActnList.TAction>.GetEnumerator
+ 0001:00013D8C       PlasticExpert.TEnumerator<ActnList.TAction>.MoveNext
+ 0001:00013DA8       PlasticExpert.TDictionary<ActnList.TAction,System.Integer>.TKeyCollection.GetCount
+ 0001:00013DC4       PlasticExpert.TDictionary<ActnList.TAction,System.Integer>.TKeyCollection.DoGetEnumerator
+ 0001:00013DE0       PlasticExpert.TDictionary<ActnList.TAction,System.Integer>.TKeyCollection.Create
+ 0001:00013E30       PlasticExpert.TDictionary<ActnList.TAction,System.Integer>.TKeyCollection.GetEnumerator
+ 0001:00013E58       PlasticExpert.TDictionary<ActnList.TAction,System.Integer>.TKeyEnumerator.GetCurrent
+ 0001:00013E84       PlasticExpert.TDictionary<ActnList.TAction,System.Integer>.TKeyEnumerator.DoGetCurrent
+ 0001:00013EA0       PlasticExpert.TDictionary<ActnList.TAction,System.Integer>.TKeyEnumerator.DoMoveNext
+ 0001:00013EBC       PlasticExpert.TDictionary<ActnList.TAction,System.Integer>.TKeyEnumerator.Create
+ 0001:00013F14       PlasticExpert.TDictionary<ActnList.TAction,System.Integer>.TKeyEnumerator.MoveNext
+ 0001:00013F68       PlasticExpert.TEnumerable<System.Integer>.GetEnumerator
+ 0001:00013F84       PlasticExpert.TEnumerator<System.Integer>.MoveNext
+ 0001:00013FA0       PlasticExpert.TDictionary<ActnList.TAction,System.Integer>.TValueCollection.GetCount
+ 0001:00013FBC       PlasticExpert.TDictionary<ActnList.TAction,System.Integer>.TValueCollection.DoGetEnumerator
+ 0001:00013FD8       PlasticExpert.TDictionary<ActnList.TAction,System.Integer>.TValueCollection.Create
+ 0001:00014028       PlasticExpert.TDictionary<ActnList.TAction,System.Integer>.TValueCollection.GetEnumerator
+ 0001:00014050       PlasticExpert.TDictionary<ActnList.TAction,System.Integer>.TValueEnumerator.GetCurrent
+ 0001:0001407C       PlasticExpert.TDictionary<ActnList.TAction,System.Integer>.TValueEnumerator.DoGetCurrent
+ 0001:00014098       PlasticExpert.TDictionary<ActnList.TAction,System.Integer>.TValueEnumerator.DoMoveNext
+ 0001:000140B4       PlasticExpert.TDictionary<ActnList.TAction,System.Integer>.TValueEnumerator.Create
+ 0001:0001410C       PlasticExpert.TDictionary<ActnList.TAction,System.Integer>.TValueEnumerator.MoveNext
+ 0001:00014160       PlasticExpert.TDictionary<ActnList.TAction,System.Integer>.TPairEnumerator.GetCurrent
+ 0001:000141A8       PlasticExpert.TDictionary<ActnList.TAction,System.Integer>.TPairEnumerator.DoGetCurrent
+ 0001:000141C4       PlasticExpert.TDictionary<ActnList.TAction,System.Integer>.TPairEnumerator.DoMoveNext
+ 0001:000141E0       PlasticExpert.TDictionary<ActnList.TAction,System.Integer>.TPairEnumerator.Create
+ 0001:00014238       PlasticExpert.TDictionary<ActnList.TAction,System.Integer>.TPairEnumerator.MoveNext
+ 0001:0001428C       PlasticExpert.TObjectDictionary<ActnList.TAction,System.Integer>.KeyNotify
+ 0001:000142C8       PlasticExpert.TObjectDictionary<ActnList.TAction,System.Integer>.ValueNotify
+ 0001:00014304       PlasticExpert.TObjectDictionary<ActnList.TAction,System.Integer>.Create
+ 0001:00014354       PlasticExpert.TObjectDictionary<ActnList.TAction,System.Integer>.Create
+ 0001:000143A4       PlasticExpert.TObjectDictionary<ActnList.TAction,System.Integer>.Create
+ 0001:0001445C       PlasticExpert.TEqualityComparer<ActnList.TAction>.Default
+ 0001:00014488       PlasticExpert.TEqualityComparer<System.Integer>.Default
+ 0001:0001466C       PlasticUtils..LogMessageToIDE$ActRec
+ 0001:000147D4       PlasticUtils.LogMessageToIDE$ActRec.$0$Body
+ 0001:0001491C       PlasticUtils.LogMessageToIDE
+ 0001:000149C0       PlasticUtils.GetLastStackAsString
+ 0001:00014AB4       PlasticUtils.HandleException
+ 0001:00014BC8       PlasticUtils.IsWhiteListedFile
+ 0001:00014C48       PlasticUtils.IsBlackListedFile
+ 0001:00014CC8       PlasticUtils.SearchCorrespondingFiles
+ 0001:00014DB4       PlasticUtils.Finalization
+ 0001:00014E58       PlasticUtils.TArray.BinarySearch<System.string>
+ 0001:00014ED4       PlasticUtils.TArray.BinarySearch<System.string>
+ 0001:00014FBC       PlasticUtils.TComparer<System.string>.Default
+ 0001:00014FE8       PlasticUtils.TComparer<System.string>.Construct
+ 0001:0001501C       PlasticUtils.TDelegatedComparer<System.string>.Create
+ 0001:00015064       PlasticUtils.TDelegatedComparer<System.string>.Compare
+ 0001:00015134       PlasticUtils..TComparer<System.string>
+ 0001:00015284       PlasticUtils.TComparer<System.string>.Compare
+ 0001:000152C8       PlasticUtils..TDelegatedComparer<System.string>
+ 0001:00015448       PlasticEngine..EPipeError
+ 0001:000154E4       PlasticEngine..EPerforceError
+ 0001:00015674       PlasticEngine..TPlasticFileInfo
+ 0001:00015754       PlasticEngine..TFileCacheItem
+ 0001:00015848       PlasticEngine..TPlasticCommThread
+ 0001:00015AF4       PlasticEngine..TPlasticEngine
+ 0001:00016440       PlasticEngine..TEnumerator<TPair<System.string,PlasticEngine.TFileCacheItem>>
+ 0001:000165A0       PlasticEngine..TEnumerable<TPair<System.string,PlasticEngine.TFileCacheItem>>
+ 0001:00016898       PlasticEngine..TEnumerator<System.string>
+ 0001:00016948       PlasticEngine..TEnumerable<System.string>
+ 0001:000169F8       PlasticEngine..TDictionary<System.string,PlasticEngine.TFileCacheItem>.TKeyEnumerator
+ 0001:00016BDC       PlasticEngine..TDictionary<System.string,PlasticEngine.TFileCacheItem>.TKeyCollection
+ 0001:00016DB0       PlasticEngine..TEnumerator<PlasticEngine.TFileCacheItem>
+ 0001:00016EE8       PlasticEngine..TEnumerable<PlasticEngine.TFileCacheItem>
+ 0001:00016FF8       PlasticEngine..TDictionary<System.string,PlasticEngine.TFileCacheItem>.TValueEnumerator
+ 0001:000171E4       PlasticEngine..TDictionary<System.string,PlasticEngine.TFileCacheItem>.TValueCollection
+ 0001:000173B8       PlasticEngine..TDictionary<System.string,PlasticEngine.TFileCacheItem>.TPairEnumerator
+ 0001:0001759C       PlasticEngine..TDictionary<System.string,PlasticEngine.TFileCacheItem>
+ 0001:00017C68       PlasticEngine..TObjectDictionary<System.string,PlasticEngine.TFileCacheItem>
+ 0001:00017F78       PlasticEngine.TPlasticEngine.Create
+ 0001:00017FFC       PlasticEngine.TPlasticEngine.DeleteFile
+ 0001:000183A4       PlasticEngine.TPlasticEngine.DeleteFiles
+ 0001:00018554       PlasticEngine.TPlasticEngine.Destroy
+ 0001:000185B4       PlasticEngine.TPlasticEngine.Diff
+ 0001:0001875C       PlasticEngine.TPlasticEngine.DiffFile
+ 0001:00018968       PlasticEngine.TPlasticEngine.ExcuteCommand
+ 0001:00018A90       PlasticEngine.TPlasticEngine.LogMessage
+ 0001:00018AB4       PlasticEngine.TPlasticEngine.CheckoutFile
+ 0001:00018ED4       PlasticEngine.TPlasticEngine.GetFileInfo
+ 0001:00019354       PlasticEngine.TPlasticEngine.UpdateFiles
+ 0001:0001950C       PlasticEngine.TPlasticEngine.UpdateFile
+ 0001:0001986C       PlasticEngine.TPlasticEngine.FileArchived
+ 0001:000198E4       PlasticEngine.TPlasticEngine.AddFile
+ 0001:00019980       PlasticEngine.TPlasticEngine.AddFiles
+ 0001:00019C40       PlasticEngine.TPlasticEngine.CheckoutFile
+ 0001:00019CDC       PlasticEngine.TPlasticEngine.CheckoutFiles
+ 0001:00019EA4       PlasticEngine.TPlasticEngine.ClearStatusCache
+ 0001:00019FB8       PlasticEngine.TPlasticEngine.RenameFile
+ 0001:0001A380       PlasticEngine.TPlasticEngine.UndoCheckoutFile
+ 0001:0001A7B0       PlasticEngine.TPlasticEngine.UndoCheckoutFiles
+ 0001:0001A978       PlasticEngine.TPlasticEngine.AddFile
+ 0001:0001ADD0       PlasticEngine.TPlasticEngine.CheckinFile
+ 0001:0001B1BC       PlasticEngine.TPlasticEngine.CheckinFiles
+ 0001:0001B384       PlasticEngine.TPlasticEngine.GetIsServerUp
+ 0001:0001B3D0       PlasticEngine.TPlasticEngine.GetPlasticExePath
+ 0001:0001B500       PlasticEngine.TPlasticEngine.HandleException
+ 0001:0001B5F8       PlasticEngine.TPlasticEngine.InternalClearStatusCache
+ 0001:0001B648       PlasticEngine.TPlasticEngine.InternalExcuteCommand
+ 0001:0001B7DC       PlasticEngine.TPlasticEngine.InternalGetFileInfo
+ 0001:0001B874       PlasticEngine.TPlasticEngine.ShelveFile
+ 0001:0001BC14       PlasticEngine.TPlasticEngine.ShelveFile
+ 0001:0001BCB0       PlasticEngine.TPlasticEngine.ShelveFiles
+ 0001:0001BE60       PlasticEngine.TPlasticEngine.ShowVisualClient
+ 0001:0001BF24       PlasticEngine.TPlasticEngine.StartPlasticShell
+ 0001:0001C0BC       PlasticEngine.TPlasticCommThread.Create
+ 0001:0001C138       PlasticEngine.TPlasticCommThread.InternalExcuteCommand
+ 0001:0001C394       PlasticEngine.TPlasticCommThread.Destroy
+ 0001:0001C434       PlasticEngine.TPlasticCommThread.ExcuteCommand
+ 0001:0001C618       PlasticEngine.TPlasticCommThread.Execute
+ 0001:0001C830       PlasticEngine.TPlasticCommThread.JvCPSReadEvent
+ 0001:0001CA2C       PlasticEngine.TPlasticCommThread.StartPlasticShell
+ 0001:0001CC04       PlasticEngine.TPlasticCommThread.Terminate
+ 0001:0001CC78       PlasticEngine.Finalization
+ 0001:0001CD08       PlasticEngine.TPair<System.string,PlasticEngine.TFileCacheItem>.Create
+ 0001:0001CD34       PlasticEngine.TEnumerable<TPair<System.string,PlasticEngine.TFileCacheItem>>.GetEnumerator
+ 0001:0001CD50       PlasticEngine.TEnumerator<TPair<System.string,PlasticEngine.TFileCacheItem>>.MoveNext
+ 0001:0001CD6C       PlasticEngine.TDictionary<System.string,PlasticEngine.TFileCacheItem>.SetCapacity
+ 0001:0001CDD8       PlasticEngine.TDictionary<System.string,PlasticEngine.TFileCacheItem>.Rehash
+ 0001:0001CEF8       PlasticEngine.TDictionary<System.string,PlasticEngine.TFileCacheItem>.Grow
+ 0001:0001CF30       PlasticEngine.TDictionary<System.string,PlasticEngine.TFileCacheItem>.GetBucketIndex
+ 0001:0001CFE4       PlasticEngine.TDictionary<System.string,PlasticEngine.TFileCacheItem>.Hash
+ 0001:0001D014       PlasticEngine.TDictionary<System.string,PlasticEngine.TFileCacheItem>.GetItem
+ 0001:0001D074       PlasticEngine.TDictionary<System.string,PlasticEngine.TFileCacheItem>.SetItem
+ 0001:0001D104       PlasticEngine.TDictionary<System.string,PlasticEngine.TFileCacheItem>.RehashAdd
+ 0001:0001D16C       PlasticEngine.TDictionary<System.string,PlasticEngine.TFileCacheItem>.DoAdd
+ 0001:0001D1E0       PlasticEngine.TDictionary<System.string,PlasticEngine.TFileCacheItem>.DoSetValue
+ 0001:0001D238       PlasticEngine.TDictionary<System.string,PlasticEngine.TFileCacheItem>.DoRemove
+ 0001:0001D38C       PlasticEngine.TDictionary<System.string,PlasticEngine.TFileCacheItem>.DoGetEnumerator
+ 0001:0001D3A8       PlasticEngine.TDictionary<System.string,PlasticEngine.TFileCacheItem>.KeyNotify
+ 0001:0001D3DC       PlasticEngine.TDictionary<System.string,PlasticEngine.TFileCacheItem>.ValueNotify
+ 0001:0001D410       PlasticEngine.TDictionary<System.string,PlasticEngine.TFileCacheItem>.Create
+ 0001:0001D45C       PlasticEngine.TDictionary<System.string,PlasticEngine.TFileCacheItem>.Create
+ 0001:0001D4A8       PlasticEngine.TDictionary<System.string,PlasticEngine.TFileCacheItem>.Create
+ 0001:0001D578       PlasticEngine.TDictionary<System.string,PlasticEngine.TFileCacheItem>.Create
+ 0001:0001D668       PlasticEngine.TDictionary<System.string,PlasticEngine.TFileCacheItem>.Create
+ 0001:0001D75C       PlasticEngine.TDictionary<System.string,PlasticEngine.TFileCacheItem>.Destroy
+ 0001:0001D7AC       PlasticEngine.TDictionary<System.string,PlasticEngine.TFileCacheItem>.Add
+ 0001:0001D82C       PlasticEngine.TDictionary<System.string,PlasticEngine.TFileCacheItem>.Remove
+ 0001:0001D858       PlasticEngine.TDictionary<System.string,PlasticEngine.TFileCacheItem>.ExtractPair
+ 0001:0001D8B0       PlasticEngine.TDictionary<System.string,PlasticEngine.TFileCacheItem>.Clear
+ 0001:0001D99C       PlasticEngine.TDictionary<System.string,PlasticEngine.TFileCacheItem>.TrimExcess
+ 0001:0001D9B8       PlasticEngine.TDictionary<System.string,PlasticEngine.TFileCacheItem>.TryGetValue
+ 0001:0001DA18       PlasticEngine.TDictionary<System.string,PlasticEngine.TFileCacheItem>.AddOrSetValue
+ 0001:0001DA90       PlasticEngine.TDictionary<System.string,PlasticEngine.TFileCacheItem>.ContainsKey
+ 0001:0001DAC4       PlasticEngine.TDictionary<System.string,PlasticEngine.TFileCacheItem>.ContainsValue
+ 0001:0001DB70       PlasticEngine.TDictionary<System.string,PlasticEngine.TFileCacheItem>.GetKeys
+ 0001:0001DBA8       PlasticEngine.TDictionary<System.string,PlasticEngine.TFileCacheItem>.GetValues
+ 0001:0001DBE0       PlasticEngine.TDictionary<System.string,PlasticEngine.TFileCacheItem>.GetEnumerator
+ 0001:0001DC04       PlasticEngine.TEnumerable<System.string>.GetEnumerator
+ 0001:0001DC20       PlasticEngine.TEnumerator<System.string>.MoveNext
+ 0001:0001DC3C       PlasticEngine.TDictionary<System.string,PlasticEngine.TFileCacheItem>.TKeyCollection.GetCount
+ 0001:0001DC58       PlasticEngine.TDictionary<System.string,PlasticEngine.TFileCacheItem>.TKeyCollection.DoGetEnumerator
+ 0001:0001DC74       PlasticEngine.TDictionary<System.string,PlasticEngine.TFileCacheItem>.TKeyCollection.Create
+ 0001:0001DCC4       PlasticEngine.TDictionary<System.string,PlasticEngine.TFileCacheItem>.TKeyCollection.GetEnumerator
+ 0001:0001DCEC       PlasticEngine.TDictionary<System.string,PlasticEngine.TFileCacheItem>.TKeyEnumerator.GetCurrent
+ 0001:0001DD1C       PlasticEngine.TDictionary<System.string,PlasticEngine.TFileCacheItem>.TKeyEnumerator.DoGetCurrent
+ 0001:0001DD38       PlasticEngine.TDictionary<System.string,PlasticEngine.TFileCacheItem>.TKeyEnumerator.DoMoveNext
+ 0001:0001DD54       PlasticEngine.TDictionary<System.string,PlasticEngine.TFileCacheItem>.TKeyEnumerator.Create
+ 0001:0001DDAC       PlasticEngine.TDictionary<System.string,PlasticEngine.TFileCacheItem>.TKeyEnumerator.MoveNext
+ 0001:0001DE00       PlasticEngine.TEnumerable<PlasticEngine.TFileCacheItem>.GetEnumerator
+ 0001:0001DE1C       PlasticEngine.TEnumerator<PlasticEngine.TFileCacheItem>.MoveNext
+ 0001:0001DE38       PlasticEngine.TDictionary<System.string,PlasticEngine.TFileCacheItem>.TValueCollection.GetCount
+ 0001:0001DE54       PlasticEngine.TDictionary<System.string,PlasticEngine.TFileCacheItem>.TValueCollection.DoGetEnumerator
+ 0001:0001DE70       PlasticEngine.TDictionary<System.string,PlasticEngine.TFileCacheItem>.TValueCollection.Create
+ 0001:0001DEC0       PlasticEngine.TDictionary<System.string,PlasticEngine.TFileCacheItem>.TValueCollection.GetEnumerator
+ 0001:0001DEE8       PlasticEngine.TDictionary<System.string,PlasticEngine.TFileCacheItem>.TValueEnumerator.GetCurrent
+ 0001:0001DF14       PlasticEngine.TDictionary<System.string,PlasticEngine.TFileCacheItem>.TValueEnumerator.DoGetCurrent
+ 0001:0001DF30       PlasticEngine.TDictionary<System.string,PlasticEngine.TFileCacheItem>.TValueEnumerator.DoMoveNext
+ 0001:0001DF4C       PlasticEngine.TDictionary<System.string,PlasticEngine.TFileCacheItem>.TValueEnumerator.Create
+ 0001:0001DFA4       PlasticEngine.TDictionary<System.string,PlasticEngine.TFileCacheItem>.TValueEnumerator.MoveNext
+ 0001:0001DFF8       PlasticEngine.TDictionary<System.string,PlasticEngine.TFileCacheItem>.TPairEnumerator.GetCurrent
+ 0001:0001E044       PlasticEngine.TDictionary<System.string,PlasticEngine.TFileCacheItem>.TPairEnumerator.DoGetCurrent
+ 0001:0001E060       PlasticEngine.TDictionary<System.string,PlasticEngine.TFileCacheItem>.TPairEnumerator.DoMoveNext
+ 0001:0001E07C       PlasticEngine.TDictionary<System.string,PlasticEngine.TFileCacheItem>.TPairEnumerator.Create
+ 0001:0001E0D4       PlasticEngine.TDictionary<System.string,PlasticEngine.TFileCacheItem>.TPairEnumerator.MoveNext
+ 0001:0001E128       PlasticEngine.TObjectDictionary<System.string,PlasticEngine.TFileCacheItem>.KeyNotify
+ 0001:0001E164       PlasticEngine.TObjectDictionary<System.string,PlasticEngine.TFileCacheItem>.ValueNotify
+ 0001:0001E1A0       PlasticEngine.TObjectDictionary<System.string,PlasticEngine.TFileCacheItem>.Create
+ 0001:0001E1F0       PlasticEngine.TObjectDictionary<System.string,PlasticEngine.TFileCacheItem>.Create
+ 0001:0001E240       PlasticEngine.TObjectDictionary<System.string,PlasticEngine.TFileCacheItem>.Create
+ 0001:0001E2F8       PlasticEngine.TEqualityComparer<System.string>.Default
+ 0001:0001E324       PlasticEngine.TEqualityComparer<PlasticEngine.TFileCacheItem>.Default
+ 0001:0001EA7C       .PlasticPluginD2010.@GetPackageInfoTable
+ 0001:0001EA84       .PlasticPluginD2010.@PackageLoad
+ 0001:0001EA90       .PlasticPluginD2010.@PackageUnload
+ 0002:00000000       System.System
+ 0002:00000008       Classes.TThread.Create@
+ 0002:00000010       Classes.Classes
+ 0002:00000018       Windows.Windows
+ 0002:00000030       TypInfo.TypInfo
+ 0002:00000038       SysUtils.TLanguages.Create@
+ 0002:00000040       SysUtils.TEncoding.Create@
+ 0002:00000048       SysUtils.Exception.Create@
+ 0002:00000050       SysUtils.SysUtils
+ 0002:00000058       Variants.Variants
+ 0002:00000060       VarUtils.VarUtils
+ 0002:00000068       Dialogs.Dialogs
+ 0002:00000070       ComCtrls.ComCtrls
+ 0002:00000078       ActnList.ActnList
+ 0002:00000080       Graphics.Graphics
+ 0002:00000088       Registry.Registry
+ 0002:00000090       IniFiles.IniFiles
+ 0002:00000098       IOUtils.TPath.Create@
+ 0002:000000A0       IOUtils.IOUtils
+ 0002:000000A8       Themes.Themes
+ 0002:000000B0       Controls.Controls
+ 0002:000000B8       SyncObjs.SyncObjs
+ 0002:000000C0       TimeSpan.TTimeSpan.Create@
+ 0002:000000C8       Menus.Menus
+ 0002:000000D0       UxTheme.UxTheme
+ 0002:000000D8       MultiMon.MultiMon
+ 0002:000000E0       Forms.Forms
+ 0002:000000E8       HelpIntfs.HelpIntfs
+ 0002:000000F0       GraphUtil.GraphUtil
+ 0002:000000F8       ExtCtrls.ExtCtrls
+ 0002:00000100       Printers.Printers
+ 0002:00000108       Clipbrd.Clipbrd
+ 0002:00000110       FlatSB.FlatSB
+ 0002:00000118       DbugIntf.DbugIntf
+ 0002:00000124       ToolsAPI.ToolsAPI
+ 0002:0000012C       XMLIntf.XMLIntf
+ 0002:00000134       xmldom.xmldom
+ 0002:0000013C       msxmldom.msxmldom
+ 0002:00000144       ComObj.ComObj
+ 0002:0000014C       DockForm.DockForm
+ 0002:00000154       IDEMessages.IDEMessages
+ 0002:0000015C       DeskForm.DeskForm
+ 0002:00000164       BaseDock.BaseDock
+ 0002:0000016C       PercentageDockTree.PercentageDockTree
+ 0002:00000174       CaptionedDockTree.CaptionedDockTree
+ 0002:0000017C       DockTabSet.DockTabSet
+ 0002:00000184       Tabs.Tabs
+ 0002:0000018C       DeskUtil.DeskUtil
+ 0002:00000194       TabDock.TabDock
+ 0002:0000019C       PlatformDefaultStyleActnCtrls.PlatformDefaultStyleActnCtrls
+ 0002:000001A4       Buttons.Buttons
+ 0002:000001AC       ActnMan.ActnMan
+ 0002:000001B4       ActnMenus.ActnMenus
+ 0002:000001BC       ExtActns.ExtActns
+ 0002:000001C4       ExtDlgs.ExtDlgs
+ 0002:000001CC       Mapi.Mapi
+ 0002:000001D4       JvConsts.JvConsts
+ 0002:000001DC       JvCreateProcess.JvCreateProcess
+ 0002:000001E4       JclRegistry.JclRegistry
+ 0002:000001EC       JclStrings.JclStrings
+ 0002:000001F4       JclBase.JclBase
+ 0002:000001FC       JclResources.JclResources
+ 0002:00000204       JclUnicode.JclUnicode
+ 0002:0000020C       JclSysInfo.JclSysInfo
+ 0002:00000214       JclAnsiStrings.JclAnsiStrings
+ 0002:0000021C       AnsiStrings.AnsiStrings
+ 0002:00000224       JclSysUtils.JclSysUtils
+ 0002:0000022C       JclFileUtils.JclFileUtils
+ 0002:00000234       JclShell.JclShell
+ 0002:0000023C       JclCharsets.JclCharsets
+ 0002:00000244       JclDebug.JclDebug
+ 0002:0000024C       JclHookExcept.JclHookExcept
+ 0002:00000254       PlasticAsync.PlasticAsync
+ 0002:000002B8       PlasticNotify.PlasticNotify
+ 0002:000002D8       PlasticExpert.PlasticExpert
+ 0002:0000033C       PlasticUtils.PlasticUtils
+ 0002:00000344       PlasticEngine.PlasticEngine
+ 0002:00000364       .PlasticPluginD2010..PlasticPluginD2010
+ 0003:00000000       SysInit.TlsIndex
+ 0003:00000004       SysInit.PtrToNil
+ 0003:00000008       SysInit.Module
+ 0003:00000024       SysInit.TlsProc
+ 0003:00000034       Windows.Win32MajorVersion
+ 0003:00000038       Windows.Win32MinorVersion
+ 0003:0000003C       Windows.Win32Platform
+ 0003:00000040       DbugIntf.PastFailedAttemptToStartDebugWin
+ 0003:00000044       DbugIntf.SendPaused
+ 0003:00000048       JvConsts.Separators
+ 0003:00000068       JvConsts.crJVCLFirst
+ 0003:0000006C       JvConsts.crMultiDragLink
+ 0003:00000070       JvConsts.crDragAlt
+ 0003:00000074       JvConsts.crMultiDragAlt
+ 0003:00000078       JvConsts.crMultiDragLinkAlt
+ 0003:0000007C       JvConsts.crHand
+ 0003:00000080       JvConsts.crDragHand
+ 0003:00000084       JvConsts.crJVCLLast
+ 0003:00000088       JvConsts.tkStrings
+ 0003:0000008C       JvCreateProcess.ProcessPriorities
+ 0003:0000009C       JvCreateProcess.cCloseAction
+ 0003:000000A4       JvCreateProcess.ShowWindowValues
+ 0003:000000B4       JvCreateProcess.CreationFlagsValues
+ 0003:000000D4       PlasticUtils.C_WhiteListedExt
+ 0003:000000F0       PlasticUtils.C_BlackListedExt
+ 0003:00000104       PlasticEngine.C_PlasticStatus
+ 0004:00000000       SysInit.ModuleIsLib
+ 0004:00000001       SysInit.ModuleIsPackage
+ 0004:00000004       SysInit.HInstance
+ 0004:00000008       SysInit.tlsBuffer
+ 0004:0000000C       Windows..2
+ 0004:00000010       Windows.HtmlHelpModule
+ 0004:00000014       DbugIntf..2
+ 0004:00000018       DbugIntf.GDebugSendThread
+ 0004:0000001C       JvConsts..1
+ 0004:00000020       JvCreateProcess..5
+ 0004:00000024       JvCreateProcess.GWinSrvHandle
+ 0004:00000028       JvCreateProcess.GTriedLoadWinSrvDll
+ 0004:0000002C       PlasticAsync.GAsyncThread
+ 0004:00000030       PlasticAsync..3
+ 0004:00000034       PlasticAsync.E
+ 0004:00000038       PlasticNotify..3
+ 0004:0000003C       PlasticNotify._IDENotifier
+ 0004:00000040       PlasticExpert.GPlasticExpert
+ 0004:00000044       PlasticExpert..2
+ 0004:00000048       PlasticExpert.E
+ 0004:0000004C       PlasticUtils..3
+ 0004:00000050       PlasticEngine.GPlasticEngine
+ 0004:00000054       PlasticEngine..8
+ 0005:00000000       DbugIntf.MsgPrefix
+ 0005:00000004       DbugIntf._IndentTime
+ 0005:00000008       SysInit.TlsLast
+
+
+Line numbers for SysInit(SysInit.pas) segment .text
+
+    97 0001:000002A8   124 0001:000002B0   127 0001:000002B8   130 0001:000002C0
+   133 0001:000002C8   136 0001:000002D0   139 0001:000002D8   159 0001:000002E0
+   160 0001:000002E8   274 0001:000002EC   275 0001:000002F1   282 0001:000002F4
+   287 0001:000002F5   288 0001:000002FC   292 0001:00000300   293 0001:00000313
+   294 0001:0000031A   295 0001:0000031E   297 0001:0000032A   298 0001:00000336
+   303 0001:00000338   305 0001:00000341   306 0001:0000034B   307 0001:00000350
+   308 0001:00000360   314 0001:00000364   316 0001:0000036D   317 0001:00000376
+   318 0001:00000381   319 0001:00000385   320 0001:0000038B   323 0001:00000398
+   327 0001:0000039C   329 0001:000003A5   330 0001:000003AA   331 0001:000003B3
+   332 0001:000003BE   354 0001:000003C0   355 0001:000003C6   356 0001:000003CB
+   357 0001:000003CD   358 0001:000003CF   359 0001:000003D6   360 0001:000003D9
+   363 0001:000003DA   364 0001:000003DF   365 0001:000003E4   366 0001:000003E5
+   367 0001:000003EA   368 0001:000003EC   369 0001:000003EE   372 0001:000003EF
+   373 0001:000003F4   376 0001:000003F5   377 0001:000003F6   378 0001:000003FB
+   379 0001:000003FD   380 0001:000003FF   418 0001:00000400   419 0001:0000040A
+   423 0001:0000040C   424 0001:00000416   425 0001:00000427   426 0001:0000042D
+   497 0001:00000430   498 0001:0000043B   499 0001:00000442   500 0001:00000449
+   501 0001:0000044E   502 0001:00000456   503 0001:0000045E   504 0001:00000463
+   505 0001:0000046C   506 0001:00000475   507 0001:0000047A   508 0001:00000481
+   509 0001:00000485   510 0001:0000048A   511 0001:0000048D   542 0001:00000494
+   543 0001:0000049E   547 0001:000004A0   548 0001:000004AA   849 0001:000004AB
+
+Line numbers for DbugIntf(DbugIntf.pas) segment .text
+
+    88 0001:00000FD0    89 0001:00000FFB    91 0001:0000100C    92 0001:00001011
+    95 0001:0000101E    96 0001:00001032    97 0001:00001040    99 0001:00001065
+   102 0001:00001075   105 0001:00001086   106 0001:000010B0   107 0001:000010BC
+   110 0001:000010E6   112 0001:00001103   113 0001:0000110A   116 0001:0000110F
+   117 0001:0000111E   118 0001:00001125   119 0001:0000112C   120 0001:00001132
+   125 0001:0000115A   126 0001:00001161   129 0001:00001163   130 0001:00001171
+   132 0001:0000118C   133 0001:00001195   136 0001:000011A6   137 0001:000011B5
+   143 0001:000012C8   144 0001:000012FD   147 0001:0000130A   149 0001:00001320
+   153 0001:00001387   154 0001:00001395   155 0001:0000139A   156 0001:000013A9
+   158 0001:000013D6   159 0001:00001401   163 0001:0000141C   165 0001:00001425
+   166 0001:00001435   168 0001:00001448   169 0001:00001455   172 0001:000014F0
+   173 0001:000014FC   174 0001:00001509   177 0001:00001510   178 0001:00001533
+   179 0001:00001552   182 0001:00001578   183 0001:0000159B   184 0001:000015BB
+   189 0001:000015E0   190 0001:00001603   191 0001:00001623   193 0001:0000163C
+   194 0001:0000164F   195 0001:00001671   196 0001:0000168C   202 0001:000016C4
+   203 0001:000016F0   205 0001:00001709   207 0001:00001721   208 0001:00001735
+   209 0001:00001750   215 0001:000017B9   216 0001:000017BE   220 0001:000017FF
+   221 0001:00001820   224 0001:000018B8   225 0001:000018D7   226 0001:000018F0
+   227 0001:0000190F   230 0001:00001964   231 0001:00001983   233 0001:000019A2
+   234 0001:000019BB   237 0001:000019FC   241 0001:00001A22   242 0001:00001A28
+   244 0001:00001A47   245 0001:00001A64   248 0001:00001AC8   249 0001:00001AEB
+   250 0001:00001B22   253 0001:00001B60   254 0001:00001B82   255 0001:00001B91
+   256 0001:00001B9A   257 0001:00001BD2   261 0001:00001C50   262 0001:00001C57
+   266 0001:00001C58   267 0001:00001C5F   272 0001:00001C60   273 0001:00001C67
+   274 0001:00001C6F   275 0001:00001C81   276 0001:00001C93   278 0001:00001C9D
+   279 0001:00001CA4   282 0001:00001CA8   283 0001:00001CB9   284 0001:00001CC1
+   285 0001:00001CCC   286 0001:00001CD7   287 0001:00001CE5   291 0001:00001CF8
+   293 0001:00001D1A   297 0001:00001D47   298 0001:00001D4E   304 0001:00001D55
+   305 0001:00001D5E   307 0001:00001D6E   306 0001:00001D76   310 0001:00001D94
+   314 0001:00001DA2   315 0001:00001DAB   300 0001:00001DB4   295 0001:00001DC9
+   319 0001:00001DD6   327 0001:00001E04   328 0001:00001E0D   329 0001:00001E12
+   331 0001:00001E1D   332 0001:00001E2B   333 0001:00001E39   334 0001:00001E4B
+   336 0001:00001E60   339 0001:00001E73   341 0001:00001E78   343 0001:00001E84
+   345 0001:00001E93   346 0001:00001E99   349 0001:00001EA1   353 0001:00001EB1
+   355 0001:00001EC1   358 0001:00001EC7   360 0001:00001ED8   361 0001:00001EE3
+   362 0001:00001EF0   351 0001:00001EFD   366 0001:00001F16   369 0001:00001F26
+   370 0001:00001F2D   376 0001:00001F48   378 0001:00001F54   380 0001:00001F61
+   381 0001:00001F6B   384 0001:00001F77   385 0001:00001F85   386 0001:00001F96
+   389 0001:00001F9F   392 0001:00001FAD   394 0001:00001FB6   395 0001:00001FBD
+   397 0001:00001FD2   404 0001:00001FD8   405 0001:00001FE1   406 0001:00001FEC
+   407 0001:00001FFA   409 0001:00002010   411 0001:00002020   416 0001:00002028
+   418 0001:0000203C   419 0001:00002046   420 0001:0000205D   421 0001:00002067
+   424 0001:00002071
+
+Line numbers for DbugIntf(DbugIntf.pas) segment .itext
+
+   413 0002:00000118   415 0002:00000122
+
+Line numbers for JvConsts(JvConsts.pas) segment .itext
+
+   237 0002:000001D4
+
+Line numbers for JvCreateProcess(JvCreateProcess.pas) segment .text
+
+   351 0001:00003F0C   353 0001:00003F15   355 0001:00003F1C   356 0001:00003F30
+   357 0001:00003F39   359 0001:00003F44   360 0001:00003F49   364 0001:00003F70
+   365 0001:00003F73   366 0001:00003F77   367 0001:00003F7C   368 0001:00003F7E
+   377 0001:00003F80   378 0001:00003F83   379 0001:00003F97   395 0001:00003F9C
+   396 0001:00003FA8   397 0001:00003FB2   399 0001:00003FB9   400 0001:00003FBF
+   402 0001:00003FCD   403 0001:00003FE2   404 0001:00003FEE   406 0001:00003FF2
+   407 0001:00003FF5   409 0001:00003FFC   410 0001:00003FFF   411 0001:00004002
+   412 0001:00004006   413 0001:0000400B   414 0001:00004018   415 0001:0000401D
+   420 0001:00004020   421 0001:00004022   422 0001:0000402E   423 0001:00004038
+   424 0001:00004046   425 0001:0000404C   428 0001:00004054   429 0001:00004057
+   431 0001:0000405C   432 0001:0000406A   433 0001:0000406E   436 0001:00004074
+   437 0001:00004076   470 0001:0000428C   471 0001:00004293   476 0001:000042CF
+   483 0001:000042D8   488 0001:000042E4   489 0001:000042F4   491 0001:000042FC
+   494 0001:00004306   495 0001:00004312   496 0001:00004322   499 0001:0000432C
+   500 0001:00004332   502 0001:0000433A   505 0001:0000434A   516 0001:0000436B
+   517 0001:0000437B   520 0001:00004390   522 0001:000043A0   525 0001:000043A4
+   527 0001:000043C5   528 0001:000043D5   535 0001:000043EF   539 0001:00004410
+   542 0001:0000441D   544 0001:0000443E   545 0001:0000444A   547 0001:00004463
+   552 0001:0000446C   553 0001:00004481   554 0001:0000448A   555 0001:0000448D
+   556 0001:0000449C   559 0001:000044B8   560 0001:000044C3   561 0001:000044CB
+   562 0001:000044D7   566 0001:000044E8   567 0001:000044EB   573 0001:000044EC
+   574 0001:00004504   575 0001:0000450D   576 0001:00004518   577 0001:0000451B
+   578 0001:00004526   582 0001:00004544   583 0001:0000454C   589 0001:00004550
+   590 0001:00004557   591 0001:0000455E   594 0001:00004567   595 0001:00004577
+   596 0001:00004583   597 0001:00004591   598 0001:0000459C   599 0001:000045A6
+   601 0001:000045BF   603 0001:000045C5   605 0001:000045CB   607 0001:000045D1
+   609 0001:000045D7   612 0001:000045E8   615 0001:000045F9   620 0001:00004604
+   621 0001:00004610   622 0001:0000461E   624 0001:0000463F   625 0001:00004643
+   628 0001:0000464C   629 0001:0000464F   631 0001:00004660   633 0001:0000466E
+   635 0001:0000467C   637 0001:0000468A   639 0001:00004696   644 0001:00004698
+   645 0001:0000469F   646 0001:000046B2   647 0001:000046BE   648 0001:000046CC
+   650 0001:000046F8   652 0001:00004709   656 0001:00004710   657 0001:00004718
+   662 0001:0000471C   663 0001:0000472E   664 0001:00004737   665 0001:0000473B
+   666 0001:0000473F   667 0001:00004743   668 0001:00004747   671 0001:00004764
+   672 0001:0000476B   675 0001:0000477C   676 0001:00004789   677 0001:00004794
+   678 0001:0000479A   679 0001:000047A0   680 0001:000047A7   681 0001:000047AD
+   682 0001:000047B3   683 0001:000047BA   684 0001:000047C1   685 0001:000047C8
+   686 0001:000047CF   689 0001:000047D8   690 0001:000047E1   696 0001:000047E8
+   697 0001:000047EE   700 0001:000047FC   701 0001:00004802   702 0001:0000480E
+   703 0001:00004819   704 0001:00004825   705 0001:00004830   707 0001:00004836
+   708 0001:0000483C   709 0001:00004842   711 0001:00004846   713 0001:0000484C
+   714 0001:00004852   715 0001:00004858   717 0001:0000485C   719 0001:00004862
+   720 0001:00004872   722 0001:00004875   723 0001:0000487B   724 0001:0000487F
+   725 0001:00004885   727 0001:0000488C   732 0001:00004890   733 0001:000048A5
+   734 0001:000048B0   735 0001:000048B4   736 0001:000048BD   737 0001:000048CD
+   738 0001:000048D0   741 0001:000048EC   742 0001:000048F7   743 0001:000048FF
+   744 0001:0000490B   749 0001:0000491C   750 0001:0000493B   752 0001:00004960
+   753 0001:00004966   754 0001:0000496C   755 0001:00004974   757 0001:0000498C
+   759 0001:00004995   761 0001:000049A4   763 0001:000049A9   766 0001:000049D4
+   767 0001:000049D7   768 0001:000049DE   769 0001:000049E7   774 0001:000049EC
+   775 0001:00004A04   777 0001:00004A0F   778 0001:00004A12   779 0001:00004A16
+   781 0001:00004A1F   784 0001:00004A2E   785 0001:00004A34   787 0001:00004A3A
+   788 0001:00004A3F   789 0001:00004A46   790 0001:00004A4B   791 0001:00004A56
+   792 0001:00004A63   795 0001:00004A84   796 0001:00004A8F   797 0001:00004A97
+   802 0001:00004AA3   803 0001:00004AAB   804 0001:00004AB3   805 0001:00004ABB
+   808 0001:00004ACC   809 0001:00004AD3   810 0001:00004ADD   811 0001:00004AEB
+   813 0001:00004B03   815 0001:00004B16   819 0001:00004B1C   820 0001:00004B29
+   821 0001:00004B33   822 0001:00004B41   825 0001:00004B53   827 0001:00004B5A
+   831 0001:00004B64   832 0001:00004B6F   837 0001:00004B80   838 0001:00004B97
+   840 0001:00004BAA   844 0001:00004BBD   845 0001:00004BD7   851 0001:00004BDC
+   855 0001:00004BE2   858 0001:00004BFF   860 0001:00004C09   863 0001:00004C0B
+   852 0001:00004C18   865 0001:00004C1E   872 0001:00004C24   873 0001:00004C34
+   874 0001:00004C3E   875 0001:00004C4C   876 0001:00004C58   877 0001:00004C5E
+   879 0001:00004C65   882 0001:00004C79   886 0001:00004C88   887 0001:00004C92
+   890 0001:00004CA7   892 0001:00004CBC   894 0001:00004CCF   897 0001:00004CDC
+   898 0001:00004CDF   899 0001:00004CE6   900 0001:00004CED   906 0001:00004CF0
+   907 0001:00004D05   909 0001:00004D0E   912 0001:00004D1D   914 0001:00004D23
+   920 0001:00004D33   923 0001:00004D50   924 0001:00004D5B   925 0001:00004D63
+   926 0001:00004D6B   931 0001:00004D77   932 0001:00004D7F   935 0001:00004D90
+   936 0001:00004D97   937 0001:00004DA1   938 0001:00004DAF   940 0001:00004DC7
+   942 0001:00004DDA   948 0001:00004DE0   949 0001:00004DE7   950 0001:00004DED
+   951 0001:00004DF4   952 0001:00004DFB   954 0001:00004E00   957 0001:00004E0A
+   961 0001:00004E25   962 0001:00004E2C   967 0001:00004E2E   968 0001:00004E3B
+   972 0001:00004E3D   974 0001:00004E48   956 0001:00004E4D   978 0001:00004E53
+   986 0001:00004E5C   987 0001:00004E67   989 0001:00004E6B   990 0001:00004E75
+   991 0001:00004E83   994 0001:00004E91   995 0001:00004E9B   997 0001:00004EAA
+   998 0001:00004EB7  1000 0001:00004EC6  1002 0001:00004EC8  1007 0001:00004EE0
+  1009 0001:00004EF6  1010 0001:00004F01  1013 0001:00004F10  1014 0001:00004F16
+  1016 0001:00004F25  1018 0001:00004F2A  1020 0001:00004F44  1022 0001:00004F5D
+  1023 0001:00004F68  1024 0001:00004F74  1027 0001:00004F95  1029 0001:00004FA8
+  1035 0001:00004FB4  1036 0001:00004FC1  1038 0001:00004FCC  1039 0001:00004FD0
+  1042 0001:00004FD5  1043 0001:00004FDF  1044 0001:00004FED  1045 0001:00004FF8
+  1046 0001:00004FFE  1048 0001:00005008  1049 0001:00005023  1050 0001:00005029
+  1052 0001:00005030  1053 0001:0000504C  1055 0001:0000505C  1057 0001:00005068
+  1059 0001:00005081  1061 0001:00005094  1066 0001:000050A0  1067 0001:000050B2
+  1068 0001:000050BB  1069 0001:000050C5  1070 0001:000050D4  1071 0001:000050D8
+  1072 0001:000050DC  1073 0001:000050E0  1074 0001:000050EF  1075 0001:000050F9
+  1076 0001:0000510A  1077 0001:0000511B  1080 0001:00005140  1081 0001:0000514B
+  1082 0001:00005152  1083 0001:0000515A  1084 0001:00005162  1085 0001:0000516A
+  1086 0001:00005172  1087 0001:00005179  1088 0001:0000517E  1089 0001:00005185
+  1090 0001:00005191  1094 0001:000051A0  1095 0001:000051AF  1096 0001:000051C5
+  1100 0001:000051C8  1101 0001:000051CE  1102 0001:000051E4  1106 0001:000051E8
+  1107 0001:000051EE  1108 0001:00005204  1111 0001:00005208  1112 0001:0000520E
+  1113 0001:00005215  1114 0001:0000521F  1117 0001:00005224  1118 0001:00005227
+  1119 0001:00005234  1120 0001:00005241  1123 0001:00005244  1124 0001:00005247
+  1125 0001:0000524F  1126 0001:00005257  1129 0001:0000525C  1130 0001:00005260
+  1131 0001:00005274  1132 0001:0000527B  1135 0001:00005280  1136 0001:00005283
+  1138 0001:00005289  1139 0001:0000528F  1141 0001:00005298  1142 0001:0000529F
+  1143 0001:000052A6  1146 0001:000052B4  1150 0001:000052B8  1151 0001:000052C0
+  1155 0001:000052C4  1156 0001:000052C7  1159 0001:000052C8  1160 0001:000052CB
+  1161 0001:000052D1  1162 0001:000052DF  1163 0001:000052E2  1167 0001:000052E4
+  1168 0001:000052F2  1172 0001:000052F4  1173 0001:00005302  1177 0001:00005304
+  1178 0001:00005312  1182 0001:00005314  1183 0001:00005322  1186 0001:00005324
+  1187 0001:00005327  1188 0001:0000532E  1189 0001:00005332  1190 0001:00005339
+  1191 0001:00005341  1194 0001:00005344  1195 0001:00005347  1196 0001:0000534E
+  1197 0001:00005352  1198 0001:00005359  1201 0001:0000535C  1202 0001:00005362
+  1203 0001:00005369  1204 0001:0000536D  1205 0001:00005373  1209 0001:00005378
+  1210 0001:0000537F  1226 0001:00005380  1227 0001:000053A1  1229 0001:000053A8
+  1231 0001:000053B7  1232 0001:000053C5  1233 0001:000053CC  1234 0001:000053DF
+  1232 0001:000053E8  1235 0001:000053EC  1236 0001:000053FA  1238 0001:00005408
+  1242 0001:0000540D  1243 0001:0000541C  1244 0001:0000542B  1245 0001:00005439
+  1247 0001:00005444  1249 0001:0000544A  1253 0001:0000545C  1254 0001:00005463
+  1255 0001:00005473  1256 0001:00005480  1260 0001:00005490  1263 0001:000054C4
+  1264 0001:000054CB  1267 0001:000054D0  1276 0001:000054DA  1277 0001:000054E0
+  1279 0001:000054EE  1281 0001:000054FA  1282 0001:0000551C  1283 0001:00005526
+  1285 0001:0000552D  1287 0001:00005541  1288 0001:00005547  1291 0001:00005560
+  1293 0001:00005566  1295 0001:00005572  1296 0001:00005586  1297 0001:00005590
+  1302 0001:00005599  1303 0001:000055A4  1311 0001:000055B8  1312 0001:000055C0
+  1315 0001:000055D0  1318 0001:000055FC  1319 0001:00005602  1322 0001:0000560C
+  1323 0001:00005617  1325 0001:0000562D  1328 0001:00005630  1329 0001:00005633
+  1330 0001:0000563B  1334 0001:00005640  1335 0001:00005643  1336 0001:00005652
+  1339 0001:00005658  1340 0001:0000565B  1341 0001:0000566A  1344 0001:00005670
+  1345 0001:00005673  1346 0001:00005682  1349 0001:00005688  1350 0001:0000568B
+  1351 0001:0000569A  1355 0001:000056A0  1356 0001:000056A8  1359 0001:000056AC
+  1360 0001:000056B2  1361 0001:000056B9  1362 0001:000056BC  1366 0001:000056C0
+  1367 0001:000056C5  1370 0001:000056C8  1371 0001:000056CB  1372 0001:000056D2
+  1373 0001:000056DA  1376 0001:000056DC  1386 0001:000056DF  1388 0001:000056E5
+  1390 0001:000056EC  1391 0001:000056F4  1392 0001:000056F9  1394 0001:000056FE
+  1395 0001:00005706  1397 0001:0000570E  1398 0001:00005716  1400 0001:0000571D
+  1403 0001:00005720  1404 0001:00005723  1405 0001:0000572C  1418 0001:00005731
+  1419 0001:00005747  1422 0001:0000574C  1423 0001:00005758  1425 0001:00005766
+  1426 0001:00005774  1427 0001:00005781  1429 0001:0000578B  1432 0001:000057B6
+  1433 0001:000057C2  1435 0001:000057D5  1438 0001:000057DC  1439 0001:000057E3
+  1441 0001:0000580A  1444 0001:00005810  1445 0001:00005829  1446 0001:00005844
+  1453 0001:00005878  1454 0001:0000587F  1455 0001:00005886  1458 0001:00005888
+  1459 0001:0000588F  1460 0001:00005893  1461 0001:0000589B  1463 0001:000058A0
+  1464 0001:000058BD  1465 0001:000058C7  1466 0001:000058CE  1471 0001:000058D4
+  1472 0001:000058EC  1475 0001:000058F3  1476 0001:000058FD  1478 0001:00005914
+  1481 0001:00005940  1483 0001:0000595E  1485 0001:00005967  1486 0001:0000597D
+  1488 0001:0000599B  1490 0001:000059C6  1491 0001:000059CD  1492 0001:000059E9
+  1494 0001:000059ED  1495 0001:000059F5  1497 0001:000059FA  1498 0001:000059FD
+  1503 0001:00005A28  1508 0001:00005A2F  1507 0001:00005A3C  1509 0001:00005A53
+  1519 0001:00005A58  1520 0001:00005A64  1521 0001:00005A70  1525 0001:00005A74
+  1527 0001:00005A89  1530 0001:00005A97  1533 0001:00005AB5  1534 0001:00005ABA
+  1537 0001:00005AC0  1539 0001:00005ACB  1541 0001:00005AE1  1544 0001:00005AEF
+  1547 0001:00005B0C  1548 0001:00005B12  1550 0001:00005B18  1551 0001:00005B2B
+  1553 0001:00005B37  1554 0001:00005B39  1557 0001:00005B41  1561 0001:00005B83
+  1562 0001:00005B88  1566 0001:00005B8C  1567 0001:00005B93  1568 0001:00005B99
+  1569 0001:00005BA2  1570 0001:00005BAA  1571 0001:00005BAC  1576 0001:00005BB3
+  1577 0001:00005BBA  1578 0001:00005BC1  1579 0001:00005BC3  1583 0001:00005BCA
+  1584 0001:00005BD1  1585 0001:00005BDB  1586 0001:00005BDD  1590 0001:00005BE4
+  1591 0001:00005BEB  1592 0001:00005BF3  1593 0001:00005BF5  1596 0001:00005BFC
+  1556 0001:00005BFE  1598 0001:00005C0A  1599 0001:00005C11  1600 0001:00005C1B
+  1603 0001:00005C24  1604 0001:00005C27  1606 0001:00005C2E  1607 0001:00005C36
+  1608 0001:00005C3B  1610 0001:00005C40  1613 0001:00005C44  1615 0001:00005C47
+  1616 0001:00005C4E  1617 0001:00005C54  1619 0001:00005C5D  1621 0001:00005C62
+  1622 0001:00005C79  1627 0001:00005C7C  1628 0001:00005C87  1629 0001:00005C8E
+  1630 0001:00005C9A  1633 0001:00005CA8  1634 0001:00005CAB  1635 0001:00005CB6
+  1636 0001:00005CC4  1637 0001:00005CD2  1640 0001:00005CD4  1641 0001:00005CD5
+  1642 0001:00005CD9  1643 0001:00005CDF  1647 0001:00005CE4  1648 0001:00005CE8
+  1652 0001:00005CEC  1653 0001:00005CF5  1655 0001:00005CFD  1656 0001:00005D01
+  1657 0001:00005D07  1659 0001:00005D0B
+
+Line numbers for JvCreateProcess(JvCreateProcess.pas) segment .itext
+
+  1669 0002:000001DC
+
+Line numbers for PlasticAsync(PlasticAsync.pas) segment .text
+
+    33 0001:00006E80    34 0001:00006E87    35 0001:00006E8F    36 0001:00006EA1
+    37 0001:00006EB3    38 0001:00006EC7    41 0001:00006ECC    42 0001:00006EDD
+    43 0001:00006EE8    44 0001:00006EF3    45 0001:00006EFE    46 0001:00006F0C
+    51 0001:00006F20    52 0001:00006F3F    55 0001:00006F52    57 0001:00006F60
+    59 0001:00006F78    62 0001:00006F83    65 0001:00006FA0    66 0001:00006FA8
+    67 0001:00006FB6    68 0001:00006FC1    69 0001:00006FEA    68 0001:00006FF8
+    69 0001:00007011    70 0001:0000702E    72 0001:00007046    76 0001:00007056
+    77 0001:0000707F    78 0001:0000708D    80 0001:000070B0    76 0001:000070C0
+    81 0001:000070D9    86 0001:00007111    54 0001:00007121    88 0001:0000712E
+    91 0001:0000718C    92 0001:000071AE    93 0001:000071BC    94 0001:000071C7
+    97 0001:000071E8    98 0001:000071EF    99 0001:000071F7   100 0001:00007202
+   110 0001:00007208   111 0001:00007225   112 0001:0000722F   113 0001:00007239
+   115 0001:0000725E   117 0001:0000726E   119 0001:00007275
+
+Line numbers for PlasticAsync(PlasticAsync.pas) segment .itext
+
+   102 0002:00000254   103 0002:00000263   104 0002:00000271   106 0002:0000029F
+   109 0002:000002B3
+
+Line numbers for PlasticNotify(PlasticNotify.pas) segment .text
+
+    97 0001:0000AA90    98 0001:0000AAB4   101 0001:0000AAC9   103 0001:0000AAE5
+   106 0001:0000AB14   109 0001:0000AB48   113 0001:0000ABA3   114 0001:0000ABCB
+   118 0001:0000ABF6   120 0001:0000AC0B   124 0001:0000AC5D   125 0001:0000AC75
+   129 0001:0000ACAB   130 0001:0000ACC7   132 0001:0000ACE6   133 0001:0000AD14
+   134 0001:0000AD59   129 0001:0000AD5C   138 0001:0000AD65   140 0001:0000AD7A
+   141 0001:0000AD88   144 0001:0000AD90   145 0001:0000ADA6   146 0001:0000ADB7
+   149 0001:0000ADE3   152 0001:0000ADE5   101 0001:0000ADE8   154 0001:0000ADF1
+   155 0001:0000AE1D   158 0001:0000B0FC   160 0001:0000B108   163 0001:0000B10C
+   164 0001:0000B128   165 0001:0000B130   168 0001:0000B144   169 0001:0000B159
+   170 0001:0000B171   173 0001:0000B1A4   175 0001:0000B1AB   179 0001:0000B1B0
+   181 0001:0000B1BF   184 0001:0000B1C4   186 0001:0000B1CB   189 0001:0000B1D0
+   190 0001:0000B1E1   191 0001:0000B1ED   192 0001:0000B1F5   193 0001:0000B200
+   194 0001:0000B20E   197 0001:0000B258   198 0001:0000B25F   199 0001:0000B26B
+   200 0001:0000B273   207 0001:0000B2B4   208 0001:0000B2C6   209 0001:0000B2D4
+   211 0001:0000B2DA   213 0001:0000B2F5   215 0001:0000B302   217 0001:0000B308
+   219 0001:0000B323   221 0001:0000B338   222 0001:0000B346   226 0001:0000B34E
+   228 0001:0000B377   230 0001:0000B387   233 0001:0000B430   235 0001:0000B437
+   240 0001:0000B43C   241 0001:0000B45B   242 0001:0000B467   244 0001:0000B475
+   245 0001:0000B4A3   244 0001:0000B4AB   245 0001:0000B4C4   248 0001:0000B4E1
+   249 0001:0000B4EA   250 0001:0000B4FF   252 0001:0000B528   254 0001:0000B538
+   255 0001:0000B542   291 0001:0000BC08   292 0001:0000BC0F   293 0001:0000BC2A
+   283 0001:0000BC30   284 0001:0000BC8E   289 0001:0000BCCC   295 0001:0000BCE2
+   311 0001:0000BD98   312 0001:0000BD9F   313 0001:0000BDBA   303 0001:0000BDC0
+   304 0001:0000BE1E   309 0001:0000BE5C   315 0001:0000BE72   267 0001:0000BF44
+   268 0001:0000BF9F   269 0001:0000BFB8   270 0001:0000BFC6   273 0001:0000BFCF
+   274 0001:0000BFDC   276 0001:0000BFF3   281 0001:0000C012   298 0001:0000C025
+   301 0001:0000C032   319 0001:0000C050   321 0001:0000C063   261 0001:0000C084
+   263 0001:0000C0CA   265 0001:0000C0EB   325 0001:0000C101   328 0001:0000C16C
+   334 0001:0000C173   337 0001:0000C178   338 0001:0000C181   339 0001:0000C185
+   342 0001:0000C18C   343 0001:0000C1BD   345 0001:0000C1C7   346 0001:0000C1D5
+   347 0001:0000C1E3   348 0001:0000C1FB   351 0001:0000C23C   352 0001:0000C243
+   353 0001:0000C24B   359 0001:0000C250   360 0001:0000C26F   362 0001:0000C27D
+   363 0001:0000C28A   365 0001:0000C297   366 0001:0000C29E   367 0001:0000C2B1
+   368 0001:0000C2BF   369 0001:0000C2C5   371 0001:0000C2D3   375 0001:0000C309
+   376 0001:0000C31E   377 0001:0000C324   378 0001:0000C336   381 0001:0000C351
+   382 0001:0000C358   385 0001:0000C368   388 0001:0000C38A   390 0001:0000C39A
+   393 0001:0000C46C   395 0001:0000C478   398 0001:0000C47C   399 0001:0000C488
+   400 0001:0000C494   402 0001:0000C4A2   403 0001:0000C4AB   406 0001:0000C4BE
+   407 0001:0000C4C7   409 0001:0000C4F3   411 0001:0000C503   412 0001:0000C50D
+   418 0001:0000C564   419 0001:0000C579   421 0001:0000C580
+
+Line numbers for PlasticNotify(PlasticNotify.pas) segment .itext
+
+   414 0002:000002B8   415 0002:000002C4   417 0002:000002D5
+
+Line numbers for PlasticExpert(PlasticExpert.pas) segment .text
+
+   112 0001:0000F8B8   113 0001:0000F8D0   114 0001:0000F8DC   116 0001:0000F8E6
+   117 0001:0000F8F8   118 0001:0000F905   120 0001:0000F910   121 0001:0000F92A
+   122 0001:0000F932   129 0001:0000F99C   130 0001:0000F9B8   131 0001:0000F9C4
+   134 0001:0000F9D9   135 0001:0000F9F5   136 0001:0000FA05   138 0001:0000FA12
+   142 0001:0000FA4C   143 0001:0000FA64   144 0001:0000FA6A   146 0001:0000FA73
+   147 0001:0000FA7E   150 0001:0000FA97   153 0001:0000FACA   155 0001:0000FAD8
+   159 0001:0000FAE3   161 0001:0000FB17   164 0001:0000FB25   166 0001:0000FB59
+   169 0001:0000FB67   171 0001:0000FB9B   173 0001:0000FBA9   177 0001:0000FBB4
+   180 0001:0000FBE2   183 0001:0000FBF0   185 0001:0000FC24   188 0001:0000FC32
+   191 0001:0000FC66   193 0001:0000FC74   197 0001:0000FC7F   200 0001:0000FCAD
+   203 0001:0000FCBB   206 0001:0000FCEF   209 0001:0000FCFD   212 0001:0000FD31
+   215 0001:0000FD3F   217 0001:0000FD6D   218 0001:0000FD7B   221 0001:0000FD86
+   223 0001:0000FDBA   225 0001:0000FDC8   227 0001:0000FDF6   229 0001:0000FE04
+   230 0001:0000FE0C   236 0001:00010718   237 0001:0001073F   238 0001:0001074D
+   242 0001:00010762   243 0001:00010778   261 0001:00010783   262 0001:000107B1
+   261 0001:000107BC   262 0001:000107D5   263 0001:000107F2   265 0001:000107FD
+   267 0001:00010808   269 0001:00010831   271 0001:00010844   276 0001:00010888
+   277 0001:00010894   278 0001:000108A3   279 0001:000108B1   281 0001:000108C1
+   282 0001:000108CC   283 0001:000108DD   285 0001:000108F2   287 0001:00010907
+   289 0001:00010917   294 0001:00010998   295 0001:000109A4   296 0001:000109B3
+   297 0001:000109C1   299 0001:000109D1   300 0001:000109DC   301 0001:000109ED
+   303 0001:00010A0F   306 0001:00010A1F   307 0001:00010A27   312 0001:00010AA0
+   313 0001:00010AAC   315 0001:00010ACA   317 0001:00010ADA   318 0001:00010AE9
+   319 0001:00010AF7   320 0001:00010B02   321 0001:00010B13   323 0001:00010B35
+   326 0001:00010B45   328 0001:00010B4D   334 0001:00010C40   335 0001:00010C62
+   336 0001:00010C71   338 0001:00010C7F   339 0001:00010C94   340 0001:00010CA5
+   341 0001:00010CC7   343 0001:00010CDE   346 0001:00010CEE   347 0001:00010CF9
+   348 0001:00010D0A   350 0001:00010D1F   352 0001:00010D34   354 0001:00010D44
+   359 0001:00010E00   361 0001:00010E09   363 0001:00010E37   364 0001:00010E40
+   366 0001:00010E5A   361 0001:00010E65   367 0001:00010E7E   368 0001:00010E9B
+   373 0001:00010EA0   374 0001:00010EAC   375 0001:00010EBB   376 0001:00010EC9
+   378 0001:00010ED9   379 0001:00010EE4   380 0001:00010EF7   381 0001:00010F0C
+   383 0001:00010F21   385 0001:00010F31   388 0001:00010FA8   389 0001:00010FB4
+   391 0001:00010FBA   392 0001:00010FC7   394 0001:00010FD2   395 0001:00010FDC
+   400 0001:00010FE0   401 0001:00010FEC   402 0001:00010FFB   403 0001:00011009
+   405 0001:00011019   406 0001:00011024   407 0001:00011035   408 0001:0001104A
+   410 0001:0001105F   412 0001:0001106F   419 0001:000110DC   420 0001:00011100
+   421 0001:00011108   422 0001:0001111D   424 0001:0001112E   426 0001:00011151
+   427 0001:00011175   428 0001:00011180   424 0001:00011183   430 0001:00011188
+   438 0001:000111E8   439 0001:00011205   441 0001:00011210   444 0001:0001124E
+   446 0001:0001125F   447 0001:00011275   450 0001:00011280   454 0001:000112EC
+   455 0001:00011311   456 0001:00011323   457 0001:0001132D   460 0001:00011354
+   462 0001:00011360   467 0001:00011364   468 0001:00011380   470 0001:00011384
+   471 0001:00011399   472 0001:000113AA   473 0001:000113CB   478 0001:00011418
+   479 0001:00011436   481 0001:00011440   485 0001:00011455   488 0001:00011476
+   490 0001:0001148C   493 0001:000114D0   494 0001:000114FB   495 0001:000114FF
+   497 0001:00011509   502 0001:0001151E   505 0001:00011567   507 0001:00011583
+   508 0001:0001158D   511 0001:000115B4   513 0001:000115D0   514 0001:000115DA
+   519 0001:000115FF   524 0001:00011678   525 0001:0001169D   527 0001:000116A3
+   528 0001:000116B5   531 0001:000116CF   533 0001:0001170E   536 0001:0001171A
+   541 0001:00011784   542 0001:000117A9   543 0001:000117AF   545 0001:000117FB
+   546 0001:00011807   548 0001:00011815   555 0001:00011874   556 0001:00011896
+   557 0001:000118A5   558 0001:000118B3   560 0001:000118C3   561 0001:000118CE
+   562 0001:000118DF   564 0001:000118F4   565 0001:00011913   566 0001:00011939
+   565 0001:00011944   566 0001:0001195D   568 0001:00011987   570 0001:00011997
+   579 0001:00011A40   580 0001:00011A4C   581 0001:00011A56   632 0001:00011D4C
+   633 0001:00011D68   634 0001:00011D74   636 0001:00011DAD   637 0001:00011DC3
+   641 0001:00011DD6   642 0001:00011DE9   644 0001:00011DFC   645 0001:00011E2F
+   646 0001:00011E63   647 0001:00011E81   649 0001:00011EB6   650 0001:00011EED
+   651 0001:00011F1F   652 0001:00011F51   653 0001:00011F83   654 0001:00011FB8
+   656 0001:00011FED   658 0001:00011FFB   660 0001:00012009   619 0001:0001206C
+   620 0001:000120C7   622 0001:000120D5   625 0001:000120FB   630 0001:00012111
+   662 0001:00012122   588 0001:00012144   589 0001:00012193   590 0001:000121A1
+   591 0001:000121A9   594 0001:000121C5   596 0001:000121DF   597 0001:000121F3
+   598 0001:00012201   599 0001:0001220F   600 0001:00012222   601 0001:00012253
+   602 0001:00012266   600 0001:00012270   602 0001:00012289   603 0001:000122A6
+   607 0001:000122B6   608 0001:000122F8   609 0001:00012305   612 0001:00012314
+   613 0001:00012356   614 0001:00012360   617 0001:0001236F   665 0001:000123A0
+   667 0001:000123B6   678 0001:00012408   679 0001:00012414   714 0001:00012429
+   720 0001:00012468   721 0001:00012477   723 0001:00012488   724 0001:00012496
+   726 0001:000124A3   727 0001:000124B5   729 0001:000124BD   721 0001:000124C0
+   730 0001:000124C6   735 0001:000124CC   736 0001:000124EB   737 0001:000124F5
+   739 0001:0001250A   740 0001:00012524   741 0001:0001253E   742 0001:00012558
+   743 0001:00012572   744 0001:0001258C   751 0001:0001268C   752 0001:000126B1
+   753 0001:000126C0   754 0001:000126CE   756 0001:000126D9   757 0001:000126E3
+   758 0001:000126ED   760 0001:00012716   762 0001:0001271C   763 0001:00012727
+   764 0001:0001273F   766 0001:00012770   769 0001:0001277F   770 0001:0001278A
+   772 0001:000127AB   775 0001:000127BB   776 0001:000127DA   758 0001:000127E5
+   777 0001:00012802   780 0001:0001281F   782 0001:00012825   783 0001:00012832
+   784 0001:0001283D   785 0001:0001285E   786 0001:0001287D   789 0001:00012895
+   792 0001:000128A5   799 0001:0001295C   800 0001:000129A9   802 0001:000129BE
+   805 0001:000129D7   806 0001:000129E9   807 0001:000129F6   808 0001:00012A01
+   809 0001:00012A0C   810 0001:00012A17   812 0001:00012A2B   813 0001:00012A3A
+   814 0001:00012A48   815 0001:00012A56   816 0001:00012A67   818 0001:00012AA0
+   819 0001:00012AA3   822 0001:00012ACB   825 0001:00012ADB   826 0001:00012AE9
+   829 0001:00012AF8   830 0001:00012B0F   833 0001:00012B8C   834 0001:00012B98
+   835 0001:00012BAD   836 0001:00012BB8   837 0001:00012BC6   870 0001:00012BD0
+   871 0001:00012BDC   872 0001:00012BEB   873 0001:00012BF9   875 0001:00012C09
+   876 0001:00012C14   877 0001:00012C25   879 0001:00012C47   881 0001:00012C57
+   884 0001:00012CCC   885 0001:00012CD8   886 0001:00012CE2   889 0001:00012CF2
+   890 0001:00012CFD   891 0001:00012D07   915 0001:00012D2C   916 0001:00012D4D
+   917 0001:00012D55   919 0001:00012D74   922 0001:00012D7B   923 0001:00012DB1
+   920 0001:00012DB4   926 0001:00012DD4   951 0001:00012E34   952 0001:00012E40
+   953 0001:00012E55   963 0001:00012E9C   964 0001:00012EB9   966 0001:00012EDE
+   968 0001:00012EEE   970 0001:00012EF5
+
+Line numbers for PlasticExpert(PlasticExpert.pas) segment .itext
+
+   955 0002:000002D8   956 0002:000002E7   957 0002:000002F5   959 0002:00000321
+   962 0002:00000335
+
+Line numbers for PlasticUtils(PlasticUtils.pas) segment .text
+
+    64 0001:000147D4    65 0001:000147EF    67 0001:00014804    68 0001:00014822
+    70 0001:00014849    71 0001:0001485A    72 0001:00014873    74 0001:000148A2
+    60 0001:0001491C    62 0001:0001498A    75 0001:0001499B    81 0001:000149C0
+    82 0001:000149CC    83 0001:000149DA    84 0001:000149E2    85 0001:000149F1
+    86 0001:000149FF    89 0001:00014A12    90 0001:00014A1A    93 0001:00014A2F
+    94 0001:00014A42    96 0001:00014A5A    97 0001:00014A62   100 0001:00014A81
+   102 0001:00014A93   107 0001:00014AB4   108 0001:00014AD6   109 0001:00014ADC
+   111 0001:00014B28   114 0001:00014B34   115 0001:00014B42   121 0001:00014BC8
+   122 0001:00014BE7   123 0001:00014BFD   124 0001:00014C1C   130 0001:00014C48
+   134 0001:00014C67   135 0001:00014C7D   136 0001:00014C9C   142 0001:00014CC8
+   143 0001:00014CED   144 0001:00014CF8   147 0001:00014D13   149 0001:00014D1E
+   151 0001:00014D3C   152 0001:00014D55   155 0001:00014D70   156 0001:00014D7B
+   149 0001:00014D7E   157 0001:00014D84
+
+Line numbers for PlasticUtils(PlasticUtils.pas) segment .itext
+
+   159 0002:0000033C
+
+Line numbers for PlasticEngine(PlasticEngine.pas) segment .text
+
+   151 0001:00017F78   152 0001:00017F90   153 0001:00017F9A   154 0001:00017FA7
+   156 0001:00017FB4   158 0001:00017FCE   159 0001:00017FD6   164 0001:00017FFC
+   165 0001:00018032   167 0001:0001803A   168 0001:0001803E   169 0001:0001804C
+   171 0001:00018069   172 0001:0001806E   173 0001:0001807C   176 0001:000180AE
+   178 0001:000180CD   181 0001:000180D1   182 0001:000180D7   184 0001:000180F6
+   187 0001:00018150   191 0001:0001817B   193 0001:0001818E   197 0001:000183A4
+   198 0001:000183C9   199 0001:000183D7   200 0001:000183FD   199 0001:0001841B
+   201 0001:00018434   203 0001:00018451   204 0001:00018457   206 0001:00018481
+   207 0001:000184A9   210 0001:00018554   211 0001:00018565   213 0001:00018570
+   214 0001:0001857B   215 0001:00018586   217 0001:00018591   218 0001:0001859F
+   222 0001:000185B4   223 0001:000185D9   224 0001:000185E7   225 0001:0001860D
+   224 0001:0001862B   226 0001:00018644   228 0001:00018661   229 0001:00018667
+   231 0001:00018691   232 0001:000186B9   238 0001:0001875C   239 0001:00018784
+   240 0001:00018788   241 0001:00018796   243 0001:000187B3   244 0001:000187B8
+   249 0001:000187C6   252 0001:000187F8   256 0001:00018809   259 0001:00018819
+   260 0001:0001881F   262 0001:0001883E   265 0001:00018876   267 0001:00018889
+   271 0001:00018968   272 0001:00018977   273 0001:00018994   274 0001:000189A7
+   278 0001:00018A90   279 0001:00018A9F   280 0001:00018AAE   285 0001:00018AB4
+   286 0001:00018AED   288 0001:00018AF5   289 0001:00018AF9   290 0001:00018B07
+   292 0001:00018B24   293 0001:00018B29   300 0001:00018B37   303 0001:00018B69
+   305 0001:00018B88   306 0001:00018BA4   309 0001:00018BA8   310 0001:00018BAE
+   312 0001:00018BCD   315 0001:00018C27   319 0001:00018C52   321 0001:00018C65
+   328 0001:00018ED4   329 0001:00018EF9   330 0001:00018EFE   331 0001:00018F0C
+   332 0001:00018F11   334 0001:00018F1F   335 0001:00018F3C   338 0001:00018F4C
+   341 0001:00018F88   342 0001:00018F97   343 0001:00018FA5   344 0001:00018FB1
+   347 0001:00018FC3   350 0001:00018FE0   353 0001:0001901A   354 0001:00019029
+   356 0001:00019037   357 0001:00019056   363 0001:00019063   365 0001:00019074
+   366 0001:0001907B   367 0001:00019087   369 0001:00019090   370 0001:000190A1
+   371 0001:000190AA   372 0001:000190BB   373 0001:000190C4   374 0001:000190D5
+   376 0001:000190DE   378 0001:000190E5   379 0001:000190F1   383 0001:0001910A
+   387 0001:00019135   389 0001:00019148   393 0001:00019354   394 0001:0001937D
+   395 0001:0001938B   396 0001:000193B1   395 0001:000193D2   397 0001:000193EB
+   399 0001:00019408   400 0001:0001940E   402 0001:00019438   403 0001:00019460
+   409 0001:0001950C   410 0001:00019540   412 0001:00019548   413 0001:0001954C
+   414 0001:0001955A   416 0001:00019577   417 0001:0001957C   423 0001:0001958A
+   425 0001:00019590   429 0001:000195C2   432 0001:000195C6   433 0001:000195CC
+   435 0001:000195EE   439 0001:0001960D   442 0001:0001963F   445 0001:00019643
+   446 0001:00019649   448 0001:00019668   452 0001:00019692   456 0001:000196BD
+   458 0001:000196D0   464 0001:0001986C   465 0001:00019878   466 0001:00019887
+   467 0001:00019895   468 0001:000198A3   471 0001:000198CB   473 0001:000198DB
+   479 0001:000198E4   480 0001:00019909   481 0001:00019918   482 0001:00019926
+   483 0001:00019931   485 0001:0001994C   487 0001:0001995C   491 0001:00019980
+   492 0001:000199A5   493 0001:000199BF   494 0001:000199CD   495 0001:000199F3
+   494 0001:00019A11   496 0001:00019A2A   498 0001:00019A47   499 0001:00019A4D
+   501 0001:00019A77   502 0001:00019A9F   508 0001:00019C40   509 0001:00019C65
+   510 0001:00019C74   511 0001:00019C82   512 0001:00019C8D   514 0001:00019CA8
+   516 0001:00019CB8   520 0001:00019CDC   521 0001:00019D01   522 0001:00019D0F
+   523 0001:00019D35   522 0001:00019D53   524 0001:00019D6C   526 0001:00019D89
+   527 0001:00019D8F   529 0001:00019DB9   530 0001:00019DE1   533 0001:00019EA4
+   534 0001:00019EAB   535 0001:00019EC8   536 0001:00019ED2   541 0001:00019FB8
+   542 0001:00019FF9   543 0001:00019FFD   544 0001:0001A00B   546 0001:0001A028
+   547 0001:0001A02D   548 0001:0001A03B   551 0001:0001A075   553 0001:0001A094
+   556 0001:0001A098   557 0001:0001A09E   559 0001:0001A0BD   562 0001:0001A117
+   566 0001:0001A142   568 0001:0001A155   573 0001:0001A380   574 0001:0001A3B9
+   576 0001:0001A3C1   577 0001:0001A3C5   578 0001:0001A3D3   580 0001:0001A3F0
+   581 0001:0001A3F5   588 0001:0001A403   591 0001:0001A435   593 0001:0001A454
+   594 0001:0001A470   597 0001:0001A474   598 0001:0001A47A   600 0001:0001A499
+   603 0001:0001A4F3   607 0001:0001A51E   609 0001:0001A531   613 0001:0001A7B0
+   614 0001:0001A7D5   615 0001:0001A7E3   616 0001:0001A809   615 0001:0001A827
+   617 0001:0001A840   619 0001:0001A85D   620 0001:0001A863   622 0001:0001A88D
+   623 0001:0001A8B5   629 0001:0001A978   630 0001:0001A9B7   632 0001:0001A9BF
+   633 0001:0001A9C3   634 0001:0001A9D1   636 0001:0001A9EE   637 0001:0001A9F3
+   646 0001:0001AA01   647 0001:0001AA1A   648 0001:0001AA28   651 0001:0001AA37
+   653 0001:0001AA5A   657 0001:0001AA6A   660 0001:0001AA9C   662 0001:0001AABB
+   663 0001:0001AAD7   666 0001:0001AADB   667 0001:0001AAE1   669 0001:0001AB00
+   672 0001:0001AB5A   676 0001:0001AB85   678 0001:0001AB98   683 0001:0001ADD0
+   684 0001:0001AE09   686 0001:0001AE11   687 0001:0001AE15   688 0001:0001AE23
+   690 0001:0001AE40   691 0001:0001AE45   701 0001:0001AE53   704 0001:0001AE85
+   706 0001:0001AEA4   707 0001:0001AEC0   710 0001:0001AEC4   711 0001:0001AECA
+   713 0001:0001AEE9   716 0001:0001AF43   720 0001:0001AF6E   722 0001:0001AF81
+   726 0001:0001B1BC   727 0001:0001B1E1   728 0001:0001B1EF   729 0001:0001B215
+   728 0001:0001B233   730 0001:0001B24C   732 0001:0001B269   733 0001:0001B26F
+   735 0001:0001B299   736 0001:0001B2C1   739 0001:0001B384   740 0001:0001B38D
+   743 0001:0001B3BF   744 0001:0001B3C8   750 0001:0001B3D0   751 0001:0001B3DC
+   752 0001:0001B3F9   757 0001:0001B500   758 0001:0001B525   759 0001:0001B52B
+   761 0001:0001B577   763 0001:0001B583   764 0001:0001B596   767 0001:0001B5F8
+   769 0001:0001B5FF   770 0001:0001B60A   771 0001:0001B618   773 0001:0001B630
+   775 0001:0001B643   779 0001:0001B648   780 0001:0001B65A   781 0001:0001B65E
+   782 0001:0001B66C   784 0001:0001B689   786 0001:0001B6B8   788 0001:0001B6BB
+   790 0001:0001B6C8   791 0001:0001B6D2   792 0001:0001B6DD   794 0001:0001B6E5
+   797 0001:0001B6F2   801 0001:0001B7DC   802 0001:0001B7E8   803 0001:0001B7ED
+   804 0001:0001B7F8   805 0001:0001B806   806 0001:0001B817   808 0001:0001B81D
+   809 0001:0001B82C   810 0001:0001B83A   813 0001:0001B858   815 0001:0001B86B
+   820 0001:0001B874   821 0001:0001B8AA   822 0001:0001B8AE   823 0001:0001B8BC
+   825 0001:0001B8D9   826 0001:0001B8DE   827 0001:0001B8EC   830 0001:0001B91E
+   832 0001:0001B93D   835 0001:0001B941   836 0001:0001B947   838 0001:0001B966
+   841 0001:0001B9C0   845 0001:0001B9EB   847 0001:0001B9FE   853 0001:0001BC14
+   854 0001:0001BC39   855 0001:0001BC48   856 0001:0001BC56   857 0001:0001BC61
+   859 0001:0001BC7C   861 0001:0001BC8C   865 0001:0001BCB0   866 0001:0001BCD5
+   867 0001:0001BCE3   868 0001:0001BD09   867 0001:0001BD27   869 0001:0001BD40
+   871 0001:0001BD5D   872 0001:0001BD63   874 0001:0001BD8D   875 0001:0001BDB5
+   880 0001:0001BE60   881 0001:0001BE7A   882 0001:0001BE95   883 0001:0001BEBC
+   888 0001:0001BF24   889 0001:0001BF46   890 0001:0001BF53   892 0001:0001BF6E
+   893 0001:0001BF7E   895 0001:0001BF8A   896 0001:0001BFB3   899 0001:0001BFB5
+   901 0001:0001BFC3   902 0001:0001BFD8   907 0001:0001C0BC   908 0001:0001C0D7
+   909 0001:0001C0E5   910 0001:0001C0F9   911 0001:0001C10D   912 0001:0001C119
+   920 0001:0001C138   921 0001:0001C167   922 0001:0001C184   923 0001:0001C188
+   924 0001:0001C18F   925 0001:0001C196   928 0001:0001C1A8   934 0001:0001C1C8
+   935 0001:0001C1D4   932 0001:0001C1DB   942 0001:0001C1E4   944 0001:0001C203
+   945 0001:0001C214   947 0001:0001C224   948 0001:0001C258   949 0001:0001C260
+   950 0001:0001C294   952 0001:0001C296   942 0001:0001C299   954 0001:0001C2A2
+   955 0001:0001C2AD   958 0001:0001C394   959 0001:0001C3A5   960 0001:0001C3B3
+   961 0001:0001C3BE   962 0001:0001C3C9   963 0001:0001C3D4   964 0001:0001C3E2
+   968 0001:0001C434   969 0001:0001C443   970 0001:0001C44B   971 0001:0001C459
+   973 0001:0001C476   974 0001:0001C47A   975 0001:0001C481   976 0001:0001C48F
+   977 0001:0001C497   978 0001:0001C4A2   979 0001:0001C4AD   981 0001:0001C4BB
+   984 0001:0001C4CF   985 0001:0001C4DA   988 0001:0001C4E5   991 0001:0001C4F7
+   992 0001:0001C4FF   995 0001:0001C521   997 0001:0001C531  1000 0001:0001C618
+  1001 0001:0001C624  1002 0001:0001C632  1003 0001:0001C63E  1004 0001:0001C64C
+  1006 0001:0001C654  1009 0001:0001C667  1010 0001:0001C675  1012 0001:0001C689
+  1013 0001:0001C694  1016 0001:0001C6A7  1019 0001:0001C6C1  1020 0001:0001C6CC
+  1023 0001:0001C6F4  1007 0001:0001C704  1027 0001:0001C711  1028 0001:0001C71F
+  1029 0001:0001C72C  1033 0001:0001C830  1034 0001:0001C842  1036 0001:0001C850
+  1037 0001:0001C86D  1039 0001:0001C876  1040 0001:0001C893  1042 0001:0001C8A1
+  1045 0001:0001C8B1  1050 0001:0001C8D3  1052 0001:0001C8E3  1055 0001:0001CA2C
+  1056 0001:0001CA51  1057 0001:0001CA65  1058 0001:0001CA79  1059 0001:0001CA89
+  1061 0001:0001CA96  1062 0001:0001CAA3  1063 0001:0001CAB0  1065 0001:0001CABD
+  1066 0001:0001CAD1  1067 0001:0001CAE0  1068 0001:0001CAEE  1070 0001:0001CB14
+  1071 0001:0001CB17  1076 0001:0001CB74  1079 0001:0001CC04  1080 0001:0001CC0B
+  1081 0001:0001CC19  1082 0001:0001CC21  1083 0001:0001CC2C  1089 0001:0001CC78
+  1090 0001:0001CCA3  1092 0001:0001CCC8  1208 0001:0001CCD8
+
+Line numbers for PlasticEngine(PlasticEngine.pas) segment .itext
+
+  1085 0002:00000344  1086 0002:00000350  1088 0002:00000361
+
+Line numbers for .PlasticPluginD2010(PlasticPluginD2010.dpk) segment .itext
+
+    49 0002:00000364
+
+Bound resource files
+
+PlasticPluginD2010.res
+Images.res
+PlasticPluginD2010.drf
+
+
+Program entry point at 0002:00000364
