@@ -116,23 +116,48 @@ end;
 
 function IsWhiteListedFile(const aFilename: string): boolean;
 var
-  sExt: string;
+  s, sExt: string;
   i: integer;
 begin
-  sExt := LowerCase(ExtractFileExt(aFilename));
-  Result := TArray.BinarySearch<string>(C_WhiteListedExt, sExt, i);
+  Result := False;
+  sExt   := LowerCase(ExtractFileExt(aFilename));
+  //SendDebugFmt(dlObject, 'Extension: %s',[sExt]);
+  for s in C_WhiteListedExt do
+  begin
+    if s = sExt then
+    begin
+      Result := True;
+      Break;
+    end;
+  end;
+
+  //does not work?:
+  //Result := TArray.BinarySearch<string>(C_WhiteListedExt, sExt, i);
 end;
 
 function IsBlackListedFile(const aFilename: string): boolean;
 var
-  sExt: string;
+  s, sExt: string;
   i: integer;
 begin
+  Result := False;
+
   //todo: use the same plastic's ignore.conf!?
   //cm getccnfig location
   //C:\Users\<user>\AppData\Local\plastic\client.conf
   sExt := LowerCase(ExtractFileExt(aFilename));
-  Result := TArray.BinarySearch<string>(C_BlackListedExt, sExt, i);
+
+  for s in C_BlackListedExt do
+  begin
+    if s = sExt then
+    begin
+      Result := True;
+      Break;
+    end;
+  end;
+
+  //does not work?:
+  //Result := TArray.BinarySearch<string>(C_BlackListedExt, sExt, i);
 end;
 
 procedure SearchCorrespondingFiles(const aFilename: string; aFileList: TStrings);

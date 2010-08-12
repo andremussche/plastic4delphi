@@ -38,7 +38,8 @@ type
   TPlasticExpert = class(TObject)
   private
     FMenuPlastic: TMenuItem;
-    FActionStatus, FActionShelve, FActionDelete, FActionRename, FActionConsole,
+    FActionStatus, FActionReset,
+    FActionShelve, FActionDelete, FActionRename, FActionConsole,
     FActionAdd,
     FActionCheckout,
     FActionCheckin,
@@ -151,6 +152,12 @@ begin
                            'PlasticStatus', '', '',
                            StatusExecute, GeneralUpdate);
   AddMenu(FActionStatus);
+
+  FActionReset  := AddAction('Refresh status', 'Refresh status of current file',
+                           'PlasticReset', '', '',
+                           StatusExecute, GeneralUpdate);
+  AddMenu(FActionReset);
+  FActionReset.Visible := False; //not needed anymore?
 
   FMenuPlastic.NewBottomLine;
   //----------------------------------------------------------------------------
@@ -499,7 +506,7 @@ begin
     //dproj file is used by IDE for the dpr file ("view source" option of project)
     //so if dproj is private (we do not checkin dproj at RBK because of programmers own local settings)
     //we check the status of real project file: .dpr :-)
-    if (pslInfo <> nil) and (pslInfo.Status = psPrivate) and
+    if (pslInfo <> nil) and (pslInfo.Status in [psUnknown, psPrivate]) and
        (LowerCase(ExtractFileExt(pslInfo.FileName)) = '.dproj') then
     begin
       if FileExists(ChangeFileExt(aFile, '.dpr')) then
@@ -550,6 +557,7 @@ end;
 procedure TPlasticExpert.DeleteExecute(Sender: TObject);
 var
   slFiles : TStrings;
+  Serv    : IOTAModuleServices;
   ActSrv  : IOTAActionServices;
   s: string;
 begin
@@ -561,9 +569,21 @@ begin
     if not TPlasticEngine.DeleteFiles(slFiles) then
       MessageDlg('Delete failed!', mtError, [mbOK], 0);
 
-    if Supports(BorlandIDEServices, IOTAActionServices, ActSrv) then
-    for s in slFiles do
+    //force close module (in case of pending changes we skip "do you want to save") hmmm does not work?
+    Serv := (BorlandIDEServices as IOTAModuleServices);
+    if (Serv.CurrentModule <> nil) and
+       (slFiles.IndexOf(Serv.CurrentModule.FileName) >= 0)
+    then
+      Serv.CurrentModule.CloseModule(True);
+
+    //close other files (if any) and remove from project
+    if Supports(BorlandIDEServices, IOTAActionServices, ActSrv) and
+       (Serv.GetActiveProject <> nil) then
+    begin
+      for s in slFiles do
+        Serv.GetActiveProject.RemoveFile(s);
       ActSrv.CloseFile(s);
+    end;
   finally
     slFiles.Free;
   end;
@@ -596,11 +616,13 @@ begin
       FCurrentFile := sFile;
       FLastUpdate  := 0;
       FBusyWithUpdate := 0;
-      FActionStatus.Caption := 'Status: ?';
+      FActionStatus.Caption := 'Status: pending (close menu for refresh)';
       for action in FActionList.Keys do
         if action <> FMenuPlastic.Action then
           action.Enabled := False;
+      //always enabled
       FActionPlasticClient.Enabled := True;
+      FActionReset.Enabled         := True;
     end;
 
     //already busy with async update?
@@ -633,7 +655,7 @@ begin
                 if (slInfo <> nil) then
                   FActionStatus.Caption := 'Status: ' + C_PlasticStatus[slInfo.Status]
                 else
-                  FActionStatus.Caption := 'Status: ?';
+                  FActionStatus.Caption := 'Status: ? (close menu for refresh)';
                 FActionStatus.Enabled   := True;
                 //FMenuPlastic.Caption   := C_Plastic_SCM + '(' + FActionStatus.Caption + ')';
 
@@ -883,10 +905,11 @@ end;
 procedure TPlasticExpert.StatusExecute(Sender: TObject);
 begin
   TPlasticEngine.ClearStatusCache;
-  FActionStatus.Caption := 'Status: ?';
+  FActionStatus.Caption := 'Status: pending...';
 
   //refresh
-  FLastUpdate := 0;
+  FLastUpdate  := 0;
+  FCurrentFile := '';
   GeneralUpdate(nil);
 end;
 

@@ -36,6 +36,7 @@ type
   EPerforceError = class(Exception);
 
   TPlasticStatus = (psUnknown, psPrivate, psCheckedIn, psCheckedOut, psCheckedInAndLocalChanged);
+  TPlasticStatusSet = set of TPlasticStatus;
   TMessageNotify = procedure(aType: TMsgDlgType; const aMessage: string) of object;
 
   TPlasticFileInfo = class
@@ -94,6 +95,8 @@ type
 
     class function  GetPlasticExePath: string;
     class function  ExcuteCommand(const aCommand: string; out aResultLines: TStrings): Boolean;
+
+    class procedure FilterControlledFiles(var aFileList: TStrings; aAllowedStatus: TPlasticStatusSet);
   public
     constructor Create; virtual;
     destructor Destroy; override;
@@ -161,6 +164,7 @@ end;
 class function TPlasticEngine.DeleteFile(aFileName: String): boolean;
 var
   strData: Tstrings;
+  info   : TPlasticFileInfo;
 begin
   ClearStatusCache;
 
@@ -170,6 +174,34 @@ begin
 
     strData := nil;
     try
+      info := GetFileInfo(aFileName);
+      try
+        if (info <> nil) then
+        begin
+          SendDebugFmtEx(dlObject, 'Status of file "%s" is %s', [aFileName, C_PlasticStatus[info.Status] ], mtInformation);
+
+          //uncheckout if file is checked out... (cannot delete checked out file)
+          if (info.Status = psCheckedOut) then
+          begin
+            UndoCheckoutFile(aFileName);
+            //if we just added a file, and uncheckout, it is not in plastic anymore
+            if not FileArchived(aFileName) then
+            begin
+              //on disk? then delete from disk
+              if FileExists(aFileName) then
+                Result := SysUtils.DeleteFile(aFileName)
+              else
+                Result := True;
+              //quit, do nothing in plastic
+              Exit;
+            end;
+
+          end;
+        end;
+      finally
+        info.Free;
+      end;
+
       if ExcuteCommand('remove "' + aFilename + '"', strData) and
          (strData <> nil) then
       begin
@@ -193,12 +225,23 @@ begin
 end;
 
 class function TPlasticEngine.DeleteFiles(FileList: TStrings): boolean;
-var s: string;
+var
+  s    : string;
+//  info : TPlasticFileInfo;
 begin
+  //FilterControlledFiles(FileList, [psCheckedIn, psCheckedOut, psCheckedInAndLocalChanged]);
   Result := FileList.Count > 0;
   for s in FileList do
-    Result := Result and
-              DeleteFile(s);
+  begin
+    //controlled? then delete in Plastic
+    if FileArchived(s) then
+      Result := Result and
+                Self.DeleteFile(s)
+    //else delete from disk
+    else
+      Result := Result and
+                SysUtils.DeleteFile(s)
+  end;
 
   if Result then
     SendDebugFmtEx(dlObject, 'Delete succesfull:'#13'%s', [FileList.Text], mtInformation)
@@ -220,6 +263,7 @@ end;
 class function TPlasticEngine.Diff(FileList: TStrings): boolean;
 var s: string;
 begin
+  FilterControlledFiles(FileList, [psCheckedIn, psCheckedOut, psCheckedInAndLocalChanged]);
   Result := FileList.Count > 0;
   for s in FileList do
     Result := Result and
@@ -363,7 +407,9 @@ begin
         if pos('checked in', sLine) > 0 then
         begin
           Result.Status   := psCheckedIn;
-          if not FileIsReadOnly(aFileName) then
+          if ((FileGetAttr(aFileName) and faDirectory) = 0) and  //not directory
+             not FileIsReadOnly(aFileName)
+          then
             Result.Status := psCheckedInAndLocalChanged;
         end
         else if pos('checked out', sLine) > 0 then
@@ -391,6 +437,7 @@ end;
 class function TPlasticEngine.UpdateFiles(FileList: TStrings; const Force : Boolean) : boolean;
 var s: string;
 begin
+  FilterControlledFiles(FileList, [psCheckedIn, psCheckedOut, psCheckedInAndLocalChanged]);
   Result := FileList.Count > 0;
   for s in FileList do
     Result := Result and
@@ -459,17 +506,38 @@ end;
 
 class function TPlasticEngine.FileArchived(const FileName: String): Boolean;
 var
-  slData   : TStringList;
+//  slData   : TStringList;
   info     : TPlasticFileInfo;
 begin
-  slData := TStringList.Create;
-  try
+//  slData := TStringList.Create;
+//  try
     info := GetFileInfo(FileName);
     Result := (info <> nil) and
               (info.Status in [psCheckedIn, psCheckedOut, psCheckedInAndLocalChanged]);
-  finally
-    slData.Free;
-  end;
+//  finally
+//    slData.Free;
+//  end;
+end;
+
+class procedure TPlasticEngine.FilterControlledFiles(var aFileList: TStrings; aAllowedStatus: TPlasticStatusSet);
+var
+  I: Integer;
+  sFile: string;
+  info     : TPlasticFileInfo;
+begin
+  if (aFileList = nil) or (aFileList.Count = 0) then Exit;
+
+  i := 0;
+  repeat
+    sFile := aFileList[i];
+    info  := GetFileInfo(sFile);
+    if (info = nil) or
+       not (info.Status in aAllowedStatus) //[psCheckedIn, psCheckedOut, psCheckedInAndLocalChanged]);
+    then
+      aFileList.Delete(i)
+    else
+      inc(i);
+  until i >= aFileList.Count;
 end;
 
 class function TPlasticEngine.AddFile(aFileName: String;
@@ -490,6 +558,7 @@ class function TPlasticEngine.AddFiles(FileList: TStrings): boolean;
 var s: string;
 begin
   assert(FileList <> nil);
+  FilterControlledFiles(FileList, [psPrivate]);
   Result := FileList.Count > 0;
   for s in FileList do
     Result := Result and
@@ -518,6 +587,7 @@ end;
 class function TPlasticEngine.CheckoutFiles(FileList: TStrings): boolean;
 var s: string;
 begin
+  FilterControlledFiles(FileList, [psCheckedIn, psCheckedInAndLocalChanged]);
   Result := FileList.Count > 0;
   for s in FileList do
     Result := Result and
@@ -611,6 +681,7 @@ end;
 class function TPlasticEngine.UndoCheckoutFiles(FileList: TStrings): boolean;
 var s: string;
 begin
+  FilterControlledFiles(FileList, [psCheckedOut]);
   Result := FileList.Count > 0;
   for s in FileList do
     Result := Result and
@@ -624,6 +695,7 @@ end;
 
 class function TPlasticEngine.AddFile(aFileName: String): boolean;
 var
+  sDir: string;
   strData: Tstrings;
   info   : TPlasticFileInfo;
 begin
@@ -643,16 +715,21 @@ begin
       }
 
       //eerst dir uitchecken!
-      info :=  GetFileInfo(ExtractFileDir(aFileName));   //without trailing \!
+      sDir := ExtractFileDir(aFileName);   //without trailing \!
+      info := GetFileInfo(sDir);
       try
-        if (info <> nil) and
-           (info.Status <> psCheckedOut)
-        then
-          CheckoutFile(ExtractFileDir(aFileName));
+        if (info <> nil) then
+        begin
+          SendDebugFmtEx(dlObject, 'Status of directory "%s" is %s', [sDir, C_PlasticStatus[info.Status] ], mtInformation);
+
+          if info.Status = psPrivate then
+            AddFile(sDir)
+          else if (info.Status = psCheckedIn) then
+            CheckoutFile(sDir);
+        end;
       finally
         info.Free;
       end;
-
 
       if ExcuteCommand('add "' + aFilename + '"', strData) and
          (strData <> nil) then
@@ -724,6 +801,7 @@ end;
 class function TPlasticEngine.CheckinFiles(FileList: TStrings): boolean;
 var s: string;
 begin
+  FilterControlledFiles(FileList, [psCheckedOut, psCheckedInAndLocalChanged]);
   Result := FileList.Count > 0;
   for s in FileList do
     Result := Result and
@@ -863,6 +941,7 @@ end;
 class function TPlasticEngine.ShelveFiles(FileList: TStrings): boolean;
 var s: string;
 begin
+  FilterControlledFiles(FileList, [psCheckedOut]);
   Result := FileList.Count > 0;
   for s in FileList do
     Result := Result and
