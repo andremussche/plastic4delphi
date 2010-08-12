@@ -259,6 +259,11 @@ end;
 procedure TFileNotifier.AfterSave;
 var info: TPlasticFileInfo;
 begin
+  //use new filename
+  FFileName := FModule.FileName;
+
+  { TODO : add explorer notification hook to watch changes from outside delphi (cli, plastic client, etc) }
+
 //  try
   SendDebugFmt(dlObject, 'FileNotifier: file saved: %s',[FFileName]);
   //get status async
@@ -273,10 +278,10 @@ begin
           if info.Status in [psCheckedOut] then
             TPlasticEngine.ShelveFile(FFileName, True)
           //add?
-          else if (info.Status in [psPrivate]) and
+          else if (info.Status in [psPrivate]) then
                //not IsBlackListedFile(FFileName) or
-               IsWhiteListedFile(FFileName) then
           begin
+            if IsWhiteListedFile(FFileName) then
             //ask question to user...
             TThread.Queue(nil,
               procedure
@@ -326,8 +331,12 @@ end;
 
 procedure TFileNotifier.BeforeSave;
 begin
+  SendDebugFmt(dlObject, 'FileNotifier: saving file: %s',[FFileName]);
+  if not FileExists(FFileName) then
+  begin
+    TPlasticEngine.ClearStatusCache;  //otherwise status stays "unknown" in cache
+  end;
 //  try
-//    SendDebugFmt(dlObject, 'FileNotifier: saving file: %s',[FFileName]);
 //  except
 //    on E:Exception do HandleException(E);
 //  end;
