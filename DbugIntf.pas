@@ -38,10 +38,13 @@ procedure SendDebugResume;
 //send GDebug messages via thread (faster!)
 type
   TGDebugSendThread = class(TThread)
+  type
+    TLogNotification = reference to procedure(aMsg: string);
   private
     FAllDataIsSend: Boolean;
     FData: TThreadList;
     FDataClone: TList;
+    FOnLog: TLogNotification;
   protected
     procedure Execute; override;
     procedure SendAllData;
@@ -49,13 +52,17 @@ type
     procedure  AfterConstruction; override;
     destructor Destroy; override;
 
-    procedure SendData(aPCDS: PCopyDataStruct);
+    procedure  SendData(aPCDS: PCopyDataStruct);
+
+    property   OnLog: TLogNotification read FOnLog write FOnLog;
   end;
 
   TThreadListHelper = class helper for TThreadList
   public
     function Count: Integer;
   end;
+
+  function DebugSendThread: TGDebugSendThread;
 
 implementation
 
@@ -78,7 +85,14 @@ const
 var
   PastFailedAttemptToStartDebugWin: Boolean = False;
   SendPaused: Boolean = False;
-  GDebugSendThread:TGDebugSendThread;
+  _DebugSendThread:TGDebugSendThread;
+
+function DebugSendThread: TGDebugSendThread;
+begin
+  if _DebugSendThread = nil then
+    _DebugSendThread := TGDebugSendThread.Create(False);
+  Result := _DebugSendThread;
+end;
 
 function StartDebugWin: hWnd;
 var
@@ -146,7 +160,7 @@ begin
 
   MessageString := MsgPrefix + Msg;
   //log which app has log this line, useful in case of client-server communication (e.g. PRS + Transaction Service)
-  MessageString := Format('%d|%d| %s - %s',
+  MessageString := Format('PID %d|TID %d| %s - %s',
                           [GetCurrentProcessId, GetCurrentThreadId,
                            ExtractFileName(Application.ExeName), MessageString]);
 
@@ -160,12 +174,7 @@ begin
 
   //send GDebug messages via thread (faster!)
   //SendMessage(DebugWin, WM_COPYDATA, WPARAM(Application.Handle), LPARAM(@CDS));
-  if GDebugSendThread = nil then
-  begin
-    if Application.Terminated then Exit;
-    GDebugSendThread := TGDebugSendThread.Create(False);
-  end;
-  GDebugSendThread.SendData(@CDS);
+  DebugSendThread.SendData(@CDS);
 end;
 
 procedure SendDebug(const SenderLevel: TDebugLevel; const Msg: string);
@@ -324,6 +333,7 @@ var
   l: TList;
   DebugWin: hWnd;
   str: TStrings;
+  s: string;
 begin
   str := nil;
   FDataClone.Clear;
@@ -357,6 +367,16 @@ begin
         //SendMessage(DebugWin, WM_COPYDATA, WPARAM(Application.Handle), LPARAM(pCDS));
         SendMessage(DebugWin, WM_COPYDATA, 0{WPARAM(Self.Handle)}, LPARAM(pCDS));
       end;
+
+      //log to console etc
+      if Assigned(FOnLog) then
+      begin
+        s := pansichar(pCDS.lpData);
+        if s <> '' then
+          s := Copy(s, 3, Length(s));  //remove gdebug control char
+        FOnLog(s);
+      end;
+
       FreeMem(pCDS.lpData);   //free string
       Dispose(pCDS);          //free record
       FDataClone.Delete(0);
@@ -413,12 +433,12 @@ end;
 initialization
 
 finalization
-  if GDebugSendThread <> nil then
+  if _DebugSendThread <> nil then
   begin
-    GDebugSendThread.Terminate;
-    PostThreadMessage(GDebugSendThread.ThreadID, WM_USER, 0, 0);  //wake up
-    GDebugSendThread.Waitfor;
-    FreeAndNil(GDebugSendThread);
+    _DebugSendThread.Terminate;
+    PostThreadMessage(_DebugSendThread.ThreadID, WM_USER, 0, 0);  //wake up
+    _DebugSendThread.Waitfor;
+    FreeAndNil(_DebugSendThread);
   end;
 
 end.

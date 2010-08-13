@@ -105,7 +105,7 @@ implementation
 
 uses
   Controls,
-  PlasticNotify, DateUtils, PlasticAsync, Messages;
+  PlasticNotify, DateUtils, PlasticAsync, Messages, fDebugConsole;
 
 { TPlasticExpert }
 
@@ -229,7 +229,8 @@ begin
                                'Plastic16_32b', 'PlasticClient', PlasticClientExecute, nil);
   AddMenu(FActionPlasticClient);
 
-  FActionConsole := AddAction('Plastic Console', 'Plastic Console|', 'PlasticConsole',
+  DebugConsole; //dummy call to create form
+  FActionConsole := AddAction('Debug Console', 'Debug Console|', 'DebugConsole',
                                '', '', ConsoleExecute, nil);
   AddMenu(FActionConsole);
 
@@ -271,6 +272,8 @@ begin
 
     FFileInfo.Free;
 
+    DebugConsole.Free;
+
     inherited Destroy;
   except
     on E:Exception do HandleException(E);
@@ -281,17 +284,19 @@ procedure TPlasticExpert.CheckoutExecute(Sender: TObject);
 var
   slFiles  : TStrings;
 begin
+  SendDebugFmtEx_Start(dlObject, '-> CheckoutExecute', [], mtInformation);
   slFiles := TStringList.Create;
   try
     FActionStatus.Caption := 'Status: check out pending...';
 
     ListFiles(slFiles);
     if not TPlasticEngine.CheckoutFiles(slFiles) then
-      MessageDlg('Checkout failed!', mtError, [mbOK], 0);
+      MessageDlg('Checkout failed!'#13#13 + TPlasticEngine.GetLastError, mtError, [mbOK], 0);
 
     ReloadFiles;
   finally
     slFiles.Free;
+    SendDebugFmtEx_End(dlObject, '<- CheckoutExecute done', [], mtInformation);
   end;
 end;
 
@@ -299,38 +304,48 @@ procedure TPlasticExpert.CheckinExecute(Sender: TObject);
 var
   slFiles  : TStrings;
 begin
-  slFiles := TStringList.Create;
+  SendDebugFmtEx_Start(dlObject, '-> CheckinExecute', [], mtInformation);
   try
-    FActionStatus.Caption := 'Status: check in pending...';
+    slFiles := TStringList.Create;
+    try
+      FActionStatus.Caption := 'Status: check in pending...';
 
-    ListFiles(slFiles);
-    if not TPlasticEngine.CheckinFiles(slFiles) then
-      MessageDlg('Checkin failed!', mtError, [mbOK], 0);
+      ListFiles(slFiles);
+      if not TPlasticEngine.CheckinFiles(slFiles) then
+        MessageDlg('Checkin failed!'#13#13 + TPlasticEngine.GetLastError, mtError, [mbOK], 0);
+    finally
+      slFiles.Free;
+    end;
+
+    ReloadFiles;
   finally
-    slFiles.Free;
+    SendDebugFmtEx_End(dlObject, '<- CheckinExecute done', [], mtInformation);
   end;
-
-  ReloadFiles;
 end;
 
 procedure TPlasticExpert.UncheckoutExecute(Sender: TObject);
 var
   slFiles  : TStrings;
 begin
-  if MessageDlg('Are you sure you want to revert this file?', Dialogs.mtConfirmation, [mbYes, mbNo], 0) = mrYes then
-  begin
-    FActionStatus.Caption := 'Status: uncheckout pending...';
+  SendDebugFmtEx_Start(dlObject, '-> UncheckoutExecute', [], mtInformation);
+  try
+    if MessageDlg('Are you sure you want to uncheckout this file?', Dialogs.mtConfirmation, [mbYes, mbNo], 0) = mrYes then
+    begin
+      FActionStatus.Caption := 'Status: uncheckout pending...';
 
-    slFiles := TStringList.Create;
-    try
-      ListFiles(slFiles);
-      if not TPlasticEngine.UndoCheckoutFiles(slFiles) then
-        MessageDlg('Undo checkout failed!', mtError, [mbOK], 0);
-    finally
-      slFiles.Free;
+      slFiles := TStringList.Create;
+      try
+        ListFiles(slFiles);
+        if not TPlasticEngine.UndoCheckoutFiles(slFiles) then
+          MessageDlg('Undo checkout failed!'#13#13 + TPlasticEngine.GetLastError, mtError, [mbOK], 0);
+      finally
+        slFiles.Free;
+      end;
+
+      ReloadFiles;
     end;
-
-    ReloadFiles;
+  finally
+    SendDebugFmtEx_End(dlObject, '<- UncheckoutExecute done', [], mtInformation);
   end;
 end;
 
@@ -339,6 +354,7 @@ var
   Files: TStrings;
   Serv : IOTAModuleServices;
 begin
+  SendDebugFmtEx_Start(dlObject, '-> AddExecute', [], mtInformation);
   Files := TStringList.Create;
   try
     //try save first if new?
@@ -352,11 +368,12 @@ begin
     //add
     ListFiles(Files);
     if not TPlasticEngine.AddFiles(Files) then
-      MessageDlg('Add failed!', mtError, [mbOK], 0);
+      MessageDlg('Add failed!'#13#13 + TPlasticEngine.GetLastError, mtError, [mbOK], 0);
 
     ReloadFiles;
   finally
     Files.Free;
+    SendDebugFmtEx_End(dlObject, '<- AddExecute done', [], mtInformation);
   end;
 end;
 
@@ -378,16 +395,18 @@ procedure TPlasticExpert.UpdateExecute(Sender: TObject);
 var
   slFileList    : TStringList;
 begin
+  SendDebugFmtEx_Start(dlObject, '-> UpdateExecute', [], mtInformation);
   slFileList := TStringList.Create;
   try
     FActionStatus.Caption := 'Status: update pending...';
 
     ListFiles(slFileList);
     if not TPlasticEngine.UpdateFiles(slFileList, True) then
-      MessageDlg('Update failed!', mtError, [mbOK], 0);
+      MessageDlg('Update failed!'#13#13 + TPlasticEngine.GetLastError, mtError, [mbOK], 0);
     ReloadFiles;
   finally
     slFileList.Free;
+    SendDebugFmtEx_End(dlObject, '<- UpdateExecute done', [], mtInformation);
   end;
 end;
 
@@ -405,16 +424,18 @@ procedure TPlasticExpert.DiffExecute(Sender: TObject);
 var
   slFileList    : TStringList;
 begin
+  SendDebugFmtEx_Start(dlObject, '-> DiffExecute', [], mtInformation);
   slFileList := TStringList.Create;
   try
     FActionStatus.Caption := 'Status: diff pending...';
 
     ListFiles(slFileList);
     if not TPlasticEngine.Diff(slFileList) then
-      MessageDlg('Diff failed!', mtError, [mbOK], 0);
+      MessageDlg('Diff failed: '#13#13 + TPlasticEngine.GetLastError, mtError, [mbOK], 0);
     ReloadFiles;
   finally
     slFileList.Free;
+    SendDebugFmtEx_End(dlObject, '<- DiffExecute done', [], mtInformation);
   end;
 end;
 
@@ -443,16 +464,21 @@ var
   sFile       : String;
   Editor      : IOTASourceEditor;
 begin
-  Editor   := GetSourceEditor;
+  SendDebugFmtEx_Start(dlObject, '-> ReloadFiles', [], mtInformation);
+  try
+    Editor   := GetSourceEditor;
 
-  if Supports(BorlandIDEServices, IOTAModuleServices, Serv) and
-     Supports(BorlandIDEServices, IOTAActionServices, ActSrv) then
-  begin
-    if Serv.CurrentModule <> nil then
+    if Supports(BorlandIDEServices, IOTAModuleServices, Serv) and
+       Supports(BorlandIDEServices, IOTAActionServices, ActSrv) then
     begin
-      sFile := Serv.CurrentModule.FileName;
-      ActSrv.ReloadFile(sFile);
+      if Serv.CurrentModule <> nil then
+      begin
+        sFile := Serv.CurrentModule.FileName;
+        ActSrv.ReloadFile(sFile);
+      end;
     end;
+  finally
+    SendDebugFmtEx_End(dlObject, '<- ReloadFiles done', [], mtInformation);
   end;
 end;
 
@@ -561,13 +587,14 @@ var
   ActSrv  : IOTAActionServices;
   s: string;
 begin
+  SendDebugFmtEx_Start(dlObject, '-> DeleteExecute', [], mtInformation);
   slFiles := TStringList.Create;
   try
     FActionStatus.Caption := 'Status: delete pending...';
 
     ListFiles(slFiles);
     if not TPlasticEngine.DeleteFiles(slFiles) then
-      MessageDlg('Delete failed!', mtError, [mbOK], 0);
+      MessageDlg('Delete failed!'#13#13 + TPlasticEngine.GetLastError, mtError, [mbOK], 0);
 
     //force close module (in case of pending changes we skip "do you want to save") hmmm does not work?
     Serv := (BorlandIDEServices as IOTAModuleServices);
@@ -586,6 +613,7 @@ begin
     end;
   finally
     slFiles.Free;
+    SendDebugFmtEx_End(dlObject, '<- DeleteExecute done', [], mtInformation);
   end;
 end;
 
@@ -597,7 +625,12 @@ end;
 
 procedure TPlasticExpert.PlasticClientExecute(Sender: TObject);
 begin
-  TPlasticEngine.ShowVisualClient;
+  SendDebugFmtEx_Start(dlObject, '-> PlasticClientExecute', [], mtInformation);
+  try
+    TPlasticEngine.ShowVisualClient;
+  finally
+    SendDebugFmtEx_End(dlObject, '<- PlasticClientExecute done', [], mtInformation);
+  end;
 end;
 
 procedure TPlasticExpert.GeneralUpdate(Sender: TObject);
@@ -639,47 +672,52 @@ begin
     GAsyncThread.ExecuteASync(
         procedure
         begin
+          SendDebugFmtEx_Start(dlObject, '-> GeneralUpdate, async', [], mtInformation);
           try
-            //get async the info
-            GetModuleFileInfo(sFile, slInfo);
+            try
+              //get async the info
+              GetModuleFileInfo(sFile, slInfo);
+            finally
+              //can make new call
+              FBusyWithUpdate := 0;
+            end;
+
+            //update GUI in mainthread (threadsafe) again
+            //if slInfo <> nil then
+            TThread.Queue(nil,
+                procedure
+                begin
+                  if (slInfo <> nil) then
+                    FActionStatus.Caption := 'Status: ' + C_PlasticStatus[slInfo.Status]
+                  else
+                    FActionStatus.Caption := 'Status: ? (close menu for refresh)';
+                  FActionStatus.Enabled   := True;
+                  //FMenuPlastic.Caption   := C_Plastic_SCM + '(' + FActionStatus.Caption + ')';
+
+            //      FActionRename.Enabled  := (slInfo <> nil) and (slInfo.Status in [psCheckedIn, psCheckedOut, psCheckedInAndLocalChanged]);
+                  FActionRename.Enabled  := False; //does not work correctly yet
+                  FActionAddAll.Enabled  := False;
+
+                  FActionShelve.Enabled  := (slInfo <> nil) and (slInfo.Status in [psCheckedOut]);
+                  FActionDelete.Enabled  := (slInfo <> nil) and (slInfo.Status in [psPrivate, psCheckedIn, psCheckedOut, psCheckedInAndLocalChanged]);
+                  FActionConsole.Enabled := (slInfo <> nil);
+                  FActionUpdate.Enabled  := (slInfo <> nil) and (slInfo.Status in [psCheckedIn, psCheckedOut, psCheckedInAndLocalChanged]);
+
+                  FActionCheckout.Enabled   := (slInfo <> nil) and (slInfo.Status in [psCheckedIn, psCheckedInAndLocalChanged]);
+                  FActionUncheckout.Enabled := (slInfo <> nil) and (slInfo.Status = psCheckedOut);
+                  FActionCheckin.Enabled    := (slInfo <> nil) and (slInfo.Status = psCheckedOut);
+                  FActionAdd.Enabled        := (slInfo <> nil) and (slInfo.Status = psPrivate);
+                  FActionDiff.Enabled       := (slInfo <> nil) and (slInfo.Status in [psCheckedIn, psCheckedOut, psCheckedInAndLocalChanged]);
+                  FActionUpdate.Enabled     := (slInfo <> nil) and (slInfo.Status in [psCheckedIn, psCheckedOut, psCheckedInAndLocalChanged]);
+
+                  UpdateActionImages;
+
+                  slInfo.Free;
+                end
+              ); //TThread.Queue
           finally
-            //can make new call
-            FBusyWithUpdate := 0;
+            SendDebugFmtEx_End(dlObject, '<- GeneralUpdate, async, done', [], mtInformation);
           end;
-
-          //update GUI in mainthread (threadsafe) again
-          //if slInfo <> nil then
-          TThread.Queue(nil,
-              procedure
-              begin
-                if (slInfo <> nil) then
-                  FActionStatus.Caption := 'Status: ' + C_PlasticStatus[slInfo.Status]
-                else
-                  FActionStatus.Caption := 'Status: ? (close menu for refresh)';
-                FActionStatus.Enabled   := True;
-                //FMenuPlastic.Caption   := C_Plastic_SCM + '(' + FActionStatus.Caption + ')';
-
-          //      FActionRename.Enabled  := (slInfo <> nil) and (slInfo.Status in [psCheckedIn, psCheckedOut, psCheckedInAndLocalChanged]);
-                FActionRename.Enabled  := False; //does not work correctly yet
-                FActionAddAll.Enabled  := False;
-
-                FActionShelve.Enabled  := (slInfo <> nil) and (slInfo.Status in [psCheckedOut]);
-                FActionDelete.Enabled  := (slInfo <> nil) and (slInfo.Status in [psPrivate, psCheckedIn, psCheckedOut, psCheckedInAndLocalChanged]);
-                FActionConsole.Enabled := (slInfo <> nil);
-                FActionUpdate.Enabled  := (slInfo <> nil) and (slInfo.Status in [psCheckedIn, psCheckedOut, psCheckedInAndLocalChanged]);
-
-                FActionCheckout.Enabled   := (slInfo <> nil) and (slInfo.Status in [psCheckedIn, psCheckedInAndLocalChanged]);
-                FActionUncheckout.Enabled := (slInfo <> nil) and (slInfo.Status = psCheckedOut);
-                FActionCheckin.Enabled    := (slInfo <> nil) and (slInfo.Status = psCheckedOut);
-                FActionAdd.Enabled        := (slInfo <> nil) and (slInfo.Status = psPrivate);
-                FActionDiff.Enabled       := (slInfo <> nil) and (slInfo.Status in [psCheckedIn, psCheckedOut, psCheckedInAndLocalChanged]);
-                FActionUpdate.Enabled     := (slInfo <> nil) and (slInfo.Status in [psCheckedIn, psCheckedOut, psCheckedInAndLocalChanged]);
-
-                UpdateActionImages;
-
-                slInfo.Free;
-              end
-            );
         end
       );
 
@@ -771,6 +809,7 @@ var
   s, sNew, sExt, sNewFile: string;
   slFiles  : TStrings;
 begin
+  SendDebugFmtEx_Start(dlObject, '-> RenameExecute', [], mtInformation);
   slFiles := TStringList.Create;
   try
     ListFiles(slFiles);
@@ -809,6 +848,7 @@ begin
     end;
   finally
     slFiles.Free;
+    SendDebugFmtEx_End(dlObject, '<- RenameExecute done', [], mtInformation);
   end;
 
 end;
@@ -890,27 +930,34 @@ procedure TPlasticExpert.ShelveExecute(Sender: TObject);
 var
   slFiles  : TStrings;
 begin
+  SendDebugFmtEx_Start(dlObject, '-> ShelveExecute', [], mtInformation);
   slFiles := TStringList.Create;
   try
     FActionStatus.Caption := 'Status: shelve pending...';
 
     ListFiles(slFiles);
     if not TPlasticEngine.ShelveFiles(slFiles) then
-      MessageDlg('Shelve failed!', mtError, [mbOK], 0);
+      MessageDlg('Shelve failed!'#13#13 + TPlasticEngine.GetLastError, mtError, [mbOK], 0);
   finally
     slFiles.Free;
+    SendDebugFmtEx_End(dlObject, '<- ShelveExecute done', [], mtInformation);
   end;
 end;
 
 procedure TPlasticExpert.StatusExecute(Sender: TObject);
 begin
-  TPlasticEngine.ClearStatusCache;
-  FActionStatus.Caption := 'Status: pending...';
+  SendDebugFmtEx_Start(dlObject, '-> StatusExecute', [], mtInformation);
+  try
+    TPlasticEngine.ClearStatusCache;
+    FActionStatus.Caption := 'Status: pending...';
 
-  //refresh
-  FLastUpdate  := 0;
-  FCurrentFile := '';
-  GeneralUpdate(nil);
+    //refresh
+    FLastUpdate  := 0;
+    FCurrentFile := '';
+    GeneralUpdate(nil);
+  finally
+    SendDebugFmtEx_End(dlObject, '<- StatusExecute done', [], mtInformation);
+  end;
 end;
 
 {
@@ -972,7 +1019,7 @@ end;
 
 procedure TPlasticExpert.ConsoleExecute(Sender: TObject);
 begin
-  MessageDlg('Not implemented yet...', mtInformation, [mbOK], 0);
+  DebugConsole.Show;
 end;
 
 initialization

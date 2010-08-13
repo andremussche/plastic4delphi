@@ -206,11 +206,13 @@ var
   fi        : TFileNotifier;
 begin
   try
+
     if (NotifyCode = ofnFileOpened) then
     begin
       SendDebugFmt(dlObject, 'FileNotification: file opened: %s',[FileName]);
       //add notification
       AddFileWatch(FileName);
+      GPlasticExpert.UpdateMenu(True);
     end
     else if (NotifyCode = ofnFileClosing) then
     begin
@@ -221,9 +223,9 @@ begin
         FFileWatches.Remove(FileName);
         fi.RemoveNotifier;
       end;
-    end;
+      GPlasticExpert.UpdateMenu(True);
+    end
 
-    GPlasticExpert.UpdateMenu(True);
   except
     on E:Exception do HandleException(E);
   end;
@@ -270,6 +272,7 @@ begin
   GAsyncThread.ExecuteASync(
     procedure
     begin
+      SendDebugFmtEx_Start(dlObject, '-> TFileNotifier.AfterSave(%s), async check', [FFileName], mtInformation);
       info := TPlasticEngine.GetFileInfo(FFileName);
       try
         if (info <> nil) then
@@ -286,6 +289,7 @@ begin
             TThread.Queue(nil,
               procedure
               begin
+                SendDebugFmtEx(dlObject, '-> TFileNotifier.AfterSave(%s): add private file to plastic?', [FFileName], mtInformation);
                 if MessageDlg(Format('Saved private file:'+#13#10+
                                      '%s'+#13+#10+''+#13+#10+
                                      'Do you want to add it to Plastic?',[FFileName]),
@@ -306,6 +310,7 @@ begin
             TThread.Queue(nil,
               procedure
               begin
+                SendDebugFmtEx(dlObject, '-> TFileNotifier.AfterSave(%s): check out saved file?', [FFileName], mtInformation);
                 if MessageDlg(Format('File is saved but not checked out:'+#13#10+
                                      '%s'+#13#10+''+#13#10+
                                      'Do you want to check it out now?', [FFileName]),
@@ -322,6 +327,7 @@ begin
         end;
       finally
         info.Free;
+        SendDebugFmtEx_End(dlObject, '<- TFileNotifier.AfterSave(%s), async check, done', [FFileName], mtInformation);
       end;
     end);
 //  except
@@ -332,14 +338,9 @@ end;
 procedure TFileNotifier.BeforeSave;
 begin
   SendDebugFmt(dlObject, 'FileNotifier: saving file: %s',[FFileName]);
+
   if not FileExists(FFileName) then
-  begin
     TPlasticEngine.ClearStatusCache;  //otherwise status stays "unknown" in cache
-  end;
-//  try
-//  except
-//    on E:Exception do HandleException(E);
-//  end;
 end;
 
 function TFileNotifier.CheckOverwrite: Boolean;
@@ -371,6 +372,7 @@ begin
     if not FModified then
     if not FBusy then
     begin
+      SendDebugFmtEx_Start(dlObject, '-> TFileNotifier.Modified(%s)', [FFileName], mtInformation);
       FBusy := True;
       info  := TPlasticEngine.GetFileInfo(FFileName);
       try
@@ -389,6 +391,7 @@ begin
       finally
         FBusy := False;
         info.Free;
+        SendDebugFmtEx_End(dlObject, '-> TFileNotifier.Modified(%s) done', [FFileName], mtInformation);
       end;
 
       FModified := True;
