@@ -62,8 +62,10 @@ type
     function  GetFileInfo(psFileName : String; out pslInfo : TPlasticFileInfo; pbForce : Boolean = false) : Boolean;
     function  GetModuleFileInfo(const aFile: string; out pslInfo : TPlasticFileInfo; pbForce : Boolean = false) : Boolean;
     function  GetModuleFile: string;
+
     procedure ReloadFiles;
     function  Modified : Boolean;
+    procedure ForceSaveModule;
 
     procedure CreateMenu;
     function  AddAction(psCaption, psHint, psName, psImageRes, psImageName : String;
@@ -111,7 +113,15 @@ uses
 
 constructor TPlasticExpert.Create;
 begin
-  SendDebug(dlObject, 'Creating Plastic SCM Expert');
+  {$IFDEF DEBUG}
+  SendDebug(dlObject, 'Creating Plastic SCM Expert 1.0.2 (debug version)');
+  {$ELSE}
+    {$IFDEF RELEASE}
+    SendDebug(dlObject, 'Creating Plastic SCM Expert 1.0.2 (release)');
+    {$ELSE}
+    SendDebug(dlObject, 'Creating Plastic SCM Expert 1.0.2 (?)');
+    {$ENDIF}
+  {$ENDIF}
   inherited Create;
 
   FFileInfo := TStringList.Create;
@@ -289,6 +299,9 @@ begin
   try
     FActionStatus.Caption := 'Status: check out pending...';
 
+    //save editor changes first
+    if Modified then ForceSaveModule;
+
     ListFiles(slFiles);
     if not TPlasticEngine.CheckoutFiles(slFiles) then
       MessageDlg('Checkout failed!'#13#13 + TPlasticEngine.GetLastError, mtError, [mbOK], 0);
@@ -309,6 +322,9 @@ begin
     slFiles := TStringList.Create;
     try
       FActionStatus.Caption := 'Status: check in pending...';
+
+      //save editor changes first
+      if Modified then ForceSaveModule;
 
       ListFiles(slFiles);
       if not TPlasticEngine.CheckinFiles(slFiles) then
@@ -361,7 +377,9 @@ begin
     Serv := (BorlandIDEServices as IOTAModuleServices);
     if Serv.CurrentModule <> nil then
     if not FileExists(Serv.CurrentModule.FileName) then
-      Serv.CurrentModule.Save(False, False);
+      Serv.CurrentModule.Save(False, True);
+    //save editor changes first
+    if Modified then ForceSaveModule;
 
     FActionStatus.Caption := 'Status: add pending...';
 
@@ -428,6 +446,9 @@ begin
   slFileList := TStringList.Create;
   try
     FActionStatus.Caption := 'Status: diff pending...';
+
+    //save editor changes first
+    if Modified then ForceSaveModule;
 
     ListFiles(slFileList);
     if not TPlasticEngine.Diff(slFileList) then
@@ -926,6 +947,32 @@ begin
 end;
 }
 
+procedure TPlasticExpert.ForceSaveModule;
+var
+  Serv     : IOTAModuleServices;
+  slFiles  : TStrings;
+  s: string;
+begin
+  slFiles := TStringList.Create;
+  try
+    //check all files
+    ListFiles(slFiles);
+    for s in slFiles do
+    begin
+      //remove readonly flag
+      if FileIsReadOnly(s) then
+        FileSetReadOnly(s, False);
+    end;
+  finally
+    slFiles.Free;
+  end;
+
+  //save editor changes
+  Serv := (BorlandIDEServices as IOTAModuleServices);
+  if Serv.CurrentModule <> nil then
+    Serv.CurrentModule.Save(False, True);
+end;
+
 procedure TPlasticExpert.ShelveExecute(Sender: TObject);
 var
   slFiles  : TStrings;
@@ -934,6 +981,9 @@ begin
   slFiles := TStringList.Create;
   try
     FActionStatus.Caption := 'Status: shelve pending...';
+
+    //save editor changes first
+    if Modified then ForceSaveModule;
 
     ListFiles(slFiles);
     if not TPlasticEngine.ShelveFiles(slFiles) then

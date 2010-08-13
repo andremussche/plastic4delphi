@@ -47,7 +47,10 @@ implementation
 
 uses
   Registry, DbugIntf,
-  JclDebug, PlasticEngine,
+  {$IFDEF DEBUG}
+  JclDebug,
+  {$ENDIF}
+  PlasticEngine,
   Generics.Collections, PlasticExpert,
   ToolsAPI;
 
@@ -75,6 +78,7 @@ begin
 end;
 
 function GetLastStackAsString: string;
+{$IFDEF DEBUG}
 var
   lStack: TJclStackInfoList;
   str   : TStrings;
@@ -100,6 +104,11 @@ begin
     result := 'error';
   end;
 end;
+{$ELSE}
+begin
+  Result := '(stacktrace only in debug version)'
+end;
+{$ENDIF}
 
 procedure HandleException(E: Exception);
 var

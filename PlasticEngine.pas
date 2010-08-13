@@ -26,8 +26,7 @@ interface
 
 uses
   JvCreateProcess,
-  JclRegistry,
-  jclDebug,
+  //JclRegistry,
   Windows, Messages, SysUtils, Classes, Forms, Dialogs, SyncObjs,
   Generics.Collections;
 
@@ -834,10 +833,25 @@ end;
 
 class function TPlasticEngine.GetPlasticExePath: string;
 const
-  RegKey = 'SOFTWARE\Codice Software S.L.\Codice Software PlasticSCM professional\';
-  RegValue = 'Location';
+  C_RegKey   = 'SOFTWARE\\Codice Software S.L.\\Codice Software PlasticSCM professional\\';
+  C_RegValue = 'Location';
+var
+  r : TRegistry;
 begin
-  Result := RegReadStringDef(HKLM, RegKey, RegValue, 'C:\Program Files\PlasticSCM');
+  Result := '';
+  r := TRegistry.create(KEY_READ);
+  try
+    r.Rootkey := HKEY_LOCAL_MACHINE;
+    if r.OpenKey(C_RegKey, False) then
+    begin
+      Result := r.ReadString(C_RegValue);
+      r.CloseKey;
+    end;
+    r.CloseKey;
+  finally
+    r.Free;
+  end;
+  //Result := RegReadStringDef(HKLM, RegKey, RegValue, 'C:\Program Files\PlasticSCM');
 end;
 
 class procedure TPlasticEngine.HandleException(E: Exception);
