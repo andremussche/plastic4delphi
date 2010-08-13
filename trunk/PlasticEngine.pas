@@ -32,8 +32,7 @@ uses
   Generics.Collections;
 
 type
-  EPipeError     = class(Exception);
-  EPerforceError = class(Exception);
+  EPlasticError = class(Exception);
 
   TPlasticStatus = (psUnknown, psPrivate, psCheckedIn, psCheckedOut, psCheckedInAndLocalChanged);
   TPlasticStatusSet = set of TPlasticStatus;
@@ -53,6 +52,7 @@ type
   private
     FCMExe: string;
     FCM : TJvCreateProcess;
+    FLastError: string;
     procedure StartPlasticShell;
     procedure JvCPSReadEvent(Sender: TObject; const S: string; const StartsOnNewLine: Boolean);
 
@@ -72,6 +72,8 @@ type
 
     procedure Terminate;
     function  ExcuteCommand(const aCommand: string; out aResultLines: TStrings): Boolean;
+
+    property LastError: string read FLastError;
   end;
 
   TPlasticEngine = class(TObject)
@@ -104,6 +106,8 @@ type
     property  IsServerUp : Boolean read GetIsServerUp;
 
     class procedure ClearStatusCache;
+
+    class function GetLastError: string;
 
     class function GetFileInfo(const aFileName : String): TPlasticFileInfo;
     class function FileArchived(const FileName : String) : Boolean;
@@ -821,6 +825,13 @@ begin
   Result := FServerUp;
 end;
 
+class function TPlasticEngine.GetLastError: string;
+begin
+  assert(GPlasticEngine <> nil);
+  assert(GPlasticEngine.FPlasticCommThread <> nil);
+  Result := GPlasticEngine.FPlasticCommThread.LastError;
+end;
+
 class function TPlasticEngine.GetPlasticExePath: string;
 const
   RegKey = 'SOFTWARE\Codice Software S.L.\Codice Software PlasticSCM professional\';
@@ -995,42 +1006,56 @@ function TPlasticCommThread.InternalExcuteCommand(const aCommand: string;
 var
   iCommandResult: Integer;
   i: Integer;
-  s: String;
+  s, sPrev: String;
 begin
-  SendDebugFmtEx(dlObject, 'ExcuteCommand(%s)', [aCommand], mtInformation);
-  Result := False;
-  aResultLines    := nil;
-  FCommandBusy    := True;
-  FCommandResults := TStringlist.Create;
+  SendDebugFmtEx_Start(dlObject, '-> ExcuteCommand(%s)', [aCommand], mtInformation);
+  try
+    Result := False;
+    aResultLines    := nil;
+    FCommandBusy    := True;
+    FCommandResults := TStringlist.Create;
 
-  //send to plastic
-  FCM.WriteLn(AnsiString(aCommand));
-  //e.g.: getstatus c:\temp\test.txt
+    FLastError := '';  //clear error before new command
+    //send to plastic
+    FCM.WriteLn(AnsiString(aCommand));
+    //e.g.: getstatus c:\temp\test.txt
 
-  //wait till all results are received
-  while FCommandBusy do
-  begin
-    Application.ProcessMessages;
-    Sleep(10);
-  end;
-  {e.g.:
-  c:\temp\test.txt is under Plastic control and is checked in.
-  CommandResult 0}
-
-  //check CommandResult
-  for i := 0 to FCommandResults.Count - 1 do
-  begin
-    s := FCommandResults.Strings[i];
-    if Pos('CommandResult', s) = 1 then
+    //wait till all results are received (by "JvCPSReadEvent" procedure)
+    while FCommandBusy do
     begin
-      iCommandResult := StrToIntDef( Trim(Copy(s, Length('CommandResult')+1, Length(s))), -1);
-      Result         := (iCommandResult = 0);
-      SendDebugFmtEx(dlObject, 'CommandResult = %d, Result = %s', [iCommandResult, BoolToStr(Result, True)], mtInformation);
-      Break;
+      Application.ProcessMessages;
+      Sleep(10);
     end;
-  end;
+    {e.g.:
+    c:\temp\test.txt is under Plastic control and is checked in.
+    CommandResult 0}
 
-  aResultLines := FCommandResults;
+    sPrev := '';
+    //check CommandResult
+    for i := 0 to FCommandResults.Count - 1 do
+    begin
+      s := FCommandResults.Strings[i];
+      if Pos('CommandResult', s) = 1 then
+      begin
+        iCommandResult := StrToIntDef( Trim(Copy(s, Length('CommandResult')+1, Length(s))), -1);
+        Result         := (iCommandResult = 0);
+        SendDebugFmtEx(dlObject, 'CommandResult = %d, Result = %s', [iCommandResult, BoolToStr(Result, True)], mtInformation);
+
+        //last error
+        if not Result then
+          FLastError := sPrev;
+
+        Break;
+      end;
+
+      if trim(s) <> '' then
+        sPrev := s;
+    end;
+
+    aResultLines := FCommandResults;
+  finally
+    SendDebugFmtEx_End(dlObject, '<- ExcuteCommand(%s) finished', [aCommand], mtInformation);
+  end;
 end;
 
 destructor TPlasticCommThread.Destroy;
@@ -1044,6 +1069,8 @@ end;
 
 function TPlasticCommThread.ExcuteCommand(const aCommand: string;
   out aResultLines: TStrings): Boolean;
+var
+  iTimeout: integer;
 begin
   System.TMonitor.Enter(Self);
   try
@@ -1056,15 +1083,21 @@ begin
     FCommandDoneEvent.ResetEvent;
     FNewCommandEvent.SetEvent;
     try
+      if StartsText('diff', aCommand) then
+        iTimeout := INFINITE   //wait till user closes diff viewer
+      else
+        iTimeout := 30 * 1000; //max 30s
+
       //wait till ready
-      if FCommandDoneEvent.WaitFor(10 * 1000) = wrSignaled then   //max 10s wachten, anders exit
+      if FCommandDoneEvent.WaitFor(iTimeout) = wrSignaled then
       begin
         //get result
         aResultLines := FCurrentResultLines;
         Result       := FCurrentResult;
       end
       else
-        Abort;   //niet helemaal netjes maar dan kunnen we thread opnieuw aanmaken
+        //Abort;   //dirty, but used to create a new thread (should never happen)
+        raise EPlasticError.CreateFmt('Plastic "cm.exe shell" did not respond within %d seconds',[iTimeout div 1000]);
     finally
       //reset
       FCurrentResultLines  := nil;
@@ -1112,7 +1145,7 @@ procedure TPlasticCommThread.JvCPSReadEvent(Sender: TObject; const S: string;
 begin
   try
 
-    SendDebugFmtEx(dlObject, '-- JvCPSReadEvent: %s', [s], mtInformation);
+    SendDebugFmtEx(dlObject, 'JvCPSReadEvent: %s', [s], mtInformation);
     if FCommandBusy then
     begin
       Assert(FCommandResults <> nil);
