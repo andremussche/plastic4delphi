@@ -61,6 +61,7 @@ type
     FBusy: boolean;
     FModule: IOTAModule;
     FNotifyIndex: integer;
+    FDoNoAddThisPrivateFile: boolean;
   protected
     { IOTAModuleNotifier }
     function  CheckOverwrite: Boolean;
@@ -284,24 +285,28 @@ begin
           else if (info.Status in [psPrivate]) then
                //not IsBlackListedFile(FFileName) or
           begin
-            if IsWhiteListedFile(FFileName) then
-            //ask question to user...
-            TThread.Queue(nil,
-              procedure
-              begin
-                SendDebugFmtEx(dlObject, '-> TFileNotifier.AfterSave(%s): add private file to plastic?', [FFileName], mtInformation);
-                if MessageDlg(Format('Saved private file:'+#13#10+
-                                     '%s'+#13+#10+''+#13+#10+
-                                     'Do you want to add it to Plastic?',[FFileName]),
-                              Dialogs.mtConfirmation, [mbYes, mbNo], 0) = mrYes then
+            if not FDoNoAddThisPrivateFile and
+               IsWhiteListedFile(FFileName)
+            then
+              //ask question to user...
+              TThread.Queue(nil,
+                procedure
                 begin
-                  GAsyncThread.ExecuteASync(
-                    procedure
-                    begin
-                      TPlasticEngine.AddFile(FFileName, True);
-                    end);
-                end;
-              end)
+                  SendDebugFmtEx(dlObject, '-> TFileNotifier.AfterSave(%s): add private file to plastic?', [FFileName], mtInformation);
+                  if MessageDlg(Format('Saved private file:'+#13#10+
+                                       '%s'+#13+#10+''+#13+#10+
+                                       'Do you want to add it to Plastic?',[FFileName]),
+                                Dialogs.mtConfirmation, [mbYes, mbNo], 0) = mrYes then
+                  begin
+                    GAsyncThread.ExecuteASync(
+                      procedure
+                      begin
+                        TPlasticEngine.AddFile(FFileName, True);
+                      end);
+                  end
+                  else
+                    FDoNoAddThisPrivateFile := True; //ignore next time
+                end)
           end
           //check out?
           else if info.Status in [psCheckedIn] then

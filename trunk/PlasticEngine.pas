@@ -33,9 +33,9 @@ uses
 type
   EPlasticError = class(Exception);
 
-  TPlasticStatus = (psUnknown, psPrivate, psCheckedIn, psCheckedOut, psCheckedInAndLocalChanged);
+  TPlasticStatus    = (psUnknown, psPrivate, psCheckedIn, psCheckedOut, psCheckedInAndLocalChanged);
   TPlasticStatusSet = set of TPlasticStatus;
-  TMessageNotify = procedure(aType: TMsgDlgType; const aMessage: string) of object;
+  TMessageNotify    = procedure(aType: TMsgDlgType; const aMessage: string) of object;
 
   TPlasticFileInfo = class
     FileName: string;
@@ -84,7 +84,7 @@ type
   protected
     FMainPath: string;
     FPlasticCommThread: TPlasticCommThread;
-    procedure StartPlasticShell;
+    procedure StartPlasticThread;
     function  InternalExcuteCommand(const aCommand: string; out aResultLines: TStrings): Boolean;
 
     var FFileCache: TObjectDictionary<string,TFileCacheItem>;
@@ -151,7 +151,7 @@ implementation
 
 uses
   PlasticUtils, DateUtils, Registry, PlasticExpert,
-  DbugIntf, StrUtils, ShellAPI;
+  DbugIntf, StrUtils, ShellAPI, IOUtils;
 
 constructor TPlasticEngine.Create;
 begin
@@ -161,11 +161,12 @@ begin
 
   FFileCache := TObjectDictionary<string,TFileCacheItem>.Create([doOwnsValues], 10);
 
-  StartPlasticShell;
+  StartPlasticThread;
 end;
 
 class function TPlasticEngine.DeleteFile(aFileName: String): boolean;
 var
+  sDir   : string;
   strData: Tstrings;
   info   : TPlasticFileInfo;
 begin
@@ -205,6 +206,24 @@ begin
         info.Free;
       end;
 
+      //eerst dir uitchecken!
+      sDir := ExtractFileDir(aFileName);   //without trailing \!
+      info := GetFileInfo(sDir);
+      try
+        if (info <> nil) then
+        begin
+          SendDebugFmtEx(dlObject, 'Status of directory "%s" is %s', [sDir, C_PlasticStatus[info.Status] ], mtInformation);
+
+          if info.Status = psPrivate then
+            //nothing
+          else if (info.Status = psCheckedIn) then
+            CheckoutFile(sDir);
+        end;
+      finally
+        info.Free;
+      end;
+
+      //remove file
       if ExcuteCommand('remove "' + aFilename + '"', strData) and
          (strData <> nil) then
       begin
@@ -835,8 +854,11 @@ class function TPlasticEngine.GetPlasticExePath: string;
 const
   C_RegKey   = 'SOFTWARE\\Codice Software S.L.\\Codice Software PlasticSCM professional\\';
   C_RegValue = 'Location';
+  C_REG_MACHINE_LOCATION = 'System\\CurrentControlSet\\Control\\Session Manager\\Environment\\';
 var
   r : TRegistry;
+  //str: tstrings;
+  s, sPath: string;
 begin
   Result := '';
   r := TRegistry.create(KEY_READ);
@@ -851,6 +873,50 @@ begin
   finally
     r.Free;
   end;
+
+  //no registry value found? search via environment path
+  if Result = '' then
+  begin
+    //first search from via environment path (user)
+    s := FileSearch('cm.exe', GetEnvironmentVariable('path'));
+    SendDebugEx(dlObject, Format('Path search: "%s" - Environment: ' + GetEnvironmentVariable('path'), [s]), mtInformation);
+
+    //else search via system environment path
+    if s = '' then
+    begin
+      sPath := '';
+      //get system path
+      r := TRegistry.create(KEY_READ);
+      try
+        r.Rootkey := HKEY_LOCAL_MACHINE;
+        if r.OpenKey(C_REG_MACHINE_LOCATION, False) then
+        begin
+          sPath := r.ReadString('Path');
+          if sPath = '' then
+            sPath := r.ReadString('path');
+          if sPath = '' then
+            sPath := r.ReadString('PATH');
+          r.CloseKey;
+        end;
+        r.CloseKey;
+      finally
+        r.Free;
+      end;
+
+      //search
+      s := FileSearch('cm.exe', sPath);
+      SendDebugEx(dlObject, Format('Path search: "%s" - System Environment: %s', [s, sPath]), mtInformation);
+    end;
+
+    //strip client dir
+    if s <> '' then
+    begin
+      s := ExtractFileDir(s);  //C:\Program Files\PlasticSCM\Client\cm.exe' -> C:\Program Files\PlasticSCM\Client'
+      s := ExtractFileDir(s);  //C:\Program Files\PlasticSCM\Client' -> C:\Program Files\PlasticSCM'
+      Result := s;
+    end;
+  end;
+
   //Result := RegReadStringDef(HKLM, RegKey, RegValue, 'C:\Program Files\PlasticSCM');
 end;
 
@@ -881,6 +947,8 @@ function TPlasticEngine.InternalExcuteCommand(const aCommand: string;
   out aResultLines: TStrings): Boolean;
 begin
   Result := False;
+  if FPlasticCommThread = nil then Exit;
+
   try
     assert(FPlasticCommThread <> nil);
     //threadsafe (locked) execute command and wait for result...
@@ -894,7 +962,7 @@ begin
       FPlasticCommThread.Terminate;
       FPlasticCommThread := nil;
       //nieuwe aanmaken
-      StartPlasticShell;
+      StartPlasticThread;
     end;
   end;
 end;
@@ -986,18 +1054,21 @@ begin
   ShellExecute(Application.Handle, 'open', pchar(sClient), nil, nil, SW_SHOWNORMAL) ;
 end;
 
-procedure TPlasticEngine.StartPlasticShell;
+procedure TPlasticEngine.StartPlasticThread;
 var
   sPath, sCM: string;
 begin
   sPath := GetPlasticExePath;
   SendDebugFmt(dlObject, 'Plastic SCM Path: %s', [sPath]);
 
-  sCM := sPath + '\client\cm.exe';
-  if not FileExists(sCM) then
+  //if sPath <> '' then
   begin
-    SendDebugEx(dlObject, Format('Plastic SCM cm.exe not found (%s)', [sCM]), mtError);
-    Exit;
+    sCM := sPath + '\client\cm.exe';
+    if not FileExists(sCM) then
+    begin
+      SendDebugEx(dlObject, Format('Plastic SCM cm.exe not found (%s)', [sCM]), mtError);
+      Exit;
+    end;
   end;
 
   FMainPath := sPath;

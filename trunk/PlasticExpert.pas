@@ -42,6 +42,7 @@ type
     FActionShelve, FActionDelete, FActionRename, FActionConsole,
     FActionAdd,
     FActionCheckout,
+    FActionWriteable,
     FActionCheckin,
     FActionUncheckout,
     FActionUpdate,
@@ -86,6 +87,7 @@ type
     procedure DeleteExecute(Sender : TObject);
     procedure ConsoleExecute(Sender : TObject);
     procedure CheckoutExecute(Sender : TObject);
+    procedure LocalWriteableExecute(Sender : TObject);
     procedure AddExecute(Sender : TObject);
     procedure CheckinExecute(Sender : TObject);
     procedure UncheckoutExecute(Sender : TObject);
@@ -157,7 +159,6 @@ begin
     iPos := miAfter.MenuIndex;
   Service.MainMenu.Items.Insert(iPos, FMenuPlastic);
 
-  { "Status" menu item }
   FActionStatus := AddAction('<Status>', 'Status of current file',
                            'PlasticStatus', '', '',
                            StatusExecute, GeneralUpdate);
@@ -172,17 +173,18 @@ begin
   FMenuPlastic.NewBottomLine;
   //----------------------------------------------------------------------------
 
-  { "Open For Edit" menu item }
+  FActionWriteable := AddAction('&Make local writeable', 'Make local writeable|.', 'LocalWriteable',
+                            '', 'LocalWriteable', LocalWriteableExecute, nil);
+  AddMenu(FActionWriteable);
+
   FActionCheckout := AddAction('&Check out...', 'Open for Edit|.', 'PlasticCheckOut',
                             'plasticcheckout16', 'PlasticCheckOut', CheckoutExecute, nil);
   AddMenu(FActionCheckout);
 
-  { "Revert" menu item }
   FActionUncheckout := AddAction('&Undo checkout...', 'Undo checkout|', 'PlasticUncheckout',
                              'undo16', 'PlasticUncheckout', UncheckoutExecute, nil);
   AddMenu(FActionUncheckout);
 
-  { "Submit" menu item }
   FActionCheckin := AddAction('&Check in...', 'Check in|', 'PlasticCheckin',
                              'plasticcheckin16', 'PlasticCheckin', CheckinExecute, nil);
   AddMenu(FActionCheckin);
@@ -190,18 +192,15 @@ begin
   FMenuPlastic.NewBottomLine;
   //----------------------------------------------------------------------------
 
-  { "Shelve" menu item }
   FActionShelve := AddAction('Shelve file', 'Shelve (store) to Plastic DB',
                              'PlasticShelve', '', '',
                              ShelveExecute, nil);
   AddMenu(FActionShelve);
 
-  { "Sync" menu item }
   FActionUpdate := AddAction('Update (forced)...', 'Update|', 'PlasticUpdate',
                            'plasticupdate16', 'PlasticUpdate', UpdateExecute, nil);
   AddMenu(FActionUpdate);
 
-  { "Diff" menu item }
   FActionDiff := AddAction('&Diff with previous...', 'Diff with previous|',
                            'PlasticDiff', 'plasticdiff16', 'PlasticDiff',
                            DiffExecute, nil);
@@ -210,25 +209,21 @@ begin
   FMenuPlastic.NewBottomLine;
   //----------------------------------------------------------------------------
 
-  { "Rename" menu item }
   FActionRename := AddAction('Rename file', 'Rename file(s)',
                            'PlasticRename', '', '',
                            RenameExecute, nil);
   AddMenu(FActionRename);
 
-  { "Delete" menu item }
   FActionDelete := AddAction('Delete file', 'Delete files(s)',
                            'PlasticDelete', 'plasticremove16', 'PlasticDelete',
                            DeleteExecute, nil);
   AddMenu(FActionDelete);
 
-  { "Add New Archive" menu item }
   FActionAdd := AddAction('&Add file...', 'Add To Plastic|',
                            'PlasticAdd', 'plasticadd16', 'PlasticAdd',
                            AddExecute, nil);
   AddMenu(FActionAdd);
 
-  { "Add All Files In Project" menu item }
   FActionAddAll := AddAction('Add All Files In Project...', 'Add All|',
                              'PlasticAddAll', '', '', AddAllExecute, nil);
   AddMenu(FActionAddAll);
@@ -478,6 +473,34 @@ begin
   end;
 end;
 
+procedure TPlasticExpert.LocalWriteableExecute(Sender: TObject);
+var
+  slFiles  : TStrings;
+  s: string;
+begin
+  SendDebugFmtEx_Start(dlObject, '-> LocalWriteableExecute', [], mtInformation);
+  slFiles := TStringList.Create;
+  try
+    FActionStatus.Caption := 'Status: making writeable...';
+
+    //get all files
+    ListFiles(slFiles);
+
+    //remove readonly
+    for s in slFiles do
+      FileSetReadOnly(s, False);
+
+    //save editor changes
+    if Modified then ForceSaveModule;
+
+    //reload
+    ReloadFiles;
+  finally
+    slFiles.Free;
+    SendDebugFmtEx_End(dlObject, '<- LocalWriteableExecute done', [], mtInformation);
+  end;
+end;
+
 procedure TPlasticExpert.ReloadFiles;
 var
   Serv        : IOTAModuleServices;
@@ -711,7 +734,12 @@ begin
                   if (slInfo <> nil) then
                     FActionStatus.Caption := 'Status: ' + C_PlasticStatus[slInfo.Status]
                   else
-                    FActionStatus.Caption := 'Status: ? (close menu for refresh)';
+                  begin
+                    if not GPlasticEngine.IsServerUp then
+                      FActionStatus.Caption := 'Status: Plastic SCM not found'
+                    else
+                      FActionStatus.Caption := 'Status: ? (close menu for refresh)';
+                  end;
                   FActionStatus.Enabled   := True;
                   //FMenuPlastic.Caption   := C_Plastic_SCM + '(' + FActionStatus.Caption + ')';
 
@@ -730,6 +758,9 @@ begin
                   FActionAdd.Enabled        := (slInfo <> nil) and (slInfo.Status = psPrivate);
                   FActionDiff.Enabled       := (slInfo <> nil) and (slInfo.Status in [psCheckedIn, psCheckedOut, psCheckedInAndLocalChanged]);
                   FActionUpdate.Enabled     := (slInfo <> nil) and (slInfo.Status in [psCheckedIn, psCheckedOut, psCheckedInAndLocalChanged]);
+
+                  FActionWriteable.Enabled  := ((slInfo <> nil) and (slInfo.Status in [psCheckedIn, psCheckedOut])) or
+                                               FileIsReadOnly(sFile);
 
                   UpdateActionImages;
 
