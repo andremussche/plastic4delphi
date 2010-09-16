@@ -409,7 +409,7 @@ begin
   FData.Add(pCDS);
 
   //notify thread (only if "sleeping")
-  if FAllDataIsSend then
+  //if FAllDataIsSend or then
   begin
     FAllDataIsSend := False;
     PostThreadMessage(Self.ThreadID, WM_USER, 0, 0);
