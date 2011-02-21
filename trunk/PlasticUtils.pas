@@ -29,8 +29,14 @@ uses
   SysUtils, Windows, Classes, Forms, ShellAPI;
 
 const
-  C_WhiteListedExt : array[0..6] of string = ('.pas', '.dfm', '.todo', '.dpr', '.res', '.rc', '.inc');
+  C_WhiteListedExt : array[0..9] of string = ('.pas', '.dfm', '.todo', '.dpr', '.res', '.dpk',
+                                              '.rc', '.inc',
+                                              '.dres', 'Resource.rc' {Project1.dpr -> Project1Resource.rc -> Project1.dres: contains extra resources}
+                                              );
   C_BlackListedExt : array[0..4] of string = ('.ddp', '.dof', '.cfg', '.dproj', '.bdsproj');
+  C_ProjectFilesExt: array[0..6] of string = ('.todo', '.dpr', '.res', '.dpk', '.dproj',
+                                              '.dres', 'Resource.rc' {Project1.dpr -> Project1Resource.rc -> Project1.dres: contains extra resources}
+                                              );
 
   procedure LogMessageToIDE(aMessageType: TMsgDlgType; const aMessageStr: string;
       const aFileName: string = ''; const aPrefixStr: string = '');
@@ -126,18 +132,19 @@ end;
 function IsWhiteListedFile(const aFilename: string): boolean;
 var
   s, sExt: string;
-  i: integer;
+//  i: integer;
 begin
-  Result := False;
-  sExt   := LowerCase(ExtractFileExt(aFilename));
+  Result    := False;
+  sExt      := LowerCase(ExtractFileExt(aFilename));
+  //sResource := LowerCase(ChangeFileExt(aFilename, 'Resource.rc'));  //FobisPM.dpr -> FobisPMResource.rc
   //SendDebugFmt(dlObject, 'Extension: %s',[sExt]);
   for s in C_WhiteListedExt do
   begin
-    if s = sExt then
+    if (s = sExt) then
     begin
       Result := True;
       Break;
-    end;
+    end
   end;
 
   //does not work?:
@@ -147,7 +154,7 @@ end;
 function IsBlackListedFile(const aFilename: string): boolean;
 var
   s, sExt: string;
-  i: integer;
+//  i: integer;
 begin
   Result := False;
 
@@ -183,6 +190,10 @@ begin
   for s in C_WhiteListedExt do
   begin
     sFilename := ChangeFileExt(sFilename, s);
+
+    if FileExists(sFilename) then
+      SendDebugFmt(dlObject, 'SearchCorrespondingFiles: found %s',[sFilename]);
+
     if (aFileList.IndexOf(sFilename) < 0) and
        FileExists(sFilename)
     then

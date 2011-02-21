@@ -35,8 +35,10 @@ type
   private
     FNotifyIndex: integer;
     FFileWatches: TDictionary<string, TFileNotifier>;
-    procedure AddFileWatch(const aFilename: string);
+    function AddFileWatch(const aFilename: string): TFileNotifier;
   protected
+    FPendingCheckoutFiles: TStrings;
+
     { IOTANotifier }
     procedure AfterSave;
     procedure BeforeSave;
@@ -51,6 +53,8 @@ type
     procedure  AfterConstruction;override;
     destructor Destroy;override;
 
+    procedure  PendingCheckoutOfFiles(const aFile: TStrings);
+
     procedure  RemoveNotifier;
   end;
 
@@ -63,6 +67,9 @@ type
     FNotifyIndex: integer;
     FDoNoAddThisPrivateFile: boolean;
   protected
+    FRelatedFiles: TStrings;
+    procedure AddRelatedFile(aFile: string);
+
     { IOTAModuleNotifier }
     function  CheckOverwrite: Boolean;
     procedure ModuleRenamed(const NewName: string);
@@ -74,9 +81,12 @@ type
     procedure Modified;
   public
     constructor Create(const aFilename: string; aModule: IOTAModule);
+    destructor Destroy;override;
 
     procedure  RemoveNotifier;
   end;
+
+  function PlasticIDENotifier: TIDENotifier;
 
 implementation
 
@@ -86,9 +96,14 @@ uses
 var
   _IDENotifier: TIDENotifier;
 
+function PlasticIDENotifier: TIDENotifier;
+begin
+  Result := _IDENotifier;
+end;
+
 { TIDENotifier }
 
-procedure TIDENotifier.AddFileWatch(const aFilename: string);
+function TIDENotifier.AddFileWatch(const aFilename: string): TFileNotifier;
 var
   Serv: IOTAModuleServices;
   Module: IOTAModule;
@@ -96,7 +111,8 @@ var
   filewatch: TFileNotifier;
   EditorServices: IOTAEditorServices;
 begin
-  Serv := (BorlandIDEServices as IOTAModuleServices);
+  Serv   := (BorlandIDEServices as IOTAModuleServices);
+  Result := nil;
 
   //search all modules for file
   for iCounter := 0 to Serv.ModuleCount - 1 do
@@ -135,15 +151,20 @@ begin
             end;
         end;
 
-        //exist already? then remove (to refresh)
+        Result := TFileNotifier.Create(aFilename, Module);
+
+        //exist already? then remove old one (to refresh)
         if FFileWatches.TryGetValue(aFilename, filewatch) then
         begin
+          //use original related files
+          Result.FRelatedFiles := filewatch.FRelatedFiles;
+          filewatch.FRelatedFiles := nil;
+
           FFileWatches.Remove(aFilename);
           filewatch.Destroyed;
         end;
 
-        filewatch := TFileNotifier.Create(aFilename, Module);
-        FFileWatches.Add(aFilename, filewatch);
+        FFileWatches.Add(aFilename, Result);
         SendDebugFmt(dlObject, 'FileWatch added for file: %s',[Module.FileName]);
 
         //found or added, so we're done
@@ -152,7 +173,7 @@ begin
     end;
   end;
 
-  SendDebugFmt(dlObject, 'No module found for file: %s',[Module.FileName]);
+  SendDebugFmt(dlObject, 'No module found for file: %s',[aFileName]);
 end;
 
 procedure TIDENotifier.AfterCompile(Succeeded: Boolean);
@@ -172,18 +193,18 @@ end;
 
 procedure TIDENotifier.AfterSave;
 begin
-  //
+  SendDebug(dlObject, 'TIDENotifier.AfterSave');
 end;
 
 procedure TIDENotifier.BeforeCompile(const Project: IOTAProject;
   var Cancel: Boolean);
 begin
-  // Do nothing
+  SendDebug(dlObject, 'TIDENotifier.BeforeCompile');
 end;
 
 procedure TIDENotifier.BeforeSave;
 begin
-  //
+  SendDebug(dlObject, 'TIDENotifier.BeforeSave');
 end;
 
 destructor TIDENotifier.Destroy;
@@ -204,7 +225,10 @@ procedure TIDENotifier.FileNotification(
   NotifyCode: TOTAFileNotification; const FileName: String;
   var Cancel: Boolean);
 var
-  fi        : TFileNotifier;
+  fi: TFileNotifier;
+  sl: TStrings;
+  s : string;
+  projectnotifier, filenotifier: TFileNotifier;
 begin
   try
 
@@ -226,6 +250,26 @@ begin
       end;
       GPlasticExpert.UpdateMenu(True);
     end
+    else if (NotifyCode = ofnActiveProjectChanged) then
+    begin
+      SendDebugFmt(dlObject, 'FileNotification: project changed: %s',[FileName]);
+      projectnotifier := AddFileWatch(FileName);
+      //add notification
+      sl := TStringList.Create;
+      try
+        SearchCorrespondingFiles(FileName, sl);
+        for s in sl do
+          if s <> FileName then
+          begin
+            filenotifier := AddFileWatch(s);
+            if filenotifier = nil then
+              projectnotifier.AddRelatedFile(s);
+          end;
+      finally
+        sl.Free;
+      end;
+      //GPlasticExpert.UpdateMenu(True);
+    end
 
   except
     on E:Exception do HandleException(E);
@@ -234,7 +278,12 @@ end;
 
 procedure TIDENotifier.Modified;
 begin
-  //
+  SendDebug(dlObject, 'TIDENotifier.Modified');
+end;
+
+procedure TIDENotifier.PendingCheckoutOfFiles(const aFile: TStrings);
+begin
+  FPendingCheckoutFiles := aFile;
 end;
 
 procedure TIDENotifier.RemoveNotifier;
@@ -258,6 +307,13 @@ begin
 end;
 
 { TFileNotifier }
+
+procedure TFileNotifier.AddRelatedFile(aFile: string);
+begin
+  if FRelatedFiles = nil then
+    FRelatedFiles := TStringList.Create;
+  FRelatedFiles.Add(aFile);
+end;
 
 procedure TFileNotifier.AfterSave;
 var info: TPlasticFileInfo;
@@ -315,17 +371,21 @@ begin
             TThread.Queue(nil,
               procedure
               begin
-                SendDebugFmtEx(dlObject, '-> TFileNotifier.AfterSave(%s): check out saved file?', [FFileName], mtInformation);
-                if MessageDlg(Format('File is saved but not checked out:'+#13#10+
-                                     '%s'+#13#10+''+#13#10+
-                                     'Do you want to check it out now?', [FFileName]),
-                              Dialogs.mtConfirmation, [mbYes, mbNo], 0) = mrYes then
+                if (PlasticIDENotifier.FPendingCheckoutFiles = nil) or
+                   (PlasticIDENotifier.FPendingCheckoutFiles.IndexOf(FFileName) < 0) then
                 begin
-                  GAsyncThread.ExecuteASync(
-                    procedure
-                    begin
-                      TPlasticEngine.CheckoutFile(FFileName, True);
-                    end);
+                  SendDebugFmtEx(dlObject, '-> TFileNotifier.AfterSave(%s): check out saved file?', [FFileName], mtInformation);
+                  if MessageDlg(Format('File is saved but not checked out:'+#13#10+
+                                       '%s'+#13#10+''+#13#10+
+                                       'Do you want to check it out now?', [FFileName]),
+                                Dialogs.mtConfirmation, [mbYes, mbNo], 0) = mrYes then
+                  begin
+                    GAsyncThread.ExecuteASync(
+                      procedure
+                      begin
+                        TPlasticEngine.CheckoutFile(FFileName, True);
+                      end);
+                  end;
                 end;
              end)
           end;
@@ -341,11 +401,63 @@ begin
 end;
 
 procedure TFileNotifier.BeforeSave;
+var s   : string;
+    info: TPlasticFileInfo;
+
+  procedure __CheckReadonlyFile(const aFile: string);
+  begin
+    if FileIsReadOnly(aFile) then
+    begin
+      SendDebugFmtEx_Start(dlObject, '-> TFileNotifier.BeforeSave(%s), check readonly file (%s)', [FFileName, aFile], mtInformation);
+      info := TPlasticEngine.GetFileInfo(aFile);
+      try
+        if (info <> nil) and
+          //check out?
+           (info.Status in [psCheckedIn]) then
+        begin
+          //ask question to user...
+          TThread.Synchronize(nil,
+            procedure
+            begin
+              if (PlasticIDENotifier.FPendingCheckoutFiles = nil) or
+                 (PlasticIDENotifier.FPendingCheckoutFiles.IndexOf(aFile) < 0) then
+              begin
+                SendDebugFmtEx(dlObject, '-> TFileNotifier.BeforeSave(%s): check out saved file?', [aFile], mtInformation);
+                if MessageDlg(Format('File is about to be saved but is readonly and not checked out:'+#13#10+
+                                     '%s'+#13#10+''+#13#10+
+                                     'Do you want to check it out now?', [aFile]),
+                              Dialogs.mtConfirmation, [mbYes, mbNo], 0) = mrYes then
+                begin
+                  TPlasticEngine.CheckoutFile(aFile, True);
+                end;
+              end;
+           end)
+        end
+        else
+          FileSetReadOnly(aFile, False)  //remove readonly flag
+      finally
+        info.Free;
+        SendDebugFmtEx_End(dlObject, '<- TFileNotifier.BeforeSave(%s), check readonly file, done', [aFile], mtInformation);
+      end;
+    end;
+  end;
+
 begin
-  SendDebugFmt(dlObject, 'FileNotifier: saving file: %s',[FFileName]);
+  if (FRelatedFiles <> nil) then
+    SendDebugFmt(dlObject, 'FileNotifier: saving file: %s (0 related)',[FFileName, FRelatedFiles.Count])
+  else
+    SendDebugFmt(dlObject, 'FileNotifier: saving file: %s (0 related)',[FFileName]);
 
   if not FileExists(FFileName) then
     TPlasticEngine.ClearStatusCache;  //otherwise status stays "unknown" in cache
+  __CheckReadonlyFile(FFileName);
+
+  //checkout or make related files writable (e.g. project1.dpr, project1.res if project1.dproj is about to be saved)
+  if (FRelatedFiles <> nil) then
+  begin
+    for s in FRelatedFiles do
+      __CheckReadonlyFile(s);
+  end;
 end;
 
 function TFileNotifier.CheckOverwrite: Boolean;
@@ -360,6 +472,12 @@ begin
   FFileName    := aFilename;
   FModule      := aModule;
   FNotifyIndex := aModule.AddNotifier(Self);
+end;
+
+destructor TFileNotifier.Destroy;
+begin
+  FRelatedFiles.Free;
+  inherited;
 end;
 
 procedure TFileNotifier.Destroyed;
