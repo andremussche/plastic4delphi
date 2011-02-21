@@ -33,7 +33,7 @@ uses
 type
   EPlasticError = class(Exception);
 
-  TPlasticStatus    = (psUnknown, psPrivate, psCheckedIn, psCheckedOut, psCheckedInAndLocalChanged);
+  TPlasticStatus    = (psUnknown, psNoWorkspace, psPrivate, psCheckedIn, psCheckedOut, psCheckedInAndLocalChanged);
   TPlasticStatusSet = set of TPlasticStatus;
   TMessageNotify    = procedure(aType: TMsgDlgType; const aMessage: string) of object;
 
@@ -107,6 +107,7 @@ type
     class procedure ClearStatusCache;
 
     class function GetLastError: string;
+    class function GetPlasticVersion: string;
 
     class function GetFileInfo(const aFileName : String): TPlasticFileInfo;
     class function FileArchived(const FileName : String) : Boolean;
@@ -142,7 +143,7 @@ type
   end;
 
 const
-  C_PlasticStatus: array[TPlasticStatus] of string = ('Unknown', 'Private', 'Checked in', 'Checked out', 'Checked in + Modified');
+  C_PlasticStatus: array[TPlasticStatus] of string = ('Unknown', 'Not in workspace', 'Private', 'Checked in', 'Checked out', 'Checked in + Modified');
 
 var
   GPlasticEngine : TPlasticEngine;
@@ -429,6 +430,8 @@ begin
         if pos('checked in', sLine) > 0 then
         begin
           Result.Status   := psCheckedIn;
+
+          {$WARN SYMBOL_PLATFORM OFF}
           if ((FileGetAttr(aFileName) and faDirectory) = 0) and  //not directory
              not FileIsReadOnly(aFileName)
           then
@@ -443,6 +446,16 @@ begin
         else
           Result.Status   := psUnknown;
 
+        fc.Status := Result.Status;
+        fc.LastUpdate := Now;
+      end;
+
+      //is file in a workspace?
+      if (Result <> nil) and (Result.Status = psPrivate) then
+      begin
+        //status c:\temp\test.txt
+        if not ExcuteCommand('status "' + aFilename + '"', strData) then
+          Result.Status := psNoWorkspace;
         fc.Status := Result.Status;
         fc.LastUpdate := Now;
       end;
@@ -920,6 +933,23 @@ begin
   //Result := RegReadStringDef(HKLM, RegKey, RegValue, 'C:\Program Files\PlasticSCM');
 end;
 
+class function TPlasticEngine.GetPlasticVersion: string;
+var
+  strData: Tstrings;
+begin
+  assert(GPlasticEngine <> nil);
+  try
+    if GPlasticEngine.ExcuteCommand('version',strData) and
+       (strData <> nil) and (strData.Count > 1)
+    then
+      Result := strData[strData.Count-2]  //3.0.187.11
+    else
+      Result := '?';
+  finally
+    strData.Free;
+  end;
+end;
+
 class procedure TPlasticEngine.HandleException(E: Exception);
 var
   sError: string;
@@ -1094,8 +1124,9 @@ var
   s, sPrev: String;
 begin
   SendDebugFmtEx_Start(dlObject, '-> ExcuteCommand(%s)', [aCommand], mtInformation);
+  Result := False;
+  if Trim(aCommand) = '' then Exit;
   try
-    Result := False;
     aResultLines    := nil;
     FCommandBusy    := True;
     FCommandResults := TStringlist.Create;
@@ -1169,7 +1200,7 @@ begin
     FNewCommandEvent.SetEvent;
     try
       if StartsText('diff', aCommand) then
-        iTimeout := INFINITE   //wait till user closes diff viewer
+        iTimeout := MaxInt   //wait till user closes diff viewer
       else
         iTimeout := 30 * 1000; //max 30s
 

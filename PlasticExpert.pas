@@ -31,6 +31,11 @@ uses
   PlasticEngine, PlasticUtils,
   ComCtrls, contnrs, SyncObjs;
 
+  { TODO -oAM : Make "offline" option (in case of no network etc) }
+  { TODO -oAM : Add file history option, use client.conf + DiffTools for WinMerge etc}
+  { TODO -oAM : Add file annotate/blame option }
+  { TODO -oAM : Add file rename option: needs new Plastic Client which support "only rename on server" }
+
 const
   C_Plastic_SCM = 'Plastic SCM';
 
@@ -67,6 +72,7 @@ type
     procedure ReloadFiles;
     function  Modified : Boolean;
     procedure ForceSaveModule;
+    procedure RemoveReadonlyEditorFlag;
 
     procedure CreateMenu;
     function  AddAction(psCaption, psHint, psName, psImageRes, psImageName : String;
@@ -230,7 +236,9 @@ begin
   FMenuPlastic.NewBottomLine;
   //----------------------------------------------------------------------------
 
-  FActionPlasticClient := AddAction('Plastic SCM client', 'Plastic SCM Client|', 'PlasticClient',
+  FActionPlasticClient := AddAction(
+                               Format('Plastic SCM client (version: %s)',[TPlasticEngine.GetPlasticVersion]),
+                               'Plastic SCM Client|', 'PlasticClient',
                                'Plastic16_32b', 'PlasticClient', PlasticClientExecute, nil);
   AddMenu(FActionPlasticClient);
 
@@ -294,12 +302,18 @@ begin
   try
     FActionStatus.Caption := 'Status: check out pending...';
 
-    //save editor changes first
-    if Modified then ForceSaveModule;
-
     ListFiles(slFiles);
-    if not TPlasticEngine.CheckoutFiles(slFiles) then
-      MessageDlg('Checkout failed!'#13#13 + TPlasticEngine.GetLastError, mtError, [mbOK], 0);
+    try
+      PlasticIDENotifier.PendingCheckoutOfFiles(slFiles);
+
+      //save editor changes first, otherwise changes are lost!
+      if Modified then ForceSaveModule;
+
+      if not TPlasticEngine.CheckoutFiles(slFiles) then
+        MessageDlg('Checkout failed!'#13#13 + TPlasticEngine.GetLastError, mtError, [mbOK], 0);
+    finally
+      PlasticIDENotifier.PendingCheckoutOfFiles(nil);
+    end;
 
     ReloadFiles;
   finally
@@ -519,6 +533,7 @@ begin
       begin
         sFile := Serv.CurrentModule.FileName;
         ActSrv.ReloadFile(sFile);
+        //Editor.EditViews[0].Buffer.ClearUndo;
       end;
     end;
   finally
@@ -712,6 +727,8 @@ begin
        (MilliSecondsBetween(Now, FLastUpdate) < 500) then Exit;
     FLastUpdate     := Now;
 
+    RemoveReadonlyEditorFlag;
+
     //async update
     GAsyncThread.ExecuteASync(
         procedure
@@ -853,6 +870,22 @@ begin
   RemoveAction(AAction, Services.ToolBar[sStandardToolBar]);
   RemoveAction(AAction, Services.ToolBar[sDebugToolBar]);
   RemoveAction(AAction, Services.ToolBar[sViewToolBar]);
+end;
+
+procedure TPlasticExpert.RemoveReadonlyEditorFlag;
+var
+  Serv: IOTAModuleServices;
+begin
+  Serv := (BorlandIDEServices as IOTAModuleServices);
+  if Serv.CurrentModule <> nil then
+  begin
+    if Supports(Serv.CurrentModule.CurrentEditor, IOTAEditBuffer) and
+       (Serv.CurrentModule.CurrentEditor as IOTAEditBuffer).IsReadOnly then
+    begin
+      (Serv.CurrentModule.CurrentEditor as IOTAEditBuffer).IsReadOnly := False;
+      SendDebugFmt(dlObject, 'Readonly removed from editor of file: %s',[Serv.CurrentModule.FileName]);
+    end
+  end;
 end;
 
 procedure TPlasticExpert.RenameExecute(Sender: TObject);

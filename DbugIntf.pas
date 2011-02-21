@@ -31,9 +31,11 @@ procedure SendDebugFmtEx(const SenderLevel: TDebugLevel; const Msg: string; cons
 procedure SendDebugFmtEx_Start(const SenderLevel: TDebugLevel; const Msg: string; const Args: array of const; MType: TMsgDlgType);
 procedure SendDebugFmtEx_End(const SenderLevel: TDebugLevel; const Msg: string; const Args: array of const; MType: TMsgDlgType);
 
-function  StartDebugWin: hWnd;
 procedure SendDebugPause;
 procedure SendDebugResume;
+{$ifdef DEBUG}
+function  StartDebugWin: hWnd;
+{$ENDIF}
 
 //send GDebug messages via thread (faster!)
 type
@@ -76,7 +78,7 @@ uses
 
 threadvar
   MsgPrefix: String;
-  _IndentTime: array of TDateTime; 
+  _IndentTime: array of TDateTime;
 
 const
   Indentation = '   ';
@@ -94,6 +96,7 @@ begin
   Result := _DebugSendThread;
 end;
 
+{$ifdef DEBUG}
 function StartDebugWin: hWnd;
 var
   DebugFileName: string;
@@ -149,6 +152,7 @@ begin
 
   Result := FindWindow('TfmDebug', nil);
 end;
+{$ENDIF}
 
 procedure SendDebugEx(const SenderLevel: TDebugLevel; const Msg: string; MType: TMsgDlgType);
 var
@@ -347,6 +351,7 @@ begin
   end;
 
   DebugWin := 0;
+  {$IFDEF DEBUG}
   //get GDebug windows
   if FDataClone.Count > 0 then
   begin
@@ -355,6 +360,7 @@ begin
     if DebugWin = 0 then
       DebugWin := StartDebugWin;
   end;
+  {$ENDIF}
 
   try
     //send all data to GDebug
@@ -363,15 +369,12 @@ begin
       pCDS := FDataClone.Items[0];
 
       if DebugWin <> 0 then
-      begin
-        //SendMessage(DebugWin, WM_COPYDATA, WPARAM(Application.Handle), LPARAM(pCDS));
         SendMessage(DebugWin, WM_COPYDATA, 0{WPARAM(Self.Handle)}, LPARAM(pCDS));
-      end;
 
       //log to console etc
       if Assigned(FOnLog) then
       begin
-        s := pansichar(pCDS.lpData);
+        s := String(PAnsiChar(pCDS.lpData));
         if s <> '' then
           s := Copy(s, 3, Length(s));  //remove gdebug control char
         FOnLog(s);

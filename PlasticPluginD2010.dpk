@@ -45,6 +45,7 @@ contains
   JvCreateProcess in 'JvCreateProcess.pas',
   JvConsts in 'JvConsts.pas',
   PlasticAsync in 'PlasticAsync.pas',
-  fDebugConsole in 'fDebugConsole.pas' {frmDebugConsole};
+  fDebugConsole in 'fDebugConsole.pas' {frmDebugConsole},
+  Unit1 in 'C:\temp\Unit1.pas';
 
 end.
